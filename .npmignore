@@ -1,0 +1,23 @@
+# standard ignore
+*config*
+*conf*
+
+.github/
+.gitignore
+.eslintrc
+.stylelintrc
+
+coverage/
+docs/
+scripts/
+test/
+demo/**/*.css
+demo/**/*.scss
+demo/**/*.html
+
+dist/es5.js
+
+index.html
+
+# ignore src
+src/**/*

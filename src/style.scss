@@ -1,0 +1,44 @@
+// Copyright (c) 2022 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+// Import Auro tokens
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
+
+// Support for auroElement styles
+// @import './node_modules/@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
+
+// container styles - defines the look of the outer custom component
+// :host {
+//   ...
+// }
+
+
+// Selector is for initial setup only
+// delete when building new custom element
+.testClass {
+  display: inline-block;
+  padding: var(--auro-text-body-size-default);
+  border: 1px solid var(--auro-color-border-error-on-light);
+  color:  var(--auro-color-border-error-on-light);
+}
+
+// Selector for native :focus-visible support
+:focus-visible {
+  background-color: var(--auro-color-border-error-on-light);
+  color: var(--auro-color-base-white);
+}
+
+// Selector for focus-visible polyfill
+:host(.focus-visible) {
+  // requires reference to custom element selector in this example
+  .testClass {
+    background-color: var(--auro-color-border-error-on-light);
+    color: var(--auro-color-base-white);
+  }
+}
