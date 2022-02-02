@@ -61,7 +61,7 @@
     "eslint": "^8.8.0",
     "eslint-plugin-jsdoc": "^37.7.0",
     "focus-visible": "^5.2.0",
-    "husky": "^6.0.0",
+    "husky": "^7.0.0",
     "lodash": "^4.17.21",
     "markdown-magic": "^2.6.0",
     "marked": "^4.0.12",
@@ -100,7 +100,10 @@
     "last 2 Safari major versions"
   ],
   "nodemonConfig": {
-    "ignore": ["*-css.js", "*.css"]
+    "ignore": [
+      "*-css.js",
+      "*.css"
+    ]
   },
   "release": {
     "branches": [
@@ -170,6 +173,7 @@
     "serve": "web-dev-server --open demo/ --node-resolve --watch",
     "sweep": "rm -rf ./demo/css ./dist | rm ./src/*.css ./src/*-css.js",
     "test": "wtr --coverage",
-    "test:watch": "wtr --watch"
+    "test:watch": "wtr --watch",
+    "prepare": "husky install"
   }
 }
