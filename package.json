@@ -19,9 +19,11 @@
     "node": ">=16.13.0"
   },
   "dependencies": {
+    "@alaskaairux/icons": "^4.10.1",
+    "@aurodesignsystem/auro-menu": "^3.0.0",
+    "chalk": "^4.1.2",
     "lit-element": "^2.5.1",
-    "lit-html": "^1.4.1",
-    "chalk": "^4.1.2"
+    "lit-html": "^1.4.1"
   },
   "peerDependencies": {
     "@alaskaairux/design-tokens": "^3.6.0",

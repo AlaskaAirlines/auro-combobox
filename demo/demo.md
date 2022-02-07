@@ -47,13 +47,31 @@ toggleDialogClose = (elName) => {
 ## Example(s)
 
 <div class="exampleWrapper">
-  <auro-suggest>Hello World</auro-suggest>
+  <auro-suggest>
+    <auro-menu>
+      <auro-menuoption data-value="Stops">Stops</auro-menuoption>
+      <auro-menuoption data-value="Price">Price</auro-menuoption>
+      <auro-menuoption data-value="Duration">Duration</auro-menuoption>
+      <auro-menuoption data-value="Departure">Departure</auro-menuoption>
+      <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
+      <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+    </auro-menu>
+  </auro-suggest>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>Hello World</auro-suggest>
+<auro-suggest>
+  <auro-menu>
+    <auro-menuoption data-value="Stops">Stops</auro-menuoption>
+    <auro-menuoption data-value="Price">Price</auro-menuoption>
+    <auro-menuoption data-value="Duration">Duration</auro-menuoption>
+    <auro-menuoption data-value="Departure">Departure</auro-menuoption>
+    <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
+    <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+  </auro-menu>
+</auro-suggest>
 ```
 
 </auro-accordion>
