@@ -64,7 +64,16 @@ import "@aurolabs/auro-suggest";
 **Reference component in HTML**
 
 ```html
-<auro-suggest>Hello World</auro-suggest>
+<auro-suggest>
+  <auro-menu>
+    <auro-menuoption data-value="Stops">Stops</auro-menuoption>
+    <auro-menuoption data-value="Price">Price</auro-menuoption>
+    <auro-menuoption data-value="Duration">Duration</auro-menuoption>
+    <auro-menuoption data-value="Departure">Departure</auro-menuoption>
+    <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
+    <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+  </auro-menu>
+</auro-suggest>
 ```
 
 ## Install bundled assets from CDN
@@ -96,7 +105,16 @@ The `<auro-suggest>` element should be used in situations where users may:
 ### Default auro-suggest
 
 ```html
-<auro-suggest>Hello World</auro-suggest>
+<auro-suggest>
+  <auro-menu>
+    <auro-menuoption data-value="Stops">Stops</auro-menuoption>
+    <auro-menuoption data-value="Price">Price</auro-menuoption>
+    <auro-menuoption data-value="Duration">Duration</auro-menuoption>
+    <auro-menuoption data-value="Departure">Departure</auro-menuoption>
+    <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
+    <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+  </auro-menu>
+</auro-suggest>
 ```
 
 ## Development
