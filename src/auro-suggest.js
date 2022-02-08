@@ -91,17 +91,17 @@ class AuroSuggest extends LitElement {
       }
     });
 
-    this.addEventListener('click', () => {
-      let focusIndex = 0;
+    // this.addEventListener('click', () => {
+    //   let focusIndex = 0;
 
-      for (let optionsIndex = 0; optionsIndex < menuItems.length; optionsIndex += 1) {
-        if (menuItems[optionsIndex].hasAttribute('selected')) {
-          focusIndex = optionsIndex;
-        }
-      }
+    //   for (let optionsIndex = 0; optionsIndex < menuItems.length; optionsIndex += 1) {
+    //     if (menuItems[optionsIndex].hasAttribute('selected')) {
+    //       focusIndex = optionsIndex;
+    //     }
+    //   }
 
-      menuItems[focusIndex].focus();
-    });
+    //   menuItems[focusIndex].focus();
+    // });
 
     this.addEventListener('selectedOption', (evt) => {
       console.warn('selectedOption event', evt);
@@ -126,9 +126,10 @@ class AuroSuggest extends LitElement {
     return html`
       <div>
         <auro-dropdown for="dropdownMenu" inset bordered rounded chevron>
-          <button slot="trigger" tabindex="0">
+          <!-- <button slot="trigger" tabindex="0">
             ${this.displayValue ? this.displayValue : html`<span class="placeholder">${this.placeholder}</span>`}
-          </button>
+          </button> -->
+          <auro-input slot="trigger"></auro-input>
           <div class="menuWrapper">
             <slot></slot>
           </div>
