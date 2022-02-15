@@ -1,3 +1,11 @@
+<!-- <ul role="listbox" tabindex="0" aria-activedescendant="minnie">
+  <li role="option" id="mickey">Mickey</li>
+  <li role="option" id="minnie" class="selected">Minnie</li>
+  <li role="option" id="donald">Donald</li>
+  <li role="option" id="daisy">Daisy</li>
+  <li role="option" id="goofy">Goofy</li>
+</ul> -->
+
 # Suggest
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
@@ -7,36 +15,6 @@
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
-
-## Additional Information
-
-> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam fermentum libero ipsum, ac tempor sapien blandit in. Nam tincidunt non felis molestie varius.
-
-|convallis|tristique|nisl dignissim|eleifend|
-|---|---|---|---|
-|√|√|||
-|||√|√|
-
-Aenean at blandit lorem. Fusce imperdiet mi nec gravida maximus. Quisque nisl libero, condimentum in nisi a, imperdiet lacinia arcu.
-
-```javascript
-toggleDialog = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = 'hidden';
-  dialog.removeAttribute("open");
-  dialog.setAttribute("open", true);
-}
-
-toggleDialogClose = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = '';
-  dialog.removeAttribute("open");
-}
-```
 
 ## Example(s)
 
