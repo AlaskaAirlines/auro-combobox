@@ -1,3 +1,11 @@
+<!-- <ul role="listbox" tabindex="0" aria-activedescendant="minnie">
+  <li role="option" id="mickey">Mickey</li>
+  <li role="option" id="minnie" class="selected">Minnie</li>
+  <li role="option" id="donald">Donald</li>
+  <li role="option" id="daisy">Daisy</li>
+  <li role="option" id="goofy">Goofy</li>
+</ul> -->
+
 # Suggest
 
 `<auro-suggest>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
@@ -14,47 +22,20 @@ The `<auro-suggest>` element should be used in situations where users may:
 * ...
 * ...
 
-## Additional Information
-
-> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam fermentum libero ipsum, ac tempor sapien blandit in. Nam tincidunt non felis molestie varius.
-
-|convallis|tristique|nisl dignissim|eleifend|
-|---|---|---|---|
-|√|√|||
-|||√|√|
-
-Aenean at blandit lorem. Fusce imperdiet mi nec gravida maximus. Quisque nisl libero, condimentum in nisi a, imperdiet lacinia arcu.
-
-```javascript
-toggleDialog = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = 'hidden';
-  dialog.removeAttribute("open");
-  dialog.setAttribute("open", true);
-}
-
-toggleDialogClose = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = '';
-  dialog.removeAttribute("open");
-}
-```
-
 ## Example(s)
 
 <div class="exampleWrapper">
   <auro-suggest>
-    <auro-menu>
-      <auro-menuoption data-value="Stops">Stops</auro-menuoption>
-      <auro-menuoption data-value="Price">Price</auro-menuoption>
-      <auro-menuoption data-value="Duration">Duration</auro-menuoption>
-      <auro-menuoption data-value="Departure">Departure</auro-menuoption>
-      <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
-      <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+    <span slot="label">Name</span>
+    <auro-menu role="listbox">
+      <auro-menuoption data-value="Stop" id="option-0">Stop</auro-menuoption>
+      <auro-menuoption data-value="Stops" id="option-0afds">Stops</auro-menuoption>
+      <auro-menuoption data-value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
+      <auro-menuoption data-value="Price" id="option-1">Price</auro-menuoption>
+      <auro-menuoption data-value="Duration" id="option-2">Duration</auro-menuoption>
+      <auro-menuoption data-value="Departure" id="option-3">Departure</auro-menuoption>
+      <auro-menuoption data-value="Arrival" id="option-4">Arrival</auro-menuoption>
+      <auro-menuoption data-value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
   </auro-suggest>
 </div>
@@ -63,13 +44,16 @@ toggleDialogClose = (elName) => {
 
 ```html
 <auro-suggest>
-  <auro-menu>
-    <auro-menuoption data-value="Stops">Stops</auro-menuoption>
-    <auro-menuoption data-value="Price">Price</auro-menuoption>
-    <auro-menuoption data-value="Duration">Duration</auro-menuoption>
-    <auro-menuoption data-value="Departure">Departure</auro-menuoption>
-    <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
-    <auro-menuoption data-value="Prefer Alaska">Prefer Alaska</auro-menuoption>
+  <span slot="label">Name</span>
+  <auro-menu role="listbox">
+    <auro-menuoption data-value="Stop" id="option-0">Stop</auro-menuoption>
+    <auro-menuoption data-value="Stops" id="option-0afds">Stops</auro-menuoption>
+    <auro-menuoption data-value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
+    <auro-menuoption data-value="Price" id="option-1">Price</auro-menuoption>
+    <auro-menuoption data-value="Duration" id="option-2">Duration</auro-menuoption>
+    <auro-menuoption data-value="Departure" id="option-3">Departure</auro-menuoption>
+    <auro-menuoption data-value="Arrival" id="option-4">Arrival</auro-menuoption>
+    <auro-menuoption data-value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
 </auro-suggest>
 ```
