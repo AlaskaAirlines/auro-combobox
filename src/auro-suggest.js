@@ -177,6 +177,7 @@ class AuroSuggest extends LitElement {
        */
       listbox.setAttribute('aria-activedescendant', option.id)
       this.value = option.getAttribute('data-value');
+      listbox.matchWord = this.value;
 
       /**
        * Change visual appearance
@@ -298,6 +299,8 @@ class AuroSuggest extends LitElement {
           dropdown.show();
         }
       }
+
+      listbox.matchWord = this.value;
     });
   }
 
