@@ -6,12 +6,12 @@
     "  2. Go to http://localhost:8000",
     "================================================================================"
   ],
-  "name": "@aurolabs/auro-suggest",
+  "name": "@aurolabs/auro-combobox",
   "version": "0.0.0",
-  "description": "auro-suggest HTML custom element",
+  "description": "auro-combobox HTML custom element",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlaskaAirlines/auro-suggest"
+    "url": "https://github.com/AlaskaAirlines/auro-combobox"
   },
   "main": "index.js",
   "license": "Apache-2.0",
@@ -147,7 +147,7 @@
   "scripts": {
     "build": "npm-run-all build:sass sass:render dist:js build:api test build:markdownDocs bundler postinstall",
     "build:ci": "npm-run-all sweep build",
-    "build:api": "wca analyze 'src/auro-suggest.js' --outFiles docs/api.md",
+    "build:api": "wca analyze 'src/auro-combobox.js' --outFiles docs/api.md",
     "build:demo": "npm-run-all build demo:rm:build demo:new:build demo:copy:index demo:copy:demo demo:update:index",
     "build:dev:assets": "npm-run-all build:sass:demo build:sass:component postCss:component sass:render",
     "build:markdownDocs": "node scripts/generateDocs.js",

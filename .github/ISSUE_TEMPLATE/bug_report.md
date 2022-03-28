@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: '[issue summary]'
-labels: 'auro-suggest, Type: Bug, not-reviewed'
+labels: 'auro-combobox, Type: Bug, not-reviewed'
 assignees: blackfalcon
 ---
 

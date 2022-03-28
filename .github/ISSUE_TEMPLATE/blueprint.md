@@ -2,7 +2,7 @@
 name: Component Blueprint
 about: Checklist for releasing a new component blueprint
 title: '[Component Blueprint]'
-labels: 'auro-suggest, Type: Design, not-reviewed'
+labels: 'auro-combobox, Type: Design, not-reviewed'
 assignees: leeejune
 ---
 

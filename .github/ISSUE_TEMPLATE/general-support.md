@@ -2,7 +2,7 @@
 name: General support
 about: Suggestions that are not related to bugs or new features
 title: 'As a [user] I need help with [issue]'
-labels: 'auro-suggest, not-reviewed'
+labels: 'auro-combobox, not-reviewed'
 assignees: blackfalcon
 ---
 
@@ -17,7 +17,7 @@ assignees: blackfalcon
 
 ## Possible Solution
 
-<!-- Not obligatory, but suggest a fix/reason for the bug, -->
+<!-- Not obligatory, but combobox a fix/reason for the bug, -->
 <!-- or ideas how to implement the addition or change -->
 
 ## Context

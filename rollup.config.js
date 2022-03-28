@@ -27,7 +27,7 @@ const getSharedPlugins = (isLegacy) => [
 
 const modernConfig = {
   input: {
-    ['auro-suggest__bundled']: './src/auro-suggest.js',
+    ['auro-combobox__bundled']: './src/auro-combobox.js',
   },
   output: {
     format: 'esm',
@@ -53,13 +53,13 @@ const modernConfig = {
   ]
 };
 
-const auroSuggestConfig = {
+const aurocomboboxConfig = {
   input: 'src/es5.js',
   output: {
     format: 'iife',
-    file: 'dist/auro-suggest__bundled.es5.js'
+    file: 'dist/auro-combobox__bundled.es5.js'
   },
   plugins: getSharedPlugins(true)
 };
 
-export default [modernConfig, auroSuggestConfig];
+export default [modernConfig, aurocomboboxConfig];

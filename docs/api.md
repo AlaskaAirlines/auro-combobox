@@ -1,4 +1,4 @@
-# auro-suggest
+# auro-combobox
 
 ## Properties
 
