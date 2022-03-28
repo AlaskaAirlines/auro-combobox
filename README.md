@@ -21,11 +21,7 @@ The following sections are editable by making changes to the following files:
 
 `<auro-combobox>` is an experimental [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) only available as a PRE RELEASE. Users of this element understand the risks of using a pre-released version of this element.
 
-`<auro-combobox>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis in tellus nec pellentesque. Integer bibendum ligula sit amet vehicula gravida. Maecenas accumsan, ligula vitae molestie iaculis, tellus mi laoreet ex [install instructions](https://auro.alaskaair.com/components/auro/button/install), ac malesuada velit dolor vel mi. Cras et rutrum urna. Sed mattis mi eu tortor ullamcorper, egestas bibendum mauris cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra eros eget neque commodo vulputate. In tempus eu velit at dictum.
-
-Nulla at augue facilisis `odio lobortis` molestie vitae a nulla.
+`<auro-combobox>` is the combination of [dropdown](http://auro.alaskaair.com/components/auro/dropdown), [input](http://auro.alaskaair.com/components/auro/input), and [menu](http://auro.alaskaair.com/components/auro/menu) and allows users to filter search results from a predefined list as they type. When the user starts typing in the text input, a dropdown of a menu shows up to display options that match the user’s search.
 
 ## UI development browser support
 
@@ -99,9 +95,13 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 
 The `<auro-combobox>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* Search
+  * Airports: user looks for a specific airport by searching for the city name or airport code
+  * Site wide: user searches for a topic site wide and combobox makes suggestions on searchable results
+* Filter
+  * Options: user chooses filters for their search by using combobox
+* Select
+  * Quantity: user types a quantity to select an option within a range (for example, the user may be limited to 2-34)
 
 ## API Code Examples
 
