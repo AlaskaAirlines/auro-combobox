@@ -6,12 +6,12 @@
   <li role="option" id="goofy">Goofy</li>
 </ul> -->
 
-# Suggest
+# combobox
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## auro-suggest use cases
+## auro-combobox use cases
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->

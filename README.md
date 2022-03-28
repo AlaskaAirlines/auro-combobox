@@ -17,11 +17,11 @@ The following sections are editable by making changes to the following files:
 | Component Example Code | HTML sample code of the components use            | `./apiExamples/basic.html`          |
 -->
 
-# Suggest
+# Combobox
 
-`<auro-suggest>` is an experimental [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) only available as a PRE RELEASE. Users of this element understand the risks of using a pre-released version of this element.
+`<auro-combobox>` is an experimental [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) only available as a PRE RELEASE. Users of this element understand the risks of using a pre-released version of this element.
 
-`<auro-suggest>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-combobox>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis in tellus nec pellentesque. Integer bibendum ligula sit amet vehicula gravida. Maecenas accumsan, ligula vitae molestie iaculis, tellus mi laoreet ex [install instructions](https://auro.alaskaair.com/components/auro/button/install), ac malesuada velit dolor vel mi. Cras et rutrum urna. Sed mattis mi eu tortor ullamcorper, egestas bibendum mauris cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra eros eget neque commodo vulputate. In tempus eu velit at dictum.
 
@@ -33,12 +33,12 @@ For the most up to date information on [UI development browser support](https://
 
 ## Install
 
-[![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-suggest/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-suggest/actions?query=workflow%3A%22test+and+publish%22)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-suggest?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-suggest)
-[![License](https://img.shields.io/npm/l/@aurolabs/auro-suggest?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-combobox/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-combobox/actions?query=workflow%3A%22test+and+publish%22)
+[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-combobox)
+[![License](https://img.shields.io/npm/l/@aurolabs/auro-combobox?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-$ npm i @aurolabs/auro-suggest
+$ npm i @aurolabs/auro-combobox
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -55,16 +55,16 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 
 ### Define dependency in project component
 
-Defining the component dependency within each component that is using the `<auro-suggest>` component.
+Defining the component dependency within each component that is using the `<auro-combobox>` component.
 
 ```js
-import "@aurolabs/auro-suggest";
+import "@aurolabs/auro-combobox";
 ```
 
 **Reference component in HTML**
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -76,12 +76,12 @@ import "@aurolabs/auro-suggest";
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-suggest__bundled.js` for modern browsers and `auro-suggest__bundled.es5.js` for legacy browsers (including IE11).
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-combobox__bundled.js` for modern browsers and `auro-combobox__bundled.es5.js` for legacy browsers (including IE11).
 
 Since the legacy bundle includes many polyfills that are not needed by modern browsers, we recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle it needs. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag for the legacy bundle should have the `nomodule` attribute. See the example below.
 
@@ -91,13 +91,13 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <!-- **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk. -->
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
-<script src="https://unpkg.com/@aurolabs/auro-suggest@latest/dist/auro-suggest__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@aurolabs/auro-suggest@latest/dist/auro-suggest__bundled.es5.js" nomodule></script>
+<script src="https://unpkg.com/@aurolabs/auro-combobox@latest/dist/auro-combobox__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurolabs/auro-combobox@latest/dist/auro-combobox__bundled.es5.js" nomodule></script>
 ```
 
-## auro-suggest use cases
+## auro-combobox use cases
 
-The `<auro-suggest>` element should be used in situations where users may:
+The `<auro-combobox>` element should be used in situations where users may:
 
 * ...
 * ...
@@ -105,10 +105,10 @@ The `<auro-suggest>` element should be used in situations where users may:
 
 ## API Code Examples
 
-### Default auro-suggest
+### Default auro-combobox
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -120,7 +120,7 @@ The `<auro-suggest>` element should be used in situations where users may:
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 ## Development
@@ -153,7 +153,7 @@ The custom element API file is generated in the build and committed back to the 
 
 ### Testing
 
-Automated tests are required for every Auro component. See `.\test\auro-suggest.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
+Automated tests are required for every Auro component. See `.\test\auro-combobox.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
 
 ### Bundled assets
 

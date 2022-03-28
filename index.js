@@ -1,1 +1,1 @@
-export * from './dist/auro-suggest';
+export * from './dist/auro-combobox';

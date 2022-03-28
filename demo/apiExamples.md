@@ -1,6 +1,6 @@
 
 
-# auro-suggest
+# auro-combobox
 
 ## Properties
 
@@ -32,7 +32,7 @@
 <div class="twoColDemoRow">
   <div>
     <div class="exampleWrapper">
-      <auro-suggest>
+      <auro-combobox>
         <span slot="label">Name</span>
         <auro-menu role="listbox">
           <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -44,13 +44,13 @@
           <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
           <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
         </auro-menu>
-      </auro-suggest>
+      </auro-combobox>
     </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -62,18 +62,18 @@
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>
 
 ### Attribute Examples
 
-#### <a name="attributeName"></a>`attributeName`<a href="#auro-suggest" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### <a name="attributeName"></a>`attributeName`<a href="#auro-combobox" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
 Explanation and use description.
 
 <div class="exampleWrapper">
-  <auro-suggest>
+  <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
       <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -85,13 +85,13 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
-  </auro-suggest>
+  </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -103,18 +103,18 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>
 
 ### Property Examples
 
-#### <a name="propertyName"></a>`propertyName`<a href="#auro-suggest" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### <a name="propertyName"></a>`propertyName`<a href="#auro-combobox" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
 Explanation and use description.
 
 <div class="exampleWrapper">
-  <auro-suggest>
+  <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
       <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -126,13 +126,13 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
-  </auro-suggest>
+  </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -144,18 +144,18 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>
 
 ### Method Examples
 
-#### <a name="methodName"></a>`methodName`<a href="#auro-suggest" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### <a name="methodName"></a>`methodName`<a href="#auro-combobox" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
 Explanation and use description.
 
 <div class="exampleWrapper">
-  <auro-suggest>
+  <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
       <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -167,13 +167,13 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
-  </auro-suggest>
+  </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -185,18 +185,18 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>
 
 ### Event Examples
 
-#### <a name="eventName"></a>`eventName`<a href="#auro-suggest" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### <a name="eventName"></a>`eventName`<a href="#auro-combobox" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
 Explanation and use description.
 
 <div class="exampleWrapper">
-  <auro-suggest>
+  <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
       <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -208,13 +208,13 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
-  </auro-suggest>
+  </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -226,18 +226,18 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>
 
 ### Slot Examples
 
-#### <a name="slotName"></a>`slotName`<a href="#auro-suggest" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### <a name="slotName"></a>`slotName`<a href="#auro-combobox" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
 Explanation and use description.
 
 <div class="exampleWrapper">
-  <auro-suggest>
+  <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
       <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -249,13 +249,13 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
-  </auro-suggest>
+  </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
-<auro-suggest>
+<auro-combobox>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
@@ -267,7 +267,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
-</auro-suggest>
+</auro-combobox>
 ```
 
 </auro-accordion>

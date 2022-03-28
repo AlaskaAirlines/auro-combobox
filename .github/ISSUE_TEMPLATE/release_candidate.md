@@ -1,12 +1,12 @@
 ---
 name: Release candidate
 about: Organize all issues for a release candidate
-title: 'auro-suggest: [vX.X-rc]'
+title: 'auro-combobox: [vX.X-rc]'
 labels: release
 assignees: braven112
 ---
 
-The following items are to be included with the next feature release of the `auro-suggest`, all PRs are to be from the feature branch to `vX.X-rc` branch.
+The following items are to be included with the next feature release of the `auro-combobox`, all PRs are to be from the feature branch to `vX.X-rc` branch.
 
 ### Groups
 

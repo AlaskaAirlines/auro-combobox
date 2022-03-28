@@ -66,7 +66,7 @@ branches:
 
 # Labels: define labels for Issues and Pull Requests
 labels:
-  - name: auro-suggest
+  - name: auro-combobox
     cat: default
     color: fa23e4
     description:

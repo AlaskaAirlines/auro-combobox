@@ -28,7 +28,7 @@ import styleCssFixed from './style-fixed-css.js';
  */
 
 // build the component class
-class AuroSuggest extends LitElement {
+class AuroCombobox extends LitElement {
   constructor() {
     super();
 
@@ -225,6 +225,6 @@ class AuroSuggest extends LitElement {
 }
 
 // define the name of the custom component
-if (!customElements.get("auro-suggest")) {
-  customElements.define("auro-suggest", AuroSuggest);
+if (!customElements.get("auro-combobox")) {
+  customElements.define("auro-combobox", AuroCombobox);
 }

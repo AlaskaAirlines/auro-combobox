@@ -1,8 +1,8 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: combobox an idea for this project
 title: '[feature summary]'
-labels: 'auro-suggest, Type: Feature, not-reviewed'
+labels: 'auro-combobox, Type: Feature, not-reviewed'
 assignees: blackfalcon
 ---
 
