@@ -43,9 +43,9 @@ class AuroCombobox extends LitElement {
    * @private
    * @returns {void} Internal defaults.
    */
-    privateDefaults() {
-      this.displayValue = null;
-    }
+  privateDefaults() {
+    this.displayValue = null;
+  }
 
   // This function is to define props used within the scope of this component
   // Be sure to review  https://lit-element.polymer-project.org/guide/properties#reflected-attributes
@@ -108,7 +108,7 @@ class AuroCombobox extends LitElement {
     }
 
     // handle the menu event for an option selection
-    this.addEventListener('selectedOption', (evt) => {
+    this.addEventListener('selectedOption', () => {
       this.displayValue = this.menu.optionSelected.innerText;
       this.triggerInput.value = this.menu.optionSelected.value;
       this.value = this.menu.optionSelected.value;
@@ -133,10 +133,8 @@ class AuroCombobox extends LitElement {
       if (evt.key === 'Enter') {
         if (this.dropdown.isPopoverVisible) {
           this.menu.makeSelection();
-        } else {
-          if (this.triggerInput.value.length > 0 && this.availableOptions) {
-            this.dropdown.show();
-          }
+        } else if (this.triggerInput.value.length > 0 && this.availableOptions) {
+          this.dropdown.show();
         }
       }
 
@@ -145,7 +143,7 @@ class AuroCombobox extends LitElement {
       }
 
       /**
-       * prevent moving the cursor position while navigating the menu options
+       * Prevent moving the cursor position while navigating the menu options.
        */
       if (evt.key === 'ArrowUp' || evt.key === 'ArrowDown') {
         if (this.dropdown.isPopoverVisible) {
@@ -183,7 +181,7 @@ class AuroCombobox extends LitElement {
       if (!this.availableOptions) {
         this.dropdown.hide();
       }
-    })
+    });
   }
 
   // function that renders the HTML and CSS into  the scope of the component
