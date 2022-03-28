@@ -18,7 +18,7 @@ assignees: leeejune
 - [ ] spacing
 - [ ] animation/behavior
 - [ ] variants
-- [ ] states (hover, focus, active, focus-visible)
+- [ ] states (hover, focus, active)
 - [ ] a11y
 
 ## Optional
