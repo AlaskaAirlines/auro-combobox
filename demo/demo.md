@@ -28,14 +28,14 @@ The `<auro-suggest>` element should be used in situations where users may:
   <auro-suggest>
     <span slot="label">Name</span>
     <auro-menu role="listbox">
-      <auro-menuoption data-value="Stop" id="option-0">Stop</auro-menuoption>
-      <auro-menuoption data-value="Stops" id="option-0afds">Stops</auro-menuoption>
-      <auro-menuoption data-value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
-      <auro-menuoption data-value="Price" id="option-1">Price</auro-menuoption>
-      <auro-menuoption data-value="Duration" id="option-2">Duration</auro-menuoption>
-      <auro-menuoption data-value="Departure" id="option-3">Departure</auro-menuoption>
-      <auro-menuoption data-value="Arrival" id="option-4">Arrival</auro-menuoption>
-      <auro-menuoption data-value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+      <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
+      <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
+      <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
+      <auro-menuoption value="Price" id="option-1">Price</auro-menuoption>
+      <auro-menuoption value="Duration" id="option-2">Duration</auro-menuoption>
+      <auro-menuoption value="Departure" id="option-3">Departure</auro-menuoption>
+      <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
+      <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     </auro-menu>
   </auro-suggest>
 </div>
@@ -46,14 +46,14 @@ The `<auro-suggest>` element should be used in situations where users may:
 <auro-suggest>
   <span slot="label">Name</span>
   <auro-menu role="listbox">
-    <auro-menuoption data-value="Stop" id="option-0">Stop</auro-menuoption>
-    <auro-menuoption data-value="Stops" id="option-0afds">Stops</auro-menuoption>
-    <auro-menuoption data-value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
-    <auro-menuoption data-value="Price" id="option-1">Price</auro-menuoption>
-    <auro-menuoption data-value="Duration" id="option-2">Duration</auro-menuoption>
-    <auro-menuoption data-value="Departure" id="option-3">Departure</auro-menuoption>
-    <auro-menuoption data-value="Arrival" id="option-4">Arrival</auro-menuoption>
-    <auro-menuoption data-value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+    <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
+    <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
+    <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
+    <auro-menuoption value="Price" id="option-1">Price</auro-menuoption>
+    <auro-menuoption value="Duration" id="option-2">Duration</auro-menuoption>
+    <auro-menuoption value="Departure" id="option-3">Departure</auro-menuoption>
+    <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
+    <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
   </auro-menu>
 </auro-suggest>
 ```
