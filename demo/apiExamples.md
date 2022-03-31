@@ -4,26 +4,23 @@
 
 ## Properties
 
-| Property         | Attribute        | Type     | Default            | Description                                      |
-|------------------|------------------|----------|--------------------|--------------------------------------------------|
-| [displayValue](#displayValue)   | `displayValue`   | `string` |                    |                                                  |
-| [optionSelected](#optionSelected) | `optionSelected` | `Object` | null               | Specifies the current selected option.           |
-| [placeholder](#placeholder)    | `placeholder`    | `String` | "Select an option" | Define placeholder text to display before a value is manually selected. |
-| [value](#value)          | `value`          | `String` | null               | Value selected for the dropdown menu.            |
-
-## Methods
-
-| Method              | Type       |
-|---------------------|------------|
-| [handleMenuOptions](#handleMenuOptions) | `(): void` |
+| Property         | Attribute        | Type      | Default            | Description                                      |
+|------------------|------------------|-----------|--------------------|--------------------------------------------------|
+| [disabled](#disabled)       | `disabled`       | `Boolean` |                    | If set, disables the combobox.                   |
+| [displayValue](#displayValue)   | `displayValue`   | `string`  |                    |                                                  |
+| [error](#error)          | `error`          | `Boolean` |                    | Sets a persistent error message (e.g. an error message returned from the server). |
+| [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null               | Specifies the current selected option.           |
+| [placeholder](#placeholder)    | `placeholder`    | `String`  | "Select an option" | Define placeholder text to display before a value is manually selected. |
+| [required](#required)       | `required`       | `Boolean` |                    | Populates the `required` attribute on the input. Used for client-side validation. |
+| [value](#value)          | `value`          | `String`  | null               | Value selected for the dropdown menu.            |
 
 ## Slots
 
-| Name         | Description                            |
-|--------------|----------------------------------------|
-|              | Default slot for the menu content.     |
-| [helperText](#helperText) | Defines the content of the helperText. |
-| [label](#label)      | Defines the content of the label.      |
+| Name       | Description                          |
+|------------|--------------------------------------|
+|            | Default slot for the menu content.   |
+| [helpText](#helpText) | Defines the content of the helpText. |
+| [label](#label)    | Defines the content of the label.    |
 
 ## API Examples
 

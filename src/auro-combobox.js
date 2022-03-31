@@ -17,12 +17,15 @@ import styleCssFixed from './style-fixed-css.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * @attr {Object} optionSelected - Specifies the current selected option.
+ * @prop {Object} optionSelected - Specifies the current selected option.
  * @prop {String} placeholder - Define placeholder text to display before a value is manually selected.
  * @prop {String} value - Value selected for the dropdown menu.
+ * @attr {Boolean} error - Sets a persistent error message (e.g. an error message returned from the server).
+ * @attr {Boolean} disabled - If set, disables the combobox.
+ * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @slot - Default slot for the menu content.
  * @slot label - Defines the content of the label.
- * @slot helperText - Defines the content of the helperText.
+ * @slot helpText - Defines the content of the helpText.
  */
 
 // build the component class
@@ -52,6 +55,18 @@ class AuroCombobox extends LitElement {
     return {
       // ...super.properties,
       placeholder: { type: String },
+      error: {
+        type: Boolean,
+        reflect: true
+      },
+      disabled: {
+        type: Boolean,
+        reflect: true
+      },
+      required: {
+        type: Boolean,
+        reflect: true
+      },
 
       /**
        * @private
@@ -73,6 +88,11 @@ class AuroCombobox extends LitElement {
     ];
   }
 
+  /**
+   * Processes hidden state of all menu options and determines if there are any available options not hidden.
+   * @private
+   * @returns {void}
+   */
   handleMenuOptions() {
     let availableOptionsLength = 0;
 
@@ -91,6 +111,21 @@ class AuroCombobox extends LitElement {
       this.availableOptions = true;
     } else {
       this.availableOptions = false;
+    }
+  }
+
+  /**
+   * Determines the element error state based on the `required` attribute and input value.
+   * @private
+   * @returns {void}
+   */
+  handleRequired() {
+    if (this.required) {
+      if (!this.triggerInput.value || this.triggerInput.value.length === 0) {
+        this.error = true;
+      } else {
+        this.error = false;
+      }
     }
   }
 
@@ -169,6 +204,7 @@ class AuroCombobox extends LitElement {
       this.value = null;
       this.menu.resetOptionsStates();
       this.handleMenuOptions();
+      this.handleRequired();
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
       if (this.triggerInput.value.length === 0) {
@@ -195,6 +231,8 @@ class AuroCombobox extends LitElement {
           bordered
           rounded
           chevron
+          ?disabled="${this.disabled}"
+          ?error="${this.error}"
           disableEventShow>
           <!--
           NEED TO LOOK IF THESE ARIA RULES SHOULD BE INTEGRATED
@@ -204,7 +242,8 @@ class AuroCombobox extends LitElement {
           <auro-input
             slot="trigger"
             borderless
-            value="${this.displayValue === null ? `` : this.displayValue}">
+            value="${this.displayValue === null ? `` : this.displayValue}"
+            ?required="${this.required}">
             <!--
               NEED TO LOOK IF THESE ARIA RULES SHOULD BE INTEGRATED
               aria-autocomplete="$1"
@@ -215,7 +254,23 @@ class AuroCombobox extends LitElement {
           <div class="menuWrapper">
             <slot></slot>
           </div>
-          <slot name="helperText" slot="helperText"></slot>
+          ${!this.error
+            ? html`
+                <slot name="helpText" slot="helpText"></slot>
+              `
+            : html`
+              ${this.required
+                ? html`
+                  <span slot="helpText">
+                    Please fill out this field.
+                  </span>
+                `
+                : html`
+                  <slot name="helpText" slot="helpText"></slot>
+                `
+              }
+            `
+          }
         </auro-dropdown>
       </div>
     `;
