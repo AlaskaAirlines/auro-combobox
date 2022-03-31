@@ -171,8 +171,10 @@ class AuroCombobox extends LitElement {
       // hide the menu if the value is empty otherwise show if there are available suggestions
       if (this.triggerInput.value.length === 0) {
         this.dropdown.hide();
+        this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
         this.dropdown.show();
+        this.classList.add('combobox-filled');
       }
 
       // force the dropdown bib to hide if the input value has no matching suggestions
@@ -208,9 +210,7 @@ class AuroCombobox extends LitElement {
               aria-activedescendant="option-0" -->
             <slot name="label" slot="label"></slot>
           </auro-input>
-          <div
-            class="menuWrapper"
-            aria-labelledby="$1">
+          <div class="menuWrapper">
             <slot></slot>
           </div>
           <slot name="helperText" slot="helperText"></slot>
