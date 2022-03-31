@@ -6,8 +6,6 @@
 // If using litElement base class
 import { LitElement, html } from "lit-element";
 
-import '@aurodesignsystem/auro-dropdown';
-
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit-element";
@@ -80,7 +78,7 @@ class AuroCombobox extends LitElement {
 
     this.options.forEach((option) => {
       // only count options that match the typed input value AND are not currently selected
-      if (this.menu.optionSelected !== option && option.innerText.toLowerCase().includes(this.triggerInput.value.toLowerCase())) {
+      if (option.innerText.toLowerCase().includes(this.triggerInput.value.toLowerCase())) {
         option.removeAttribute('hidden');
         availableOptionsLength += 1;
       } else {
