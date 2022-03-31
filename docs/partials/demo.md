@@ -1,11 +1,3 @@
-<!-- <ul role="listbox" tabindex="0" aria-activedescendant="minnie">
-  <li role="option" id="mickey">Mickey</li>
-  <li role="option" id="minnie" class="selected">Minnie</li>
-  <li role="option" id="donald">Donald</li>
-  <li role="option" id="daisy">Daisy</li>
-  <li role="option" id="goofy">Goofy</li>
-</ul> -->
-
 # combobox
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
