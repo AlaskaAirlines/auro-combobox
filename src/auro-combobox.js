@@ -149,12 +149,14 @@ class AuroCombobox extends LitElement {
         }
       }
 
-      if (evt.key === 'ArrowUp') {
-        this.menu.selectNextItem('up');
-      }
+      if (this.dropdown.isPopoverVisible) {
+        if (evt.key === 'ArrowUp') {
+          this.menu.selectNextItem('up');
+        }
 
-      if (evt.key === 'ArrowDown') {
-        this.menu.selectNextItem('down');
+        if (evt.key === 'ArrowDown') {
+          this.menu.selectNextItem('down');
+        }
       }
     });
 
