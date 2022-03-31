@@ -1,11 +1,3 @@
-<!-- <ul role="listbox" tabindex="0" aria-activedescendant="minnie">
-  <li role="option" id="mickey">Mickey</li>
-  <li role="option" id="minnie" class="selected">Minnie</li>
-  <li role="option" id="donald">Donald</li>
-  <li role="option" id="daisy">Daisy</li>
-  <li role="option" id="goofy">Goofy</li>
-</ul> -->
-
 # combobox
 
 `<auro-combobox>` is the combination of [dropdown](http://auro.alaskaair.com/components/auro/dropdown), [input](http://auro.alaskaair.com/components/auro/input), and [menu](http://auro.alaskaair.com/components/auro/menu) and allows users to filter search results from a predefined list as they type. When the user starts typing in the text input, a dropdown of a menu shows up to display options that match the user’s search.
