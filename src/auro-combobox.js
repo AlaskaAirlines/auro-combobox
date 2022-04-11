@@ -100,8 +100,14 @@ class AuroCombobox extends LitElement {
     this.availableOptions = [];
 
     this.options.forEach((option) => {
+      let matchString = option.innerText;
+
+      if (option.hasAttribute('suggest')) {
+        matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
+      }
+
       // only count options that match the typed input value AND are not currently selected
-      if (option.innerText.toLowerCase().includes(this.triggerInput.value.toLowerCase())) {
+      if (matchString.includes(this.triggerInput.value.toLowerCase())) {
         option.removeAttribute('hidden');
         this.availableOptions.push(option);
       } else {
