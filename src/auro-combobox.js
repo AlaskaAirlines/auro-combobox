@@ -36,6 +36,7 @@ class AuroCombobox extends LitElement {
     this.placeholder = 'Select an option';
     this.value = null;
     this.optionSelected = null;
+    this.optionActive = null;
 
     this.privateDefaults();
   }
@@ -46,6 +47,7 @@ class AuroCombobox extends LitElement {
    */
   privateDefaults() {
     this.displayValue = null;
+    this.availableOptions = [];
   }
 
   // This function is to define props used within the scope of this component
@@ -71,9 +73,10 @@ class AuroCombobox extends LitElement {
       /**
        * @private
        */
-      availableOptions: { type: Boolean },
+      availableOptions: { type: Array },
       displayValue: { type: String },
       optionSelected: { type: Object },
+      optionActive: { type: Object },
       value: {
         type: String,
         reflect: true
@@ -94,24 +97,18 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   handleMenuOptions() {
-    let availableOptionsLength = 0;
+    this.availableOptions = [];
 
     this.options.forEach((option) => {
       // only count options that match the typed input value AND are not currently selected
       if (option.innerText.toLowerCase().includes(this.triggerInput.value.toLowerCase())) {
         option.removeAttribute('hidden');
-        availableOptionsLength += 1;
+        this.availableOptions.push(option);
       } else {
         // Hide all other options
         option.setAttribute('hidden', '');
       }
     });
-
-    if (availableOptionsLength > 0) {
-      this.availableOptions = true;
-    } else {
-      this.availableOptions = false;
-    }
   }
 
   /**
@@ -131,21 +128,18 @@ class AuroCombobox extends LitElement {
 
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
+    this.dropdown.setAttribute('aria-role', 'combobox');
+
     this.menu = this.querySelector('[role="listbox"');
     this.options = [...this.menu.children];
     this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
 
-    // Initially verify there are available options in the menu to show
-    if (this.options.length > 0) {
-      this.availableOptions = true;
-    }
-
     // handle the menu event for an option selection
     this.addEventListener('selectedOption', () => {
-      this.displayValue = this.menu.optionSelected.innerText;
-      this.triggerInput.value = this.menu.optionSelected.value;
-      this.value = this.menu.optionSelected.value;
       this.optionSelected = this.menu.optionSelected;
+      this.value = this.optionSelected.value;
+      this.displayValue = this.optionSelected.innerText;
+      this.triggerInput.value = this.optionSelected.value;
 
       // dropdown bib should hide when making a selection
       if (this.dropdown.isPopoverVisible) {
@@ -154,6 +148,10 @@ class AuroCombobox extends LitElement {
 
       // update the hidden state of options based on newly selected value
       this.handleMenuOptions();
+    });
+
+    this.addEventListener('auroMenuActivatedOption', (evt) => {
+      this.optionActive = evt.detail;
     });
 
     this.addEventListener('click', () => {
@@ -202,6 +200,7 @@ class AuroCombobox extends LitElement {
       // reset all states
       this.displayValue = this.triggerInput.value;
       this.value = null;
+      this.optionActive = null;
       this.menu.resetOptionsStates();
       this.handleMenuOptions();
       this.handleRequired();
@@ -226,6 +225,14 @@ class AuroCombobox extends LitElement {
   render() {
     return html`
       <div>
+        <div aria-live="polite" style="height: 0; width: 0; overflow: hidden;">
+          ${this.optionActive && this.availableOptions.length > 0
+            ? html`
+              ${`${this.optionActive.innerText}, selected, ${this.availableOptions.indexOf(this.optionActive) + 1} of ${this.availableOptions.length}`}
+            `
+            : undefined
+          }
+        </div>
         <auro-dropdown
           for="dropdownMenu"
           bordered
@@ -234,21 +241,11 @@ class AuroCombobox extends LitElement {
           ?disabled="${this.disabled}"
           ?error="${this.error}"
           disableEventShow>
-          <!--
-          NEED TO LOOK IF THESE ARIA RULES SHOULD BE INTEGRATED
-          aria-haspopup="listbox"
-          aria-owns="listBox"
-          role="combobox" -->
           <auro-input
             slot="trigger"
             borderless
             value="${this.displayValue === null ? `` : this.displayValue}"
             ?required="${this.required}">
-            <!--
-              NEED TO LOOK IF THESE ARIA RULES SHOULD BE INTEGRATED
-              aria-autocomplete="$1"
-              aria-controls="listBox"
-              aria-activedescendant="option-0" -->
             <slot name="label" slot="label"></slot>
           </auro-input>
           <div class="menuWrapper">
