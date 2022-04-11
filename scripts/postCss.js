@@ -1,7 +1,6 @@
 const autoprefixer = require('autoprefixer');
 const chalk = require('chalk');
 const postcss = require('postcss');
-const remToPx = require('postcss-rem-to-pixel');
 const removeNonRem = require('./removeNonRemPlugin.js');
 const postcssCustomProperties = require('postcss-custom-properties');
 const removeRules = require('postcss-remove-rules');
@@ -80,8 +79,7 @@ fs.readdir(directoryPath, function (err, files) {
       autoprefixer,
       postcssCustomProperties({preserve: false}),
       comments,
-      removeNonRem,
-      remToPx({replace: true, propList: ['*']})
+      removeNonRem
     ])
     .use(comments({
       remove: function(comment) { return comment[0] == "@"; }
