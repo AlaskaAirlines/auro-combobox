@@ -6,7 +6,7 @@
     "  2. Go to http://localhost:8000",
     "================================================================================"
   ],
-  "name": "@aurolabs/auro-combobox",
+  "name": "@aurodesignsystem/auro-combobox",
   "version": "0.0.0",
   "description": "auro-combobox HTML custom element",
   "repository": {

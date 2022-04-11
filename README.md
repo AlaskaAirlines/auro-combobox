@@ -19,8 +19,6 @@ The following sections are editable by making changes to the following files:
 
 # Combobox
 
-`<auro-combobox>` is an experimental [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) only available as a PRE RELEASE. Users of this element understand the risks of using a pre-released version of this element.
-
 `<auro-combobox>` is the combination of [dropdown](http://auro.alaskaair.com/components/auro/dropdown), [input](http://auro.alaskaair.com/components/auro/input), and [menu](http://auro.alaskaair.com/components/auro/menu) and allows users to filter search results from a predefined list as they type. When the user starts typing in the text input, a dropdown of a menu shows up to display options that match the user’s search.
 
 ## UI development browser support
@@ -30,11 +28,11 @@ For the most up to date information on [UI development browser support](https://
 ## Install
 
 [![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-combobox/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-combobox/actions?query=workflow%3A%22test+and+publish%22)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-combobox)
-[![License](https://img.shields.io/npm/l/@aurolabs/auro-combobox?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-combobox)
+[![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-combobox?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-$ npm i @aurolabs/auro-combobox
+$ npm i @aurodesignsystem/auro-combobox
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -54,7 +52,7 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 Defining the component dependency within each component that is using the `<auro-combobox>` component.
 
 ```js
-import "@aurolabs/auro-combobox";
+import "@aurodesignsystem/auro-combobox";
 ```
 
 **Reference component in HTML**
@@ -87,8 +85,8 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <!-- **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk. -->
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
-<script src="https://unpkg.com/@aurolabs/auro-combobox@latest/dist/auro-combobox__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@aurolabs/auro-combobox@latest/dist/auro-combobox__bundled.es5.js" nomodule></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-combobox@latest/dist/auro-combobox__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-combobox@latest/dist/auro-combobox__bundled.es5.js" nomodule></script>
 ```
 
 ## auro-combobox use cases
