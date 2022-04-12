@@ -58,7 +58,7 @@ The `<auro-combobox>` element should be used in situations where users may:
 
 </auro-accordion>
 
-### Persistent menuoption with a custom event.
+### Persistent menuoption with a custom event
 
 <div class="exampleWrapper">
   <auro-combobox id="persistent">
