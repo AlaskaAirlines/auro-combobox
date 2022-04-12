@@ -23,7 +23,7 @@
 
 </auro-accordion>
 
-### Persistent menuoption with a custom event.
+### Persistent menuoption with a custom event
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/persistent.html) -->
