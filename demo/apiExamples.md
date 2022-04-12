@@ -9,6 +9,7 @@
 | [disabled](#disabled)       | `disabled`       | `Boolean` |                    | If set, disables the combobox.                   |
 | [displayValue](#displayValue)   | `displayValue`   | `string`  |                    |                                                  |
 | [error](#error)          | `error`          | `Boolean` |                    | Sets a persistent error message (e.g. an error message returned from the server). |
+| [optionActive](#optionActive)   | `optionActive`   | `Object`  |                    | Specifies the current active option.             |
 | [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null               | Specifies the current selected option.           |
 | [placeholder](#placeholder)    | `placeholder`    | `String`  | "Select an option" | Define placeholder text to display before a value is manually selected. |
 | [required](#required)       | `required`       | `Boolean` |                    | Populates the `required` attribute on the input. Used for client-side validation. |
@@ -41,6 +42,7 @@
           <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
           <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
           <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+          <auro-menuoption static nomatch>No matching option</auro-menuoption>
         </auro-menu>
       </auro-combobox>
     </div>
@@ -60,6 +62,7 @@
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -84,6 +87,7 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -103,6 +107,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -127,6 +132,7 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -146,6 +152,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -170,6 +177,7 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -189,6 +197,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -213,6 +222,7 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -232,6 +242,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -256,6 +267,7 @@ Explanation and use description.
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -275,6 +287,7 @@ Explanation and use description.
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```

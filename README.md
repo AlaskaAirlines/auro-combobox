@@ -70,6 +70,7 @@ import "@aurodesignsystem/auro-combobox";
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -119,6 +120,7 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
