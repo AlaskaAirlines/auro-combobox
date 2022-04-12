@@ -179,6 +179,12 @@ class AuroCombobox extends LitElement {
       this.handleMenuOptions();
     });
 
+    this.addEventListener('customEventFired', () => {
+      if (this.dropdown.isPopoverVisible) {
+        this.dropdown.hide();
+      }
+    });
+
     this.addEventListener('auroMenuActivatedOption', (evt) => {
       this.optionActive = evt.detail;
     });
