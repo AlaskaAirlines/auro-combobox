@@ -11,6 +11,8 @@ import { LitElement, html } from "lit-element";
 // import { html, css } from "lit-element";
 // import AuroElement from '@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
 
+import '@aurodesignsystem/auro-menu';
+
 // Import touch detection lib
 import styleCss from "./style-css.js";
 import styleCssFixed from './style-fixed-css.js';
@@ -18,6 +20,7 @@ import styleCssFixed from './style-fixed-css.js';
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * @prop {Object} optionSelected - Specifies the current selected option.
+ * @prop {Object} optionActive - Specifies the current active option.
  * @prop {String} placeholder - Define placeholder text to display before a value is manually selected.
  * @prop {String} value - Value selected for the dropdown menu.
  * @attr {Boolean} error - Sets a persistent error message (e.g. an error message returned from the server).
@@ -36,7 +39,6 @@ class AuroCombobox extends LitElement {
     this.placeholder = 'Select an option';
     this.value = null;
     this.optionSelected = null;
-    this.optionActive = null;
 
     this.privateDefaults();
   }
@@ -48,6 +50,7 @@ class AuroCombobox extends LitElement {
   privateDefaults() {
     this.displayValue = null;
     this.availableOptions = [];
+    this.optionActive = null;
   }
 
   // This function is to define props used within the scope of this component
@@ -99,8 +102,14 @@ class AuroCombobox extends LitElement {
   handleMenuOptions() {
     this.availableOptions = [];
 
+    let noMatchOption = null;
+
     this.options.forEach((option) => {
-      let matchString = option.innerText;
+      if (option.hasAttribute('nomatch')) {
+        noMatchOption = option;
+      }
+
+      let matchString = option.innerText.toLowerCase();
 
       if (option.hasAttribute('suggest')) {
         matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
@@ -115,6 +124,12 @@ class AuroCombobox extends LitElement {
         option.setAttribute('hidden', '');
       }
     });
+
+    if (this.availableOptions.length === 0 && noMatchOption) {
+      noMatchOption.removeAttribute('hidden');
+    } else {
+      noMatchOption.setAttribute('hidden', '');
+    }
   }
 
   /**
@@ -188,7 +203,7 @@ class AuroCombobox extends LitElement {
         }
       }
 
-      if (this.dropdown.isPopoverVisible) {
+      if (this.dropdown.isPopoverVisible && this.availableOptions.length > 0) {
         if (evt.key === 'ArrowUp') {
           this.menu.selectNextItem('up');
         }
