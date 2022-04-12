@@ -22,3 +22,18 @@
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+### Persistent menuoption with a custom event.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/persistent.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/persistent.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
