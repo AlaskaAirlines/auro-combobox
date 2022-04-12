@@ -29,6 +29,7 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
       <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
       <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+      <auro-menuoption event="customeventname" id="option-customevent">Custom Event</auro-menuoption>
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
@@ -49,7 +50,36 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
+    <auro-menuoption event="customeventname" id="option-customevent">Custom Event</auro-menuoption>
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
+  </auro-menu>
+</auro-combobox>
+```
+
+</auro-accordion>
+
+### Persistent menuoption with a custom event.
+
+<div class="exampleWrapper">
+  <auro-combobox id="persistent">
+    <span slot="label">Address</span>
+    <auro-menu id="customEvent">
+      <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
+      <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+      <auro-menuoption event="addNewAddress" persistent>Add new address</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-combobox id="persistent">
+  <span slot="label">Address</span>
+  <auro-menu id="customEvent">
+    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption event="addNewAddress" persistent>Add new address</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```

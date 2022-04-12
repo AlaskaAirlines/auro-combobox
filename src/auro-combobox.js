@@ -11,6 +11,8 @@ import { LitElement, html } from "lit-element";
 // import { html, css } from "lit-element";
 // import AuroElement from '@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
 
+/* eslint-disable max-lines */
+
 import '@aurodesignsystem/auro-menu';
 
 // Import touch detection lib
@@ -102,7 +104,7 @@ class AuroCombobox extends LitElement {
   handleMenuOptions() {
     this.availableOptions = [];
 
-    let noMatchOption = null;
+    let noMatchOption = undefined; // eslint-disable-line no-undef-init
 
     this.options.forEach((option) => {
       if (option.hasAttribute('nomatch')) {
@@ -110,6 +112,10 @@ class AuroCombobox extends LitElement {
       }
 
       let matchString = option.innerText.toLowerCase();
+
+      if (option.hasAttribute('persistent')) {
+        this.availableOptions.push(option);
+      }
 
       if (option.hasAttribute('suggest')) {
         matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
@@ -119,16 +125,18 @@ class AuroCombobox extends LitElement {
       if (matchString.includes(this.triggerInput.value.toLowerCase())) {
         option.removeAttribute('hidden');
         this.availableOptions.push(option);
-      } else {
-        // Hide all other options
+      } else if (!option.hasAttribute('persistent')) {
+        // Hide all other non-persistent options
         option.setAttribute('hidden', '');
       }
     });
 
-    if (this.availableOptions.length === 0 && noMatchOption) {
-      noMatchOption.removeAttribute('hidden');
-    } else {
-      noMatchOption.setAttribute('hidden', '');
+    if (noMatchOption) {
+      if (this.availableOptions.length === 0) {
+        noMatchOption.removeAttribute('hidden');
+      } else {
+        noMatchOption.setAttribute('hidden', '');
+      }
     }
   }
 
@@ -151,7 +159,7 @@ class AuroCombobox extends LitElement {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
     this.dropdown.setAttribute('aria-role', 'combobox');
 
-    this.menu = this.querySelector('[role="listbox"');
+    this.menu = this.querySelector('auro-menu');
     this.options = [...this.menu.children];
     this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
 
