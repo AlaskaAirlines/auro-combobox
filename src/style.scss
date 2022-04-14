@@ -3,6 +3,8 @@
 
 /* stylelint-disable max-nesting-depth */
 
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/utilityClasses/displayProperties';
+
 auro-input {
   margin-left: var(--auro-size-sm);
 
