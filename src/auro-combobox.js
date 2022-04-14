@@ -13,11 +13,8 @@ import { LitElement, html } from "lit-element";
 
 /* eslint-disable max-lines */
 
-import '@aurodesignsystem/auro-menu';
-
 // Import touch detection lib
 import styleCss from "./style-css.js";
-import styleCssFixed from './style-fixed-css.js';
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -90,10 +87,7 @@ class AuroCombobox extends LitElement {
   }
 
   static get styles() {
-    return [
-      styleCss,
-      styleCssFixed
-    ];
+    return [styleCss];
   }
 
   /**
@@ -107,11 +101,11 @@ class AuroCombobox extends LitElement {
     let noMatchOption = undefined; // eslint-disable-line no-undef-init
 
     this.options.forEach((option) => {
+      let matchString = option.innerText.toLowerCase();
+
       if (option.hasAttribute('nomatch')) {
         noMatchOption = option;
       }
-
-      let matchString = option.innerText.toLowerCase();
 
       if (option.hasAttribute('persistent')) {
         this.availableOptions.push(option);
@@ -260,7 +254,7 @@ class AuroCombobox extends LitElement {
   render() {
     return html`
       <div>
-        <div aria-live="polite" style="height: 0; width: 0; overflow: hidden;">
+        <div aria-live="polite" class="util_displayHiddenVisually">
           ${this.optionActive && this.availableOptions.length > 0
             ? html`
               ${`${this.optionActive.innerText}, selected, ${this.availableOptions.indexOf(this.optionActive) + 1} of ${this.availableOptions.length}`}
