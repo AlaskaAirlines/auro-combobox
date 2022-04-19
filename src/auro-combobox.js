@@ -151,10 +151,18 @@ class AuroCombobox extends LitElement {
 
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
-    this.dropdown.setAttribute('aria-role', 'combobox');
+    this.dropdown.setAttribute('role', 'combobox');
+    if (!this.dropdown.hasAttribute('aria-expanded')) {
+      this.dropdown.setAttribute('aria-expanded', this.dropdown.isPopoverVisible);
+    }
 
     this.menu = this.querySelector('auro-menu');
-    this.options = [...this.menu.children];
+    if (this.menu) {
+      this.options = this.menu.querySelectorAll('auro-menuoption');
+    } else {
+      this.options = [];
+    }
+
     this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
 
     // handle the menu event for an option selection
