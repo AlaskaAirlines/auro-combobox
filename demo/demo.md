@@ -145,8 +145,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="ict" id="airport-ict" suggest="ict kansas wichita">
         dwight d eisenhower national
       </auro-menuoption>
-      <auro-menuoption value="texas" id="airport-texas" suggest="texas kansas ">
-      </auro-menuoption>
       <auro-menuoption value="phl" id="airport-phl" suggest="phl pennsylvania philadelphia">
         philadelphia international
       </auro-menuoption>
@@ -159,10 +157,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="smf" id="airport-smf" suggest="smf california sacramento">
         sacramento international
       </auro-menuoption>
-      <!-- <auro-menuoption value="united states" id="airport-united states" suggest="united states california ">
-      </auro-menuoption> -->
-      <!-- <auro-menuoption value="costa rica" id="airport-costa rica" suggest="costa rica california ">
-      </auro-menuoption> -->
       <auro-menuoption value="sit" id="airport-sit" suggest="sit alaska sitka">
         rocky gutierrez
       </auro-menuoption>
@@ -217,8 +211,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="san" id="airport-san" suggest="san california san diego">
         san diego international
       </auro-menuoption>
-      <!-- <auro-menuoption value="hawaii" id="airport-hawaii" suggest="hawaii california ">
-      </auro-menuoption> -->
       <auro-menuoption value="sat" id="airport-sat" suggest="sat texas san antonio">
         san antonio international
       </auro-menuoption>
@@ -237,10 +229,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="sjc" id="airport-sjc" suggest="sjc california san jose">
         san jose international
       </auro-menuoption>
-      <!-- <auro-menuoption value="mexico" id="airport-mexico" suggest="mexico california ">
-      </auro-menuoption> -->
-      <!-- <auro-menuoption value="belize" id="airport-belize" suggest="belize california ">
-      </auro-menuoption> -->
       <auro-menuoption value="jnu" id="airport-jnu" suggest="jnu alaska juneau">
         juneau international
       </auro-menuoption>
@@ -250,10 +238,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="sts" id="airport-sts" suggest="sts california sonoma">
         charles m schulz
       </auro-menuoption>
-      <!-- <auro-menuoption value="new york" id="airport-new york" suggest="new york california ">
-      </auro-menuoption> -->
-      <!-- <auro-menuoption value="massachusetts" id="airport-massachusetts" suggest="massachusetts california ">
-      </auro-menuoption> -->
       <auro-menuoption value="fai" id="airport-fai" suggest="fai alaska fairbanks">
         fairbanks international
       </auro-menuoption>
@@ -311,8 +295,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="otz" id="airport-otz" suggest="otz alaska kotzebue">
         ralph wien memorial
       </auro-menuoption>
-      <!-- <auro-menuoption value="alaska" id="airport-alaska" suggest="alaska alaska ">
-      </auro-menuoption> -->
       <auro-menuoption value="bze" id="airport-bze" suggest="bze belize belize city">
         philip sw goldson international airport
       </auro-menuoption>
@@ -409,10 +391,6 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption value="mke" id="airport-mke" suggest="mke wisconsin milwaukee">
         milwaukee mitchell international
       </auro-menuoption>
-      <!-- <auro-menuoption value="canada" id="airport-canada" suggest="canada wisconsin ">
-      </auro-menuoption> -->
-      <!-- <auro-menuoption value="$name" id="airport-$name" suggest="$name wisconsin ">
-      </auro-menuoption> -->
       <auro-menuoption value="eug" id="airport-eug" suggest="eug oregon eugene">
         mahlon sweet field
       </auro-menuoption>
@@ -553,8 +531,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="ict" id="airport-ict" suggest="ict kansas wichita">
       dwight d eisenhower national
     </auro-menuoption>
-    <auro-menuoption value="texas" id="airport-texas" suggest="texas kansas ">
-    </auro-menuoption>
     <auro-menuoption value="phl" id="airport-phl" suggest="phl pennsylvania philadelphia">
       philadelphia international
     </auro-menuoption>
@@ -567,10 +543,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="smf" id="airport-smf" suggest="smf california sacramento">
       sacramento international
     </auro-menuoption>
-    <!-- <auro-menuoption value="united states" id="airport-united states" suggest="united states california ">
-    </auro-menuoption> -->
-    <!-- <auro-menuoption value="costa rica" id="airport-costa rica" suggest="costa rica california ">
-    </auro-menuoption> -->
     <auro-menuoption value="sit" id="airport-sit" suggest="sit alaska sitka">
       rocky gutierrez
     </auro-menuoption>
@@ -625,8 +597,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="san" id="airport-san" suggest="san california san diego">
       san diego international
     </auro-menuoption>
-    <!-- <auro-menuoption value="hawaii" id="airport-hawaii" suggest="hawaii california ">
-    </auro-menuoption> -->
     <auro-menuoption value="sat" id="airport-sat" suggest="sat texas san antonio">
       san antonio international
     </auro-menuoption>
@@ -645,10 +615,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="sjc" id="airport-sjc" suggest="sjc california san jose">
       san jose international
     </auro-menuoption>
-    <!-- <auro-menuoption value="mexico" id="airport-mexico" suggest="mexico california ">
-    </auro-menuoption> -->
-    <!-- <auro-menuoption value="belize" id="airport-belize" suggest="belize california ">
-    </auro-menuoption> -->
     <auro-menuoption value="jnu" id="airport-jnu" suggest="jnu alaska juneau">
       juneau international
     </auro-menuoption>
@@ -658,10 +624,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="sts" id="airport-sts" suggest="sts california sonoma">
       charles m schulz
     </auro-menuoption>
-    <!-- <auro-menuoption value="new york" id="airport-new york" suggest="new york california ">
-    </auro-menuoption> -->
-    <!-- <auro-menuoption value="massachusetts" id="airport-massachusetts" suggest="massachusetts california ">
-    </auro-menuoption> -->
     <auro-menuoption value="fai" id="airport-fai" suggest="fai alaska fairbanks">
       fairbanks international
     </auro-menuoption>
@@ -719,8 +681,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="otz" id="airport-otz" suggest="otz alaska kotzebue">
       ralph wien memorial
     </auro-menuoption>
-    <!-- <auro-menuoption value="alaska" id="airport-alaska" suggest="alaska alaska ">
-    </auro-menuoption> -->
     <auro-menuoption value="bze" id="airport-bze" suggest="bze belize belize city">
       philip sw goldson international airport
     </auro-menuoption>
@@ -817,10 +777,6 @@ The `<auro-combobox>` element should be used in situations where users may:
     <auro-menuoption value="mke" id="airport-mke" suggest="mke wisconsin milwaukee">
       milwaukee mitchell international
     </auro-menuoption>
-    <!-- <auro-menuoption value="canada" id="airport-canada" suggest="canada wisconsin ">
-    </auro-menuoption> -->
-    <!-- <auro-menuoption value="$name" id="airport-$name" suggest="$name wisconsin ">
-    </auro-menuoption> -->
     <auro-menuoption value="eug" id="airport-eug" suggest="eug oregon eugene">
       mahlon sweet field
     </auro-menuoption>
