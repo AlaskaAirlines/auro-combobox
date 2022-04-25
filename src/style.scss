@@ -28,4 +28,10 @@ auro-input {
       }
     }
   }
+
+  auro-dropdown {
+    &::part(trigger) {
+      padding-right: var(--auro-size-sm);
+    }
+  }
 }
