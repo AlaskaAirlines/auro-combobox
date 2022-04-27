@@ -21,10 +21,8 @@ import styleCss from "./style-css.js";
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * @prop {Object} optionSelected - Specifies the current selected option.
- * @prop {Object} optionActive - Specifies the current active option.
- * @prop {String} placeholder - Define placeholder text to display before a value is manually selected.
  * @prop {String} value - Value selected for the dropdown menu.
- * @attr {Boolean} error - Sets a persistent error message (e.g. an error message returned from the server).
+ * @attr {Boolean} error - Sets a persistent error state (e.g. an error state returned from the server).
  * @attr {Boolean} disabled - If set, disables the combobox.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} triggerIcon - If set, the `icon` attribute will be applied to the trigger `auro-input` element.
@@ -39,7 +37,6 @@ class AuroCombobox extends LitElement {
   constructor() {
     super();
 
-    this.placeholder = 'Select an option';
     this.value = null;
     this.optionSelected = null;
 
@@ -62,7 +59,6 @@ class AuroCombobox extends LitElement {
   static get properties() {
     return {
       // ...super.properties,
-      placeholder: { type: String },
       error: {
         type: Boolean,
         reflect: true
@@ -71,6 +67,7 @@ class AuroCombobox extends LitElement {
         type: Boolean,
         reflect: true
       },
+      optionSelected: { type: Object },
       required: {
         type: Boolean,
         reflect: true
@@ -83,18 +80,25 @@ class AuroCombobox extends LitElement {
         type: String,
         reflect: true
       },
+      value: {
+        type: String,
+        reflect: true
+      },
 
       /**
        * @private
        */
       availableOptions: { type: Array },
+
+      /**
+       * @private
+       */
       displayValue: { type: String },
-      optionSelected: { type: Object },
-      optionActive: { type: Object },
-      value: {
-        type: String,
-        reflect: true
-      }
+
+      /**
+       * @private
+       */
+      optionActive: { type: Object }
     };
   }
 

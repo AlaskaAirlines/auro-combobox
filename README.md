@@ -61,16 +61,12 @@ import "@aurodesignsystem/auro-combobox";
 <auro-combobox>
   <span slot="label">Name</span>
   <auro-menu>
-    <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
-    <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
-    <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
-    <auro-menuoption value="Price" id="option-1">Price</auro-menuoption>
-    <auro-menuoption value="Duration" id="option-2">Duration</auro-menuoption>
-    <auro-menuoption value="Departure" id="option-3">Departure</auro-menuoption>
-    <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
-    <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
-    <auro-menuoption event="customeventname" id="option-customevent">Custom Event</auro-menuoption>
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
@@ -112,16 +108,12 @@ The `<auro-combobox>` element should be used in situations where users may:
 <auro-combobox>
   <span slot="label">Name</span>
   <auro-menu>
-    <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
-    <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
-    <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
-    <auro-menuoption value="Price" id="option-1">Price</auro-menuoption>
-    <auro-menuoption value="Duration" id="option-2">Duration</auro-menuoption>
-    <auro-menuoption value="Departure" id="option-3">Departure</auro-menuoption>
-    <auro-menuoption value="Arrival" id="option-4">Arrival</auro-menuoption>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
-    <auro-menuoption value="Los Angeles Intl. Airport" id="lax" match="lax">Los Angeles, Intl Airport</auro-menuoption>
-    <auro-menuoption event="customeventname" id="option-customevent">Custom Event</auro-menuoption>
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
