@@ -60,7 +60,7 @@ import "@aurodesignsystem/auro-combobox";
 ```html
 <auro-combobox>
   <span slot="label">Name</span>
-  <auro-menu role="listbox">
+  <auro-menu>
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
     <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
     <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>
@@ -111,7 +111,7 @@ The `<auro-combobox>` element should be used in situations where users may:
 ```html
 <auro-combobox>
   <span slot="label">Name</span>
-  <auro-menu role="listbox">
+  <auro-menu>
     <auro-menuoption value="Stop" id="option-0">Stop</auro-menuoption>
     <auro-menuoption value="Stops" id="option-0afds">Stops</auro-menuoption>
     <auro-menuoption value="Stops a lot" id="option-0afdsfdsa">Stops a lot</auro-menuoption>

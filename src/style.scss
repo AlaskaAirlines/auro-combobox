@@ -15,6 +15,10 @@ auro-input {
     align-items: center;
   }
 
+  &::part(accentIcon) {
+    transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  }
+
   &::part(helpText) {
     display: none;
   }
@@ -25,6 +29,10 @@ auro-input {
     &:not(:focus-within) {
       &::part(label) {
         padding-top: 1.1rem;
+      }
+
+      &::part(accentIcon) {
+        margin-top: var(--auro-size-sm);
       }
     }
   }
