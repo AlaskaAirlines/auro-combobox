@@ -272,6 +272,26 @@ class AuroCombobox extends LitElement {
         this.dropdown.hide();
       }
     });
+
+    /**
+     * When this.value is preset auro-menu.selectByValue(this.value) is called.
+     * However, if this.value does not match one of the menu options,
+     * auro-menu will notify via event. In this case, clear out this.value
+     * so that it is not storing an invalid value which can then later be returned
+     * with `auro-select.value`.
+     */
+    this.addEventListener('auroMenuSelectValueFailure', () => {
+      this.value = undefined;
+      this.removeAttribute('value');
+    });
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('value')) {
+      if (this.value && (!this.optionSelected || this.value !== this.optionSelected.value)) {
+        this.menu.selectByValue(this.value);
+      }
+    }
   }
 
   // function that renders the HTML and CSS into  the scope of the component
