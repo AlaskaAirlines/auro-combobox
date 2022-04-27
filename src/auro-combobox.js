@@ -6,6 +6,8 @@
 // If using litElement base class
 import { LitElement, html } from "lit-element";
 
+// import '@aurodesignsystem/auro-input';
+
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit-element";
@@ -25,6 +27,8 @@ import styleCss from "./style-css.js";
  * @attr {Boolean} error - Sets a persistent error message (e.g. an error message returned from the server).
  * @attr {Boolean} disabled - If set, disables the combobox.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @attr {Boolean} triggerIcon - If set, the `icon` attribute will be applied to the trigger `auro-input` element.
+ * @attr {String} type - Applies the defined value as the type attribute on auro-input.
  * @slot - Default slot for the menu content.
  * @slot label - Defines the content of the label.
  * @slot helpText - Defines the content of the helpText.
@@ -69,6 +73,14 @@ class AuroCombobox extends LitElement {
       },
       required: {
         type: Boolean,
+        reflect: true
+      },
+      triggerIcon: {
+        type: Boolean,
+        reflect: true
+      },
+      type: {
+        type: String,
         reflect: true
       },
 
@@ -282,7 +294,9 @@ class AuroCombobox extends LitElement {
             slot="trigger"
             borderless
             value="${this.displayValue === null ? `` : this.displayValue}"
-            ?required="${this.required}">
+            ?required="${this.required}"
+            .type="${this.type}"
+            ?icon="${this.triggerIcon}">
             <slot name="label" slot="label"></slot>
           </auro-input>
           <div class="menuWrapper">

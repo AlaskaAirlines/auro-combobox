@@ -11,6 +11,8 @@
 | `optionSelected` | `optionSelected` | `Object`  | null               | Specifies the current selected option.           |
 | `placeholder`    | `placeholder`    | `String`  | "Select an option" | Define placeholder text to display before a value is manually selected. |
 | `required`       | `required`       | `Boolean` |                    | Populates the `required` attribute on the input. Used for client-side validation. |
+| `triggerIcon`    | `triggerIcon`    | `Boolean` |                    | If set, the `icon` attribute will be applied to the trigger `auro-input` element. |
+| `type`           | `type`           | `String`  |                    | Applies the defined value as the type attribute on auro-input. |
 | `value`          | `value`          | `String`  | null               | Value selected for the dropdown menu.            |
 
 ## Slots
