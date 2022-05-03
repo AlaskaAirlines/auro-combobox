@@ -42,15 +42,17 @@
 
 The `type` attribute may be used to apply the corresponding `type` attribute on [auro-input](http://auro.alaskaair.com/components/auro/input/api).
 
+`type="credit-card"` is not currently supported.
+
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeCreditCard.html) -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeMonthDayYear.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeCreditCard.html) -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeMonthDayYear.html) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>

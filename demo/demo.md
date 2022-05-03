@@ -828,29 +828,17 @@ The `<auro-combobox>` element should be used in situations where users may:
 
 The `type` attribute may be used to apply the corresponding `type` attribute on [auro-input](http://auro.alaskaair.com/components/auro/input/api).
 
+`type="credit-card"` is not currently supported.
+
 <div class="exampleWrapper">
-  <auro-combobox type="credit-card" triggerIcon>
-    <span slot="label">Credit Card Number</span>
+  <auro-combobox type="month-day-year" triggerIcon>
+    <span slot="label">Date</span>
     <auro-menu>
-      <auro-menuoption value="4500000000000000" id="option-cc-0">
-        <auro-icon category="payment" customcolor name="cc-visa"></auro-icon>
-        4000 0000 0000 0000
+      <auro-menuoption value="01/02/2020" id="option-date-0">
+        01/02/2020
       </auro-menuoption>
-      <auro-menuoption value="340000000000000" id="option-cc-1">
-        <auro-icon category="payment" customcolor name="cc-amex"></auro-icon>
-        3400 000000 00000
-      </auro-menuoption>
-      <auro-menuoption value="30000000000000" id="option-cc-2">
-        <auro-icon category="payment" customcolor name="credit-card"></auro-icon>
-        3000 000000 0000
-      </auro-menuoption>
-      <auro-menuoption value="5100000000000000" id="option-cc-4">
-        <auro-icon category="payment" customcolor name="cc-mastercard"></auro-icon>
-        5000 0000 0000 0000
-      </auro-menuoption>
-      <auro-menuoption value="6011000000000000" id="option-cc-5">
-        <auro-icon category="payment" customcolor name="cc-discover"></auro-icon>
-        6000 0000 0000 0000
+      <auro-menuoption value="05/16/2022" id="option-date-1">
+        05/16/2022
       </auro-menuoption>
       <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
     </auro-menu>
@@ -860,28 +848,14 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
   <span slot="trigger">See code</span>
 
 ```html
-<auro-combobox type="credit-card" triggerIcon>
-  <span slot="label">Credit Card Number</span>
+<auro-combobox type="month-day-year" triggerIcon>
+  <span slot="label">Date</span>
   <auro-menu>
-    <auro-menuoption value="4500000000000000" id="option-cc-0">
-      <auro-icon category="payment" customcolor name="cc-visa"></auro-icon>
-      4000 0000 0000 0000
+    <auro-menuoption value="01/02/2020" id="option-date-0">
+      01/02/2020
     </auro-menuoption>
-    <auro-menuoption value="340000000000000" id="option-cc-1">
-      <auro-icon category="payment" customcolor name="cc-amex"></auro-icon>
-      3400 000000 00000
-    </auro-menuoption>
-    <auro-menuoption value="30000000000000" id="option-cc-2">
-      <auro-icon category="payment" customcolor name="credit-card"></auro-icon>
-      3000 000000 0000
-    </auro-menuoption>
-    <auro-menuoption value="5100000000000000" id="option-cc-4">
-      <auro-icon category="payment" customcolor name="cc-mastercard"></auro-icon>
-      5000 0000 0000 0000
-    </auro-menuoption>
-    <auro-menuoption value="6011000000000000" id="option-cc-5">
-      <auro-icon category="payment" customcolor name="cc-discover"></auro-icon>
-      6000 0000 0000 0000
+    <auro-menuoption value="05/16/2022" id="option-date-1">
+      05/16/2022
     </auro-menuoption>
     <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
   </auro-menu>

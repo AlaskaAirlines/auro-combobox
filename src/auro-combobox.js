@@ -6,8 +6,6 @@
 // If using litElement base class
 import { LitElement, html } from "lit-element";
 
-// import '@aurodesignsystem/auro-input';
-
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit-element";
@@ -51,6 +49,7 @@ class AuroCombobox extends LitElement {
     this.displayValue = null;
     this.availableOptions = [];
     this.optionActive = null;
+    this.msgSelectionMissing = 'Please select an option.';
   }
 
   // This function is to define props used within the scope of this component
@@ -98,7 +97,12 @@ class AuroCombobox extends LitElement {
       /**
        * @private
        */
-      optionActive: { type: Object }
+      optionActive: { type: Object },
+
+      /**
+       * @private
+       */
+      msgSelectionMissing: { type: String }
     };
   }
 
@@ -165,9 +169,35 @@ class AuroCombobox extends LitElement {
     }
   }
 
+  /**
+   * Sets the const variable for the dropdown trigger.
+   * @private
+   * @returns {void}
+   */
+  setDropdownTrigger() {
+    this.trigger = this.dropdown.shadowRoot.querySelector('#trigger');
+
+    if (this.trigger) {
+      this.trigger.addEventListener('click', () => {
+        if (!this.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
+          this.dropdown.show();
+        }
+      });
+    } else {
+      const timeOutLength = 200;
+      setTimeout(() => {
+        this.setDropdownTrigger();
+      }, timeOutLength);
+    }
+
+  }
+
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
     this.dropdown.setAttribute('role', 'combobox');
+
+    this.setDropdownTrigger();
+
     if (!this.dropdown.hasAttribute('aria-expanded')) {
       this.dropdown.setAttribute('aria-expanded', this.dropdown.isPopoverVisible);
     }
@@ -183,6 +213,11 @@ class AuroCombobox extends LitElement {
 
     // handle the menu event for an option selection
     this.addEventListener('selectedOption', () => {
+      if (this.auroInput__helpText === this.msgSelectionMissing) {
+        this.auroInput__helpText = undefined; /* eslint-disable-line camelcase */
+      }
+
+      this.removeAttribute('error');
       this.optionSelected = this.menu.optionSelected;
       this.value = this.optionSelected.value;
       this.displayValue = this.optionSelected.innerText;
@@ -205,12 +240,6 @@ class AuroCombobox extends LitElement {
 
     this.addEventListener('auroMenuActivatedOption', (evt) => {
       this.optionActive = evt.detail;
-    });
-
-    this.addEventListener('click', () => {
-      if (!this.dropdown.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
-        this.dropdown.show();
-      }
     });
 
     this.addEventListener('keydown', (evt) => {
@@ -253,6 +282,7 @@ class AuroCombobox extends LitElement {
       // reset all states
       this.displayValue = this.triggerInput.value;
       this.value = null;
+      this.optionSelected = null;
       this.optionActive = null;
       this.menu.resetOptionsStates();
       this.handleMenuOptions();
@@ -273,24 +303,36 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    /**
-     * When this.value is preset auro-menu.selectByValue(this.value) is called.
-     * However, if this.value does not match one of the menu options,
-     * auro-menu will notify via event. In this case, clear out this.value
-     * so that it is not storing an invalid value which can then later be returned
-     * with `auro-select.value`.
-     */
-    this.addEventListener('auroMenuSelectValueFailure', () => {
-      this.value = undefined;
-      this.removeAttribute('value');
+    this.triggerInput.addEventListener('blur', () => {
+      this.menu.resetOptionsStates();
+      this.menu.value = this.triggerInput.value;
+
+      if (this.triggerInput.value.length > 0 && !this.optionSelected) {
+        this.setAttribute('error', '');
+        this.auroInput__helpText = this.msgSelectionMissing; /* eslint-disable-line camelcase */
+      }
+    });
+
+    this.menu.addEventListener('auroMenuSelectValueFailure', () => {
+      this.setAttribute('error', '');
+    });
+
+    this.triggerInput.addEventListener('auroInput__validated', (evt) => {
+      if (evt.detail.isValid) {
+        this.removeAttribute('error');
+      } else {
+        this.setAttribute('error', '');
+      }
+    });
+
+    this.triggerInput.addEventListener('auroInput__helpText', (evt) => {
+      this.auroInput__helpText = evt.detail.message; /* eslint-disable-line camelcase */
     });
   }
 
   updated(changedProperties) {
     if (changedProperties.has('value')) {
-      if (this.value && (!this.optionSelected || this.value !== this.optionSelected.value)) {
-        this.menu.selectByValue(this.value);
-      }
+      this.menu.value = this.value;
     }
   }
 
@@ -326,23 +368,30 @@ class AuroCombobox extends LitElement {
           <div class="menuWrapper">
             <slot></slot>
           </div>
-          ${!this.error
-            ? html`
-                <slot name="helpText" slot="helpText"></slot>
+          <span slot="helpText">
+            ${this.auroInput__helpText
+              ? html`
+                ${this.auroInput__helpText}
               `
-            : html`
-              ${this.required
-                ? html`
-                  <span slot="helpText">
-                    Please fill out this field.
-                  </span>
-                `
-                : html`
-                  <slot name="helpText" slot="helpText"></slot>
-                `
-              }
-            `
-          }
+              : html`
+                ${this.error
+                  ? html`
+                    ${this.required
+                      ? html`
+                        ${this.msgSelectionMissing}
+                      `
+                      : html`
+                        <slot name="helpText"></slot>
+                      `
+                    }
+                  `
+                  : html`
+                    <slot name="helpText"></slot>
+                  `
+                }
+              `
+            }
+          </span>
         </auro-dropdown>
       </div>
     `;
