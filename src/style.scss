@@ -24,6 +24,14 @@ auro-input {
   }
 }
 
+:host {
+  auro-dropdown {
+    &::part(trigger) {
+      padding-right: var(--auro-size-sm);
+    }
+  }
+}
+
 :host(:not(.combobox-filled)) { /* stylelint-disable-line selector-class-pattern */
   auro-input {
     &:not(:focus-within) {
@@ -34,12 +42,6 @@ auro-input {
       &::part(accentIcon) {
         margin-top: var(--auro-size-sm);
       }
-    }
-  }
-
-  auro-dropdown {
-    &::part(trigger) {
-      padding-right: var(--auro-size-sm);
     }
   }
 }
