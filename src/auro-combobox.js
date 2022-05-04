@@ -169,34 +169,15 @@ class AuroCombobox extends LitElement {
     }
   }
 
-  /**
-   * Sets the const variable for the dropdown trigger.
-   * @private
-   * @returns {void}
-   */
-  setDropdownTrigger() {
-    this.trigger = this.dropdown.shadowRoot.querySelector('#trigger');
-
-    if (this.trigger) {
-      this.trigger.addEventListener('click', () => {
-        if (!this.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
-          this.dropdown.show();
-        }
-      });
-    } else {
-      const timeOutLength = 200;
-      setTimeout(() => {
-        this.setDropdownTrigger();
-      }, timeOutLength);
-    }
-
-  }
-
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
     this.dropdown.setAttribute('role', 'combobox');
 
-    this.setDropdownTrigger();
+    this.dropdown.addEventListener('auroDropdown-triggerClick', () => {
+      if (!this.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
+        this.dropdown.show();
+      }
+    });
 
     if (!this.dropdown.hasAttribute('aria-expanded')) {
       this.dropdown.setAttribute('aria-expanded', this.dropdown.isPopoverVisible);
@@ -213,8 +194,8 @@ class AuroCombobox extends LitElement {
 
     // handle the menu event for an option selection
     this.addEventListener('selectedOption', () => {
-      if (this.auroInput__helpText === this.msgSelectionMissing) {
-        this.auroInput__helpText = undefined; /* eslint-disable-line camelcase */
+      if (this.auroInputHelpText === this.msgSelectionMissing) {
+        this.auroInputHelpText = undefined; /* eslint-disable-line camelcase */
       }
 
       this.removeAttribute('error');
@@ -309,7 +290,7 @@ class AuroCombobox extends LitElement {
 
       if (this.triggerInput.value.length > 0 && !this.optionSelected) {
         this.setAttribute('error', '');
-        this.auroInput__helpText = this.msgSelectionMissing; /* eslint-disable-line camelcase */
+        this.auroInputHelpText = this.msgSelectionMissing; /* eslint-disable-line camelcase */
       }
     });
 
@@ -317,7 +298,7 @@ class AuroCombobox extends LitElement {
       this.setAttribute('error', '');
     });
 
-    this.triggerInput.addEventListener('auroInput__validated', (evt) => {
+    this.triggerInput.addEventListener('auroInput-validated', (evt) => {
       if (evt.detail.isValid) {
         this.removeAttribute('error');
       } else {
@@ -325,8 +306,8 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.triggerInput.addEventListener('auroInput__helpText', (evt) => {
-      this.auroInput__helpText = evt.detail.message; /* eslint-disable-line camelcase */
+    this.triggerInput.addEventListener('auroInput-helpText', (evt) => {
+      this.auroInputHelpText = evt.detail.message; /* eslint-disable-line camelcase */
     });
   }
 
@@ -369,9 +350,9 @@ class AuroCombobox extends LitElement {
             <slot></slot>
           </div>
           <span slot="helpText">
-            ${this.auroInput__helpText
+            ${this.auroInputHelpText
               ? html`
-                ${this.auroInput__helpText}
+                ${this.auroInputHelpText}
               `
               : html`
                 ${this.error
