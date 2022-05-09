@@ -85,34 +85,19 @@ Value selected for the dropdown menu. Can be used to pre-set the value of the co
 
 </auro-accordion>
 
-#### triggerIcon
-
-When defined, the `auro-input` in the combobox trigger will display the icon associated with the defined `type` attribute.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeCreditCard.html) -->
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeCreditCard.html) -->
-<!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
 #### type
 
 When defined, the `auro-input` in the combobox trigger will use the defined `type` (e.g. `credit-card`).
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeCreditCard.html) -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeMonthDayYear.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
+
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeCreditCard.html) -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeMonthDayYear.html) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
