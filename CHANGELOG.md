@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.0.0...v1.1.0) (2022-05-11)
+
+
+### Bug Fixes
+
+* **demo:** fix timing issue of component loading ([0511f54](https://github.com/AlaskaAirlines/auro-combobox/commit/0511f5453cd5bd1f84787b336cbd3de8b4d08ad9))
+* **style:** persist right padding when filled ([7c6c359](https://github.com/AlaskaAirlines/auro-combobox/commit/7c6c359f8cd2b63ca33c7f906ce12bd886c7ea8b))
+
+
+### Features
+
+* **API:** support auro-input type and icon attributes [#23](https://github.com/AlaskaAirlines/auro-combobox/issues/23) ([c5c62d5](https://github.com/AlaskaAirlines/auro-combobox/commit/c5c62d52e717d45bd437e7667fde021cc42f932a))
+* **value:** add functions to pre-set value ([94aed52](https://github.com/AlaskaAirlines/auro-combobox/commit/94aed52d9f92feb824d15aa2e2c3b2e9d7c96890))
+
 # 1.0.0 (2022-04-20)
 
 
