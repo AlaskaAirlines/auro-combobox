@@ -37,7 +37,6 @@
           <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
           <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
           <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
-          <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
           <auro-menuoption static nomatch>No matching option</auro-menuoption>
         </auro-menu>
       </auro-combobox>
@@ -54,7 +53,6 @@
     <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
     <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
     <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
-    <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
