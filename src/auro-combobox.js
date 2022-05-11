@@ -50,6 +50,11 @@ class AuroCombobox extends LitElement {
     this.availableOptions = [];
     this.optionActive = null;
     this.msgSelectionMissing = 'Please select an option.';
+    this.wcReadyReqs = [
+      'auro-dropdown',
+      'auro-input',
+      'auro-menu'
+    ];
   }
 
   // This function is to define props used within the scope of this component
@@ -184,6 +189,9 @@ class AuroCombobox extends LitElement {
     }
 
     this.menu = this.querySelector('auro-menu');
+
+    this.menu.addEventListener('firstUpdated', this.auroComboboxReady('auro-menu'));
+
     if (this.menu) {
       this.options = this.menu.querySelectorAll('auro-menuoption');
     } else {
@@ -313,8 +321,37 @@ class AuroCombobox extends LitElement {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('value')) {
+    // watch for value attribute changes after WC is ready and apply them
+    if (this.ready && changedProperties.has('value')) {
       this.menu.value = this.value;
+    }
+  }
+
+  postReady() {
+    // If there is an initial value, apply it after the WC is ready
+    if (this.hasAttribute('value') && this.getAttribute('value').length > 0) {
+
+      this.menu.value = this.value;
+    }
+  }
+
+  auroComboboxReady(wc) {
+    // start a count of dependent WCs that need to gate readiness
+    if (!this.wcDepsReady) {
+      this.wcDepsReady = 0;
+    }
+
+    this.wcReadyReqs.forEach((req) => {
+      if (req === wc) {
+        this.wcDepsReady += 1;
+      }
+    });
+
+    if (this.wcReadyReqs.length === this.wcDepsReady) {
+      this.ready = true;
+      this.postReady();
+    } else {
+      this.ready = false;
     }
   }
 
@@ -337,14 +374,16 @@ class AuroCombobox extends LitElement {
           chevron
           ?disabled="${this.disabled}"
           ?error="${this.error}"
-          disableEventShow>
+          disableEventShow
+          @firstUpdated="${this.auroComboboxReady('auro-dropdown')}">
           <auro-input
             slot="trigger"
             borderless
             value="${this.displayValue === null ? `` : this.displayValue}"
             ?required="${this.required}"
             .type="${this.type}"
-            ?icon="${this.triggerIcon}">
+            ?icon="${this.triggerIcon}"
+            @firstUpdated="${this.auroComboboxReady('auro-input')}">
             <slot name="label" slot="label"></slot>
           </auro-input>
           <div class="menuWrapper">
