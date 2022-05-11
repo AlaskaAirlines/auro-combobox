@@ -193,7 +193,7 @@ class AuroCombobox extends LitElement {
     this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
 
     // handle the menu event for an option selection
-    this.addEventListener('selectedOption', () => {
+    this.addEventListener('auroMenu-selectedOption', () => {
       if (this.auroInputHelpText === this.msgSelectionMissing) {
         this.auroInputHelpText = undefined; /* eslint-disable-line camelcase */
       }
@@ -203,6 +203,7 @@ class AuroCombobox extends LitElement {
       this.value = this.optionSelected.value;
       this.displayValue = this.optionSelected.innerText;
       this.triggerInput.value = this.optionSelected.value;
+      this.classList.add('combobox-filled');
 
       // dropdown bib should hide when making a selection
       if (this.dropdown.isPopoverVisible) {
@@ -213,13 +214,13 @@ class AuroCombobox extends LitElement {
       this.handleMenuOptions();
     });
 
-    this.addEventListener('customEventFired', () => {
+    this.addEventListener('auroMenu-customEventFired', () => {
       if (this.dropdown.isPopoverVisible) {
         this.dropdown.hide();
       }
     });
 
-    this.addEventListener('auroMenuActivatedOption', (evt) => {
+    this.addEventListener('auroMenu-activatedOption', (evt) => {
       this.optionActive = evt.detail;
     });
 
@@ -294,7 +295,7 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.menu.addEventListener('auroMenuSelectValueFailure', () => {
+    this.menu.addEventListener('auroMenu-selectValueFailure', () => {
       this.setAttribute('error', '');
     });
 
