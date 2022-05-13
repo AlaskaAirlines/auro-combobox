@@ -334,7 +334,6 @@ class AuroCombobox extends LitElement {
           for="dropdownMenu"
           bordered
           rounded
-          chevron
           ?disabled="${this.disabled}"
           ?error="${this.error}"
           disableEventShow>
