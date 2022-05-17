@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.0...v1.1.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* **dropdown:** remove attribute to add the carrot to the trigger [#26](https://github.com/AlaskaAirlines/auro-combobox/issues/26) ([6282012](https://github.com/AlaskaAirlines/auro-combobox/commit/628201254fa36a8c95afadca34026d757f804836))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.0.0...v1.1.0) (2022-05-11)
 
 
