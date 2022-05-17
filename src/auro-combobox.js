@@ -287,7 +287,6 @@ class AuroCombobox extends LitElement {
 
     this.triggerInput.addEventListener('blur', () => {
       this.menu.resetOptionsStates();
-      this.menu.value = this.triggerInput.value;
 
       if (this.triggerInput.value.length > 0 && !this.optionSelected) {
         this.setAttribute('error', '');
