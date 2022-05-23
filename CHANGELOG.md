@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.1...v1.1.2) (2022-05-23)
+
+
+### Bug Fixes
+
+* **select:** stop passing value to menu on input blur [#29](https://github.com/AlaskaAirlines/auro-combobox/issues/29) ([146691f](https://github.com/AlaskaAirlines/auro-combobox/commit/146691fe7ce1acad10ff7ae51a4f3ec96256ce73))
+
 ## [1.1.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.0...v1.1.1) (2022-05-17)
 
 
