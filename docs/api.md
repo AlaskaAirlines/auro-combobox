@@ -12,6 +12,12 @@
 | `type`           | `type`           | `String`  |         | Applies the defined value as the type attribute on auro-input. |
 | `value`          | `value`          | `String`  | null    | Value selected for the dropdown menu.            |
 
+## Events
+
+| Event                | Type               |
+|----------------------|--------------------|
+| `auroCombobox-ready` | `CustomEvent<any>` |
+
 ## Slots
 
 | Name       | Description                          |

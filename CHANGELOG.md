@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.2...v1.2.0) (2022-05-24)
+
+
+### Features
+
+* **readiness:** check readiness of peer deps before running certain actions [#31](https://github.com/AlaskaAirlines/auro-combobox/issues/31) ([f83a3d1](https://github.com/AlaskaAirlines/auro-combobox/commit/f83a3d18efe98bded8a0277f43f62cb58e8dad58))
+* **readiness:** notify own readiness ([9cc8252](https://github.com/AlaskaAirlines/auro-combobox/commit/9cc8252c3545ee6d322f91aec3ec4d6252f666a0))
+
 ## [1.1.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.1...v1.1.2) (2022-05-23)
 
 
