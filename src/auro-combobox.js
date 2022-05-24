@@ -171,6 +171,21 @@ class AuroCombobox extends LitElement {
 
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
+    this.menu = this.querySelector('auro-menu');
+    this.input = this.dropdown.querySelector('auro-input');
+
+    this.dropdown.addEventListener('auroDropdown-ready', () => {
+      this.auroDropdownReady = true;
+    });
+
+    this.menu.addEventListener('auroMenu-ready', () => {
+      this.auroMenuReady = true;
+    });
+
+    this.input.addEventListener('auroInput-ready', () => {
+      this.auroInputReady = true;
+    });
+
     this.dropdown.setAttribute('role', 'combobox');
 
     this.dropdown.addEventListener('auroDropdown-triggerClick', () => {
@@ -183,7 +198,7 @@ class AuroCombobox extends LitElement {
       this.dropdown.setAttribute('aria-expanded', this.dropdown.isPopoverVisible);
     }
 
-    this.menu = this.querySelector('auro-menu');
+
     if (this.menu) {
       this.options = this.menu.querySelectorAll('auro-menuoption');
     } else {
@@ -309,10 +324,53 @@ class AuroCombobox extends LitElement {
     this.triggerInput.addEventListener('auroInput-helpText', (evt) => {
       this.auroInputHelpText = evt.detail.message; /* eslint-disable-line camelcase */
     });
+
+    this.checkReadiness();
+  }
+
+  /**
+   * Monitors readiness of peer dependencies and begins work that should only start when ready.
+   * @private
+   * @returns {void}
+   */
+  checkReadiness() {
+    if (this.auroDropdownReady && this.auroInputReady && this.auroMenuReady) {
+      this.ready = true;
+      this.readyActions();
+    } else {
+      // Start a retry counter to limit the retry count
+      if (!this.readyRetryCount) {
+        this.readyRetryCount = 0;
+      } else {
+        this.readyRetryCount += 1;
+      }
+
+      const readyTimer = 200;
+      const readyRetryLimit = 20;
+
+      if (this.readyRetryCount <= readyRetryLimit) {
+        setTimeout(() => {
+          this.checkReadiness();
+        }, readyTimer);
+      }
+    }
+  }
+
+  /**
+   * Functionality that should not be performed until the combobox is in a ready state.
+   * @private
+   * @returns {void}
+   */
+  readyActions() {
+    // Set the initial value in auro-menu if defined
+    if (this.hasAttribute('value') && this.getAttribute('value').length > 0) {
+      this.menu.value = this.value;
+    }
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('value')) {
+    // After the component is ready, send direct value changes to auro-menu.
+    if (this.ready && changedProperties.has('value')) {
       this.menu.value = this.value;
     }
   }
