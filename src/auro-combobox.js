@@ -329,14 +329,28 @@ class AuroCombobox extends LitElement {
   }
 
   /**
+   * @private
+   * @returns {void} Marks the component as ready and sends event.
+   */
+  notifyReady() {
+    this.ready = true;
+
+    this.dispatchEvent(new CustomEvent('auroCombobox-ready', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
+  }
+
+  /**
    * Monitors readiness of peer dependencies and begins work that should only start when ready.
    * @private
    * @returns {void}
    */
   checkReadiness() {
     if (this.auroDropdownReady && this.auroInputReady && this.auroMenuReady) {
-      this.ready = true;
       this.readyActions();
+      this.notifyReady();
     } else {
       // Start a retry counter to limit the retry count
       if (!this.readyRetryCount) {
