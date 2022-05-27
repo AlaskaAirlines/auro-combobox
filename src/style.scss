@@ -28,6 +28,12 @@ auro-input {
   auro-dropdown {
     &::part(trigger) {
       padding-right: var(--auro-size-sm);
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: transparent;
+        }
+      }
     }
   }
 }
