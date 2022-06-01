@@ -8,11 +8,18 @@
 |------------------|------------------|-----------|---------|--------------------------------------------------|
 | [disabled](#disabled)       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
 | [error](#error)          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
+| [noValidate](#noValidate)     | `noValidate`     | `Boolean` |         | If set, disables auto-validation on blur.        |
 | [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null    | Specifies the current selected option.           |
 | [required](#required)       | `required`       | `Boolean` |         | Populates the `required` attribute on the input. Used for client-side validation. |
 | [triggerIcon](#triggerIcon)    | `triggerIcon`    | `Boolean` |         | If set, the `icon` attribute will be applied to the trigger `auro-input` element. |
 | [type](#type)           | `type`           | `String`  |         | Applies the defined value as the type attribute on auro-input. |
 | [value](#value)          | `value`          | `String`  | null    | Value selected for the dropdown menu.            |
+
+## Events
+
+| Event                | Type               |
+|----------------------|--------------------|
+| `auroCombobox-ready` | `CustomEvent<any>` |
 
 ## Slots
 
@@ -123,6 +130,44 @@ Sets a persistent error state (e.g. an error state returned from the server).
 
 ```html
 <auro-combobox error>
+  <span slot="label">Name</span>
+  <auro-menu>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+    <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
+  </auro-menu>
+</auro-combobox>
+```
+
+</auro-accordion>
+
+#### noValidate
+
+Intended for use with the `required` attribute. If set, disables auto-validation on blur. By using these two attributes in combination the validation for required fields is still computed for forms but no validation messaging will be generated in the UI.
+
+<div class="exampleWrapper">
+  <auro-combobox required noValidate>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-combobox required noValidate>
   <span slot="label">Name</span>
   <auro-menu>
     <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>

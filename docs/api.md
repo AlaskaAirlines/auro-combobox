@@ -6,6 +6,7 @@
 |------------------|------------------|-----------|---------|--------------------------------------------------|
 | `disabled`       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
 | `error`          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
+| `noValidate`     | `noValidate`     | `Boolean` |         | If set, disables auto-validation on blur.        |
 | `optionSelected` | `optionSelected` | `Object`  | null    | Specifies the current selected option.           |
 | `required`       | `required`       | `Boolean` |         | Populates the `required` attribute on the input. Used for client-side validation. |
 | `triggerIcon`    | `triggerIcon`    | `Boolean` |         | If set, the `icon` attribute will be applied to the trigger `auro-input` element. |

@@ -53,6 +53,22 @@ Sets a persistent error state (e.g. an error state returned from the server).
 
 </auro-accordion>
 
+#### noValidate
+
+Intended for use with the `required` attribute. If set, disables auto-validation on blur. By using these two attributes in combination the validation for required fields is still computed for forms but no validation messaging will be generated in the UI.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noValidate.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noValidate.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 #### required
 
 Populates the `required` attribute on the input. Used for client-side validation.
