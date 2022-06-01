@@ -22,6 +22,7 @@ import styleCss from "./style-css.js";
  * @prop {String} value - Value selected for the dropdown menu.
  * @attr {Boolean} error - Sets a persistent error state (e.g. an error state returned from the server).
  * @attr {Boolean} disabled - If set, disables the combobox.
+ * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} triggerIcon - If set, the `icon` attribute will be applied to the trigger `auro-input` element.
  * @attr {String} type - Applies the defined value as the type attribute on auro-input.
@@ -67,6 +68,7 @@ class AuroCombobox extends LitElement {
         reflect: true
       },
       optionSelected: { type: Object },
+      noValidate: { type: Boolean },
       required: {
         type: Boolean,
         reflect: true
@@ -413,6 +415,7 @@ class AuroCombobox extends LitElement {
             borderless
             value="${this.displayValue === null ? `` : this.displayValue}"
             ?required="${this.required}"
+            ?noValidate="${this.noValidate}"
             .type="${this.type}"
             ?icon="${this.triggerIcon}">
             <slot name="label" slot="label"></slot>
