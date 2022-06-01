@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.2.0...v1.2.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **dropdown:** remove hover state background color change [#34](https://github.com/AlaskaAirlines/auro-combobox/issues/34) ([4cd1001](https://github.com/AlaskaAirlines/auro-combobox/commit/4cd1001249cb5d5786ae6585e9be23f92d186dae))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.1.2...v1.2.0) (2022-05-24)
 
 
