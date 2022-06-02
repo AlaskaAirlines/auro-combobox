@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.2.1...v1.3.0) (2022-06-02)
+
+
+### Features
+
+* **noValidate:** support auro-input noValidate attribute [#37](https://github.com/AlaskaAirlines/auro-combobox/issues/37) ([84ca2f2](https://github.com/AlaskaAirlines/auro-combobox/commit/84ca2f2b525f18baad3e7a19750f0b21935f0be1))
+
 ## [1.2.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.2.0...v1.2.1) (2022-06-01)
 
 
