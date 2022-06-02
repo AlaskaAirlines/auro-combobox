@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event                | Type               |
-|----------------------|--------------------|
-| `auroCombobox-ready` | `CustomEvent<any>` |
+| Event                | Type               | Description                                      |
+|----------------------|--------------------|--------------------------------------------------|
+| `auroCombobox-ready` | `CustomEvent<any>` | Notifies that the component has finished initializing. |
 
 ## Slots
 
