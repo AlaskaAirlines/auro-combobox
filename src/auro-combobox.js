@@ -30,6 +30,7 @@ import styleCss from "./style-css.js";
  * @slot label - Defines the content of the label.
  * @slot helpText - Defines the content of the helpText.
  * @fires auroCombobox-ready - Notifies that the component has finished initializing.
+ * @fires auroCombobox-valueSet - Notifies that the component has a new value set.
  */
 
 // build the component class
@@ -230,6 +231,12 @@ class AuroCombobox extends LitElement {
 
       // update the hidden state of options based on newly selected value
       this.handleMenuOptions();
+
+      this.dispatchEvent(new CustomEvent('auroCombobox-valueSet', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
     });
 
     this.addEventListener('auroMenu-customEventFired', () => {

@@ -120,7 +120,7 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
 
 ### Slot Examples
 
-#### HelpText
+#### helpText
 
 Sets the help text displayed below the trigger. The `helpText` slot can be used to provide additional context for the combobox. When using the `error` property, the `helpText` slot can be used to describe the error.
 

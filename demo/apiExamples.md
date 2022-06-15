@@ -17,16 +17,17 @@
 
 ## Events
 
-| Event                | Type               | Description                                      |
-|----------------------|--------------------|--------------------------------------------------|
-| `auroCombobox-ready` | `CustomEvent<any>` | Notifies that the component has finished initializing. |
+| Event                   | Type               | Description                                      |
+|-------------------------|--------------------|--------------------------------------------------|
+| `auroCombobox-ready`    | `CustomEvent<any>` | Notifies that the component has finished initializing. |
+| `auroCombobox-valueSet` | `CustomEvent<any>` | Notifies that the component has a new value set. |
 
 ## Slots
 
 | Name       | Description                          |
 |------------|--------------------------------------|
 |            | Default slot for the menu content.   |
-| [helpText](#helpText) | Defines the content of the helpText. |
+| [helpText](#helptext) | Defines the content of the helpText. |
 | [label](#label)    | Defines the content of the label.    |
 
 ## API Examples
@@ -299,7 +300,7 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
 
 ### Slot Examples
 
-#### HelpText
+#### helpText
 
 Sets the help text displayed below the trigger. The `helpText` slot can be used to provide additional context for the combobox. When using the `error` property, the `helpText` slot can be used to describe the error.
 
