@@ -114,6 +114,18 @@ class AuroCombobox extends LitElement {
   }
 
   /**
+   * @returns {void} Applies focus to the trigger element.
+   */
+   focus() {
+    console.warn('focus');
+    const auroinput = this.shadowRoot.querySelector('auro-input'); //.focus();
+
+    console.warn(auroinput);
+
+    auroinput.focus();
+  }
+
+  /**
    * Processes hidden state of all menu options and determines if there are any available options not hidden.
    * @private
    * @returns {void}
@@ -329,6 +341,8 @@ class AuroCombobox extends LitElement {
     });
 
     this.checkReadiness();
+
+    this.focus();
   }
 
   /**
