@@ -15,6 +15,12 @@
 | [type](#type)           | `type`           | `String`  |         | Applies the defined value as the type attribute on auro-input. |
 | [value](#value)          | `value`          | `String`  | null    | Value selected for the dropdown menu.            |
 
+## Methods
+
+| Method  | Type       | Description                         |
+|---------|------------|-------------------------------------|
+| [focus](#focus) | `(): void` | Focuses the combobox trigger input. |
+
 ## Events
 
 | Event                   | Type               | Description                                      |
@@ -27,7 +33,7 @@
 | Name       | Description                          |
 |------------|--------------------------------------|
 |            | Default slot for the menu content.   |
-| [helpText](#helptext) | Defines the content of the helpText. |
+| [helpText](#helpText) | Defines the content of the helpText. |
 | [label](#label)    | Defines the content of the label.    |
 
 ## API Examples
@@ -292,6 +298,59 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
       05/16/2022
     </auro-menuoption>
     <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
+  </auro-menu>
+</auro-combobox>
+```
+
+</auro-accordion>
+
+### Method Examples
+
+#### focus
+
+The focus method will apply focus state to the combobox input field.
+
+<div class="exampleWrapper">
+  <auro-button id="focusExampleBtn">Apply focus to combobox</auro-button>
+  <br /><br />
+  <auro-combobox id="focusExample">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```js
+const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
+const focusExampleElem = document.querySelector('#focusExample');
+
+if (focusExampleElem && focusExampleBtnElem) {
+  focusExampleBtnElem.addEventListener('click', () => {
+    focusExampleElem.focus();
+  })
+}
+```
+
+```html
+<auro-button id="focusExampleBtn">Apply focus to combobox</auro-button>
+<br /><br />
+<auro-combobox id="focusExample">
+  <span slot="label">Name</span>
+  <auro-menu>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
