@@ -9,7 +9,7 @@ import { LitElement, html } from "lit-element";
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit-element";
-// import AuroElement from '@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
+// import AuroElement from '@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
 /* eslint-disable max-lines */
 
