@@ -13,6 +13,12 @@
 | `type`           | `type`           | `String`  |         | Applies the defined value as the type attribute on auro-input. |
 | `value`          | `value`          | `String`  | null    | Value selected for the dropdown menu.            |
 
+## Methods
+
+| Method  | Type       | Description                         |
+|---------|------------|-------------------------------------|
+| `focus` | `(): void` | Focuses the combobox trigger input. |
+
 ## Events
 
 | Event                   | Type               | Description                                      |

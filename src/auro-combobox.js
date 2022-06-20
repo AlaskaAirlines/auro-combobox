@@ -392,6 +392,15 @@ class AuroCombobox extends LitElement {
     }
   }
 
+  /**
+   * Focuses the combobox trigger input.
+   * @returns {void}
+   */
+  focus() {
+    this.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input').
+      focus();
+  }
+
   updated(changedProperties) {
     // After the component is ready, send direct value changes to auro-menu.
     if (this.ready && changedProperties.has('value')) {
