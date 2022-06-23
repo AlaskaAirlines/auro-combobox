@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [1.4.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.3.0...v1.4.0) (2022-06-23)
+
+
+### Features
+
+* **event:** add event for when value is set [#41](https://github.com/AlaskaAirlines/auro-combobox/issues/41) ([2c8786b](https://github.com/AlaskaAirlines/auro-combobox/commit/2c8786be1b8549df983624ff5529f9df710585ba))
+* **focus:** add focus method [#42](https://github.com/AlaskaAirlines/auro-combobox/issues/42) ([f84a473](https://github.com/AlaskaAirlines/auro-combobox/commit/f84a4733fe5c9b2673fc79b525424b60f0df95ba))
+
 # [1.3.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.2.1...v1.3.0) (2022-06-02)
 
 
