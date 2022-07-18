@@ -221,7 +221,7 @@ class AuroCombobox extends LitElement {
       this.optionSelected = this.menu.optionSelected;
       this.value = this.optionSelected.value;
       this.displayValue = this.optionSelected.innerText;
-      this.triggerInput.value = this.optionSelected.value;
+      this.triggerInput.value = this.optionSelected.innerText;
       this.classList.add('combobox-filled');
 
       // dropdown bib should hide when making a selection
