@@ -165,10 +165,12 @@ class AuroCombobox extends LitElement {
    */
   handleRequired() {
     if (this.required) {
-      if (!this.triggerInput.value || this.triggerInput.value.length === 0) {
+      if (!this.value) {
         this.error = true;
+        this.setAttribute('error', '');
       } else {
         this.error = false;
+        this.removeAttribute('error');
       }
     }
   }
@@ -251,7 +253,7 @@ class AuroCombobox extends LitElement {
 
     this.addEventListener('keydown', (evt) => {
       if (evt.key === 'Enter') {
-        if (this.dropdown.isPopoverVisible) {
+        if (this.dropdown.isPopoverVisible && this.optionActive) {
           this.menu.makeSelection();
         } else if (this.triggerInput.value.length > 0 && this.availableOptions) {
           this.dropdown.show();
@@ -305,7 +307,7 @@ class AuroCombobox extends LitElement {
       }
 
       // force the dropdown bib to hide if the input value has no matching suggestions
-      if (!this.availableOptions) {
+      if (!this.availableOptions || this.availableOptions.length === 0) {
         this.dropdown.hide();
       }
     });
@@ -363,14 +365,14 @@ class AuroCombobox extends LitElement {
       this.notifyReady();
     } else {
       // Start a retry counter to limit the retry count
-      if (!this.readyRetryCount) {
+      if (!this.readyRetryCount && this.readyRetryCount !== 0) {
         this.readyRetryCount = 0;
       } else {
         this.readyRetryCount += 1;
       }
 
-      const readyTimer = 200;
-      const readyRetryLimit = 20;
+      const readyTimer = 0;
+      const readyRetryLimit = 200;
 
       if (this.readyRetryCount <= readyRetryLimit) {
         setTimeout(() => {
