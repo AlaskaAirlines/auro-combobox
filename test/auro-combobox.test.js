@@ -19,6 +19,24 @@ describe('auro-combobox', () => {
   //   await expect(el).to.be.accessible();
   // });
 
+  it('noFilter attribute results in no suggestion filtering', async () => {
+    const el = await noFilterFixture();
+
+    const menu = el.querySelector('auro-menu')
+    const menuOptions = menu.querySelectorAll('auro-menuoption');
+    let visibleMenuOptions = [];
+
+    setInputValue(el, 'pp');
+
+    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+      if (!menuOptions[oIndex].hasAttribute('hidden')) {
+        visibleMenuOptions.push(menuOptions[oIndex]);
+      }
+    };
+
+    await expect(visibleMenuOptions.length).to.be.equal(2);
+  });
+
   it('can programmatically apply focus to input', async () => {
    const el = await defaultFixture();
 
@@ -404,6 +422,18 @@ async function customEventFixture() {
     <span slot="label">Name</span>
     <auro-menu>
       <auro-menuoption event="mycustomevent">Add new fruit</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  `);
+}
+
+async function noFilterFixture() {
+  return await fixture(html`
+  <auro-combobox noFilter>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
     </auro-menu>
   </auro-combobox>
   `);

@@ -22,6 +22,7 @@ import styleCss from "./style-css.js";
  * @prop {String} value - Value selected for the dropdown menu.
  * @attr {Boolean} error - Sets a persistent error state (e.g. an error state returned from the server).
  * @attr {Boolean} disabled - If set, disables the combobox.
+ * @attr {Boolean} noFilter - If set, combobox will not filter menuoptions based in input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} triggerIcon - If set, the `icon` attribute will be applied to the trigger `auro-input` element.
@@ -38,6 +39,7 @@ class AuroCombobox extends LitElement {
   constructor() {
     super();
 
+    this.noFilter = false;
     this.value = null;
     this.optionSelected = null;
 
@@ -66,6 +68,10 @@ class AuroCombobox extends LitElement {
         reflect: true
       },
       disabled: {
+        type: Boolean,
+        reflect: true
+      },
+      noFilter: {
         type: Boolean,
         reflect: true
       },
@@ -120,40 +126,48 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   handleMenuOptions() {
+    this.generateOptionsArray();
     this.availableOptions = [];
 
-    let noMatchOption = undefined; // eslint-disable-line no-undef-init
-
-    this.options.forEach((option) => {
-      let matchString = option.innerText.toLowerCase();
-
-      if (option.hasAttribute('nomatch')) {
-        noMatchOption = option;
-      }
-
-      if (option.hasAttribute('persistent')) {
+    if (this.noFilter) {
+      this.options.forEach((option) => {
         this.availableOptions.push(option);
-      }
+      });
+    } else {
 
-      if (option.hasAttribute('suggest')) {
-        matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
-      }
+      let noMatchOption = undefined; // eslint-disable-line no-undef-init
 
-      // only count options that match the typed input value AND are not currently selected
-      if (matchString.includes(this.triggerInput.value.toLowerCase())) {
-        option.removeAttribute('hidden');
-        this.availableOptions.push(option);
-      } else if (!option.hasAttribute('persistent')) {
-        // Hide all other non-persistent options
-        option.setAttribute('hidden', '');
-      }
-    });
+      this.options.forEach((option) => {
+        let matchString = option.innerText.toLowerCase();
 
-    if (noMatchOption) {
-      if (this.availableOptions.length === 0) {
-        noMatchOption.removeAttribute('hidden');
-      } else {
-        noMatchOption.setAttribute('hidden', '');
+        if (option.hasAttribute('nomatch')) {
+          noMatchOption = option;
+        }
+
+        if (option.hasAttribute('persistent')) {
+          this.availableOptions.push(option);
+        }
+
+        if (option.hasAttribute('suggest')) {
+          matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
+        }
+
+        // only count options that match the typed input value AND are not currently selected
+        if (matchString.includes(this.triggerInput.value.toLowerCase())) {
+          option.removeAttribute('hidden');
+          this.availableOptions.push(option);
+        } else if (!option.hasAttribute('persistent')) {
+          // Hide all other non-persistent options
+          option.setAttribute('hidden', '');
+        }
+      });
+
+      if (noMatchOption) {
+        if (this.availableOptions.length === 0) {
+          noMatchOption.removeAttribute('hidden');
+        } else {
+          noMatchOption.setAttribute('hidden', '');
+        }
       }
     }
   }
@@ -175,24 +189,29 @@ class AuroCombobox extends LitElement {
     }
   }
 
-  firstUpdated() {
-    this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
-    this.menu = this.querySelector('auro-menu');
-    this.input = this.dropdown.querySelector('auro-input');
+  /**
+   * Determines the element error state based on the `required` attribute and input value.
+   * @private
+   * @returns {void}
+   */
+  generateOptionsArray() {
+    if (this.menu) {
+      this.options = this.menu.querySelectorAll('auro-menuoption');
+    } else {
+      this.options = [];
+    }
+  }
 
+  /**
+   * Binds all behavior needed to the dropdown after rendering.
+   * @private
+   * @returns {void}
+   */
+  configureDropdown() {
+    this.dropdown.setAttribute('role', 'combobox');
     this.dropdown.addEventListener('auroDropdown-ready', () => {
       this.auroDropdownReady = true;
     });
-
-    this.menu.addEventListener('auroMenu-ready', () => {
-      this.auroMenuReady = true;
-    });
-
-    this.input.addEventListener('auroInput-ready', () => {
-      this.auroInputReady = true;
-    });
-
-    this.dropdown.setAttribute('role', 'combobox');
 
     this.dropdown.addEventListener('auroDropdown-triggerClick', () => {
       if (!this.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
@@ -203,15 +222,17 @@ class AuroCombobox extends LitElement {
     if (!this.dropdown.hasAttribute('aria-expanded')) {
       this.dropdown.setAttribute('aria-expanded', this.dropdown.isPopoverVisible);
     }
+  }
 
-
-    if (this.menu) {
-      this.options = this.menu.querySelectorAll('auro-menuoption');
-    } else {
-      this.options = [];
-    }
-
-    this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
+  /**
+   * Binds all behavior needed to the menu after rendering.
+   * @private
+   * @returns {void}
+   */
+  configureMenu() {
+    this.menu.addEventListener('auroMenu-ready', () => {
+      this.auroMenuReady = true;
+    });
 
     // handle the menu event for an option selection
     this.addEventListener('auroMenu-selectedOption', () => {
@@ -224,6 +245,7 @@ class AuroCombobox extends LitElement {
       this.value = this.optionSelected.value;
       this.displayValue = this.optionSelected.innerText;
       this.triggerInput.value = this.optionSelected.innerText;
+      this.menu.matchWord = this.triggerInput.value;
       this.classList.add('combobox-filled');
 
       // dropdown bib should hide when making a selection
@@ -251,43 +273,24 @@ class AuroCombobox extends LitElement {
       this.optionActive = evt.detail;
     });
 
-    this.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Enter') {
-        if (this.dropdown.isPopoverVisible && this.optionActive) {
-          this.menu.makeSelection();
-        } else if (this.triggerInput.value.length > 0 && this.availableOptions) {
-          this.dropdown.show();
-        }
-      }
+    this.menu.addEventListener('auroMenu-selectValueFailure', () => {
+      this.setAttribute('error', '');
+    });
+  }
 
-      if (evt.key === 'Tab' && this.dropdown.isPopoverVisible) {
-        this.dropdown.hide();
-      }
-
-      /**
-       * Prevent moving the cursor position while navigating the menu options.
-       */
-      if (evt.key === 'ArrowUp' || evt.key === 'ArrowDown') {
-        if (this.dropdown.isPopoverVisible) {
-          evt.preventDefault();
-        }
-      }
-
-      if (this.dropdown.isPopoverVisible && this.availableOptions.length > 0) {
-        if (evt.key === 'ArrowUp') {
-          this.menu.selectNextItem('up');
-        }
-
-        if (evt.key === 'ArrowDown') {
-          this.menu.selectNextItem('down');
-        }
-      }
+  /**
+   * Binds all behavior needed to the input after rendering.
+   * @private
+   * @returns {void}
+   */
+  configureInput() {
+    this.input.addEventListener('auroInput-ready', () => {
+      this.auroInputReady = true;
     });
 
     this.triggerInput.addEventListener('input', () => {
       // pass the input value to menu to do match highlighting
       this.menu.matchWord = this.triggerInput.value;
-
       // reset all states
       this.displayValue = this.triggerInput.value;
       this.value = null;
@@ -321,10 +324,6 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.menu.addEventListener('auroMenu-selectValueFailure', () => {
-      this.setAttribute('error', '');
-    });
-
     this.triggerInput.addEventListener('auroInput-validated', (evt) => {
       if (evt.detail.isValid) {
         this.removeAttribute('error');
@@ -336,6 +335,58 @@ class AuroCombobox extends LitElement {
     this.triggerInput.addEventListener('auroInput-helpText', (evt) => {
       this.auroInputHelpText = evt.detail.message; /* eslint-disable-line camelcase */
     });
+  }
+
+  /**
+   * Binds all behavior needed to the combobox after rendering.
+   * @private
+   * @returns {void}
+   */
+  configureCombobox() {
+    this.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Enter') {
+        if (this.dropdown.isPopoverVisible && this.optionActive) {
+          this.menu.makeSelection();
+        } else if (this.triggerInput.value.length > 0 && this.availableOptions) {
+          this.dropdown.show();
+        }
+      }
+
+      if (evt.key === 'Tab' && this.dropdown.isPopoverVisible) {
+        this.dropdown.hide();
+      }
+
+      /**
+       * Prevent moving the cursor position while navigating the menu options.
+       */
+      if (evt.key === 'ArrowUp' || evt.key === 'ArrowDown') {
+        if (this.dropdown.isPopoverVisible) {
+          evt.preventDefault();
+        }
+      }
+
+      if (this.dropdown.isPopoverVisible && this.availableOptions.length > 0) {
+        if (evt.key === 'ArrowUp') {
+          this.menu.selectNextItem('up');
+        }
+
+        if (evt.key === 'ArrowDown') {
+          this.menu.selectNextItem('down');
+        }
+      }
+    });
+  }
+
+  firstUpdated() {
+    this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
+    this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
+    this.menu = this.querySelector('auro-menu');
+    this.input = this.dropdown.querySelector('auro-input');
+
+    this.configureDropdown();
+    this.configureMenu();
+    this.configureInput();
+    this.configureCombobox();
 
     this.checkReadiness();
   }
@@ -410,6 +461,15 @@ class AuroCombobox extends LitElement {
     }
   }
 
+  /**
+   * Watch for slot changes and recalculate the menuoptions.
+   * @private
+   * @returns {void}
+   */
+  handleSlotChange() {
+    this.handleMenuOptions();
+  }
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
@@ -440,7 +500,7 @@ class AuroCombobox extends LitElement {
             <slot name="label" slot="label"></slot>
           </auro-input>
           <div class="menuWrapper">
-            <slot></slot>
+            <slot slotchange="${this.handleSlotChange()}"></slot>
           </div>
           <span slot="helpText">
             ${this.auroInputHelpText
