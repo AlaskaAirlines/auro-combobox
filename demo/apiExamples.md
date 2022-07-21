@@ -8,6 +8,7 @@
 |------------------|------------------|-----------|---------|--------------------------------------------------|
 | [disabled](#disabled)       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
 | [error](#error)          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
+| [noFilter](#noFilter)       | `noFilter`       | `Boolean` | false   | If set, combobox will not do suggestion filtering of the menuoptions. |
 | [noValidate](#noValidate)     | `noValidate`     | `Boolean` |         | If set, disables auto-validation on blur.        |
 | [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null    | Specifies the current selected option.           |
 | [required](#required)       | `required`       | `Boolean` |         | Populates the `required` attribute on the input. Used for client-side validation. |
@@ -76,7 +77,7 @@
 
 ### Property Examples
 
-#### Disabled
+#### disabled
 
 If set, disables the combobox.
 
@@ -107,6 +108,42 @@ If set, disables the combobox.
     <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
     <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
     <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
+  </auro-menu>
+</auro-combobox>
+```
+
+</auro-accordion>
+
+#### noFilter
+
+If set, combobox will not do suggestion filtering of the menuoptions. This option is useful when the `<auro-menuoption>` elements are being pre-filtered externally to combobox (e.g. using the citysearch API).
+
+<div class="exampleWrapper">
+  <auro-combobox noFilter>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-combobox noFilter>
+  <span slot="label">Name</span>
+  <auro-menu>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
