@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.1...v1.4.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* **testing:** add tests and fix code so they all pass [#46](https://github.com/AlaskaAirlines/auro-combobox/issues/46) ([85df3bb](https://github.com/AlaskaAirlines/auro-combobox/commit/85df3bbedc2ea2075c5003baa46056268fbb0850))
+
 ## [1.4.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.0...v1.4.1) (2022-07-18)
 
 
