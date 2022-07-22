@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.2...v1.4.3) (2022-07-22)
+
+
+### Bug Fixes
+
+* **menu:** updates to support dynamic menus [#50](https://github.com/AlaskaAirlines/auro-combobox/issues/50) ([c9a1f4f](https://github.com/AlaskaAirlines/auro-combobox/commit/c9a1f4ff1336c45452a4c1d8b10d57ea3c614622))
+
 ## [1.4.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.1...v1.4.2) (2022-07-21)
 
 
