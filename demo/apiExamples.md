@@ -8,7 +8,7 @@
 |------------------|------------------|-----------|---------|--------------------------------------------------|
 | [disabled](#disabled)       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
 | [error](#error)          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
-| [noFilter](#noFilter)       | `noFilter`       | `Boolean` | false   | If set, combobox will not do suggestion filtering of the menuoptions. |
+| [noFilter](#noFilter)       | `noFilter`       | `Boolean` | false   | If set, combobox will not filter menuoptions based in input. |
 | [noValidate](#noValidate)     | `noValidate`     | `Boolean` |         | If set, disables auto-validation on blur.        |
 | [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null    | Specifies the current selected option.           |
 | [required](#required)       | `required`       | `Boolean` |         | Populates the `required` attribute on the input. Used for client-side validation. |
