@@ -38,6 +38,21 @@
 
 </auro-accordion>
 
+### Example with checkmark for selected option
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/withCheckmark.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/withCheckmark.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 ### Using the type attribute
 
 The `type` attribute may be used to apply the corresponding `type` attribute on [auro-input](http://auro.alaskaair.com/components/auro/input/api).

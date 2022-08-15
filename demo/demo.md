@@ -822,6 +822,40 @@ The `<auro-combobox>` element should be used in situations where users may:
 
 </auro-accordion>
 
+### Example with checkmark for selected option
+
+<div class="exampleWrapper">
+  <auro-combobox checkmark>
+      <span slot="label">Name</span>
+      <auro-menu>
+          <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+          <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+          <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+          <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+          <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+          <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+  </auro-combobox>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-combobox checkmark>
+    <span slot="label">Name</span>
+    <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+</auro-combobox>
+```
+
+</auro-accordion>
+
 ### Using the type attribute
 
 The `type` attribute may be used to apply the corresponding `type` attribute on [auro-input](http://auro.alaskaair.com/components/auro/input/api).
