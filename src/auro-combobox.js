@@ -245,27 +245,29 @@ class AuroCombobox extends LitElement {
         this.auroInputHelpText = undefined; /* eslint-disable-line camelcase */
       }
 
-      this.removeAttribute('error');
-      this.optionSelected = this.menu.optionSelected;
-      this.value = this.optionSelected.value;
-      this.displayValue = this.optionSelected.innerText;
-      this.triggerInput.value = this.optionSelected.innerText;
-      this.menu.matchWord = this.triggerInput.value;
-      this.classList.add('combobox-filled');
-
       // dropdown bib should hide when making a selection
       if (this.dropdown.isPopoverVisible) {
         this.dropdown.hide();
       }
 
-      // update the hidden state of options based on newly selected value
-      this.handleMenuOptions();
+      if (this.menu.optionSelected) {
+        this.removeAttribute('error');
+        this.optionSelected = this.menu.optionSelected;
+        this.value = this.optionSelected.value;
+        this.displayValue = this.optionSelected.innerText;
+        this.triggerInput.value = this.optionSelected.innerText;
+        this.menu.matchWord = this.triggerInput.value;
+        this.classList.add('combobox-filled');
 
-      this.dispatchEvent(new CustomEvent('auroCombobox-valueSet', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-      }));
+        // update the hidden state of options based on newly selected value
+        this.handleMenuOptions();
+
+        this.dispatchEvent(new CustomEvent('auroCombobox-valueSet', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+      }
     });
 
     this.addEventListener('auroMenu-customEventFired', () => {
@@ -321,8 +323,6 @@ class AuroCombobox extends LitElement {
     });
 
     this.triggerInput.addEventListener('blur', () => {
-      this.menu.resetOptionsStates();
-
       if (this.triggerInput.value.length > 0 && !this.optionSelected) {
         this.setAttribute('error', '');
         this.auroInputHelpText = this.msgSelectionMissing; /* eslint-disable-line camelcase */
@@ -390,7 +390,7 @@ class AuroCombobox extends LitElement {
 
   performUpdate() {
     super.performUpdate();
-    
+
     this.menus = [...this.querySelectorAll('auro-menu')];
 
     for (let index = 0; index < this.menus.length; index += 1) {

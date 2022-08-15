@@ -1,4 +1,4 @@
-import { fixture, html, expect } from '@open-wc/testing';
+import { fixture, html, expect, waitUntil, elementUpdated } from '@open-wc/testing';
 import '../src/auro-combobox.js';
 import '@aurodesignsystem/auro-input';
 import '@aurodesignsystem/auro-dropdown';
@@ -90,16 +90,17 @@ describe('auro-combobox', () => {
 
   it('hides the bib when making a selection', async () => {
     const el = await defaultFixture();
-
-    const menu = el.querySelector('auro-menu')
+    await waitUntil(() => el.ready);
+    
     const dropdown = el.shadowRoot.querySelector('auro-dropdown');
-    const trigger = dropdown.querySelector('[slot="trigger"]');
 
     setInputValue(el, 'p');
-    trigger.click();
     await expect(dropdown.isPopoverVisible).to.be.true;
 
-    menu.selectByValue('Apples');
+    el.value = 'Apples';
+
+    await waitUntil(() => el.optionSelected);
+
     await expect(dropdown.isPopoverVisible).to.be.false;
   });
 
@@ -123,6 +124,8 @@ describe('auro-combobox', () => {
 
   it('hides the bib when selecting an option with a custom event', async () => {
     const el = await customEventFixture();
+    await waitUntil(() => el.ready);
+
     const dropdown = el.shadowRoot.querySelector('auro-dropdown');
     const trigger = dropdown.querySelector('[slot="trigger"]');
 
@@ -290,7 +293,9 @@ describe('auro-combobox', () => {
     const menuOptions = menu.querySelectorAll('auro-menuoption');
     let selectedOptions = [];
 
-    menu.selectByValue('Apples');
+    el.value = 'Apples';
+
+    await waitUntil(() => el.optionSelected);
 
     for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
       if (menuOptions[oIndex].hasAttribute('selected')) {
@@ -322,12 +327,15 @@ describe('auro-combobox', () => {
 
   it('throws an error state when trying to programmatically set a value that doesn\'t match an option', async () => {
     const el = await defaultFixture();
+    await waitUntil(() => el.ready);
 
     const menu = el.querySelector('auro-menu')
 
     await expect(el.hasAttribute('error')).to.be.false;
 
-    menu.selectByValue('Dragon Fruit');
+    el.value = 'Dragon Fruit';
+
+    await elementUpdated(el);
 
     await expect(el.hasAttribute('error')).to.be.true;
   });
@@ -352,6 +360,20 @@ describe('auro-combobox', () => {
     hasError = el.hasAttribute('error');
     await expect(hasError).to.be.true;
   });
+
+  it('default to nocheckmark on selected option', async () => {
+    const el = await defaultFixture();
+
+    const menu = el.querySelector('auro-menu');
+    await expect(menu.hasAttribute('nocheckmark')).to.be.true;
+  });
+
+  it('selected options have checkmark when checkmark attribute is present', async () => {
+    const el = await checkmarkFixture();
+
+    const menu = el.querySelector('auro-menu');
+    await expect(menu.hasAttribute('nocheckmark')).to.be.false;
+  });
 });
 
 async function defaultFixture() {
@@ -365,6 +387,19 @@ async function defaultFixture() {
   </auro-combobox>
   `);
 }
+
+async function checkmarkFixture() {
+  return await fixture(html`
+  <auro-combobox checkmark>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  `);
+}
+
 
 async function suggestFixture() {
   return await fixture(html`
