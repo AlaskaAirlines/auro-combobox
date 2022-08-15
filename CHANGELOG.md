@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.3...v1.4.4) (2022-08-15)
+
+
+### Bug Fixes
+
+* **template:** add attributes to support desired UI [#58](https://github.com/AlaskaAirlines/auro-combobox/issues/58) ([7cf1604](https://github.com/AlaskaAirlines/auro-combobox/commit/7cf1604149eb68b53524abfb5a5ed5dfafb076e9))
+
 ## [1.4.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.2...v1.4.3) (2022-07-22)
 
 
