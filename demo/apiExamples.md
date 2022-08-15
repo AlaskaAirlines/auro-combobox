@@ -6,6 +6,7 @@
 
 | Property         | Attribute        | Type      | Default | Description                                      |
 |------------------|------------------|-----------|---------|--------------------------------------------------|
+| [checkmark](#checkmark)      | `checkmark`      | `Boolean` |         | When attribute is present auro-menu will apply checkmarks to selected options. |
 | [disabled](#disabled)       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
 | [error](#error)          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
 | [noFilter](#noFilter)       | `noFilter`       | `Boolean` | false   | If set, combobox will not filter menuoptions based in input. |
