@@ -20,6 +20,7 @@ import styleCss from "./style-css.js";
 /**
  * @prop {Object} optionSelected - Specifies the current selected option.
  * @prop {String} value - Value selected for the dropdown menu.
+ * @prop {Boolean} checkmark - When attribute is present auro-menu will apply checkmarks to selected options.
  * @attr {Boolean} error - Sets a persistent error state (e.g. an error state returned from the server).
  * @attr {Boolean} disabled - If set, disables the combobox.
  * @attr {Boolean} noFilter - If set, combobox will not filter menuoptions based in input.
@@ -91,6 +92,10 @@ class AuroCombobox extends LitElement {
       },
       value: {
         type: String,
+        reflect: true
+      },
+      checkmark: {
+        type: Boolean,
         reflect: true
       },
 
@@ -375,6 +380,26 @@ class AuroCombobox extends LitElement {
         }
       }
     });
+  }
+
+  /**
+   * Handle element attributes on update.
+   * @private
+   * @returns {void}
+   */
+
+  performUpdate() {
+    super.performUpdate();
+    
+    this.menus = [...this.querySelectorAll('auro-menu')];
+
+    for (let index = 0; index < this.menus.length; index += 1) {
+      if (this.checkmark) {
+        this.menus[index].removeAttribute('nocheckmark');
+      } else {
+        this.menus[index].setAttribute('nocheckmark', '');
+      }
+    }
   }
 
   firstUpdated() {
