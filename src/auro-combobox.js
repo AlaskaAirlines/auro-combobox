@@ -281,6 +281,9 @@ class AuroCombobox extends LitElement {
     });
 
     this.menu.addEventListener('auroMenu-selectValueFailure', () => {
+      this.optionSelected = undefined;
+      this.displayValue = this.value;
+      this.classList.add('combobox-filled');
       this.setAttribute('error', '');
     });
   }
