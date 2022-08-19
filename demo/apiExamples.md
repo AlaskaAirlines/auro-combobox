@@ -268,10 +268,21 @@ Populates the `required` attribute on the input. Used for client-side validation
 
 #### value
 
-Value selected for the dropdown menu. Can be used to pre-set the value of the combobox.
+Value selected for the dropdown menu.
+
+Can be used in the following ways:
+* Preset the value of the combobox to valid menu option
+* Set the value of the combobox to invalid menu option
+* Reset the value of the combobox to undefined
+
+Note: using a value that does not match a menu option will reset the combobox value to undefined.
 
 <div class="exampleWrapper">
-  <auro-combobox value="Apples">
+  <auro-button id="valueValidExampleBtn">Set Value to Valid Option</auro-button>
+  <auro-button id="valueInvalidExampleBtn">Set Value to Invalid Option</auro-button>
+  <auro-button id="valueUndefinedExampleBtn">Set Value to Undefined</auro-button>
+  <br/><br/>
+  <auro-combobox id="valueExample" value="Apples">
     <span slot="label">Name</span>
     <auro-menu>
       <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
@@ -288,7 +299,11 @@ Value selected for the dropdown menu. Can be used to pre-set the value of the co
   <span slot="trigger">See code</span>
 
 ```html
-<auro-combobox value="Apples">
+<auro-button id="valueValidExampleBtn">Set Value to Valid Option</auro-button>
+<auro-button id="valueInvalidExampleBtn">Set Value to Invalid Option</auro-button>
+<auro-button id="valueUndefinedExampleBtn">Set Value to Undefined</auro-button>
+<br/><br/>
+<auro-combobox id="valueExample" value="Apples">
   <span slot="label">Name</span>
   <auro-menu>
     <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
@@ -300,6 +315,33 @@ Value selected for the dropdown menu. Can be used to pre-set the value of the co
     <auro-menuoption static nomatch>No matching option</auro-menuoption>
   </auro-menu>
 </auro-combobox>
+```
+
+```js
+setTimeout(() => {
+  const valueValidExampleBtnElem = document.querySelector('#valueValidExampleBtn');
+  const valueInvalidExampleBtnElem = document.querySelector('#valueInvalidExampleBtn')
+  const valueUndefinedExampleBtnElem = document.querySelector('#valueUndefinedExampleBtn')
+  const valueExampleElem = document.querySelector('#valueExample');
+
+  if (valueExampleElem && valueValidExampleBtnElem) {
+    valueValidExampleBtnElem.addEventListener('click', () => {
+      valueExampleElem.value = 'Oranges';
+    })
+  }
+
+  if (valueExampleElem && valueInvalidExampleBtnElem) {
+    valueInvalidExampleBtnElem.addEventListener('click', () => {
+      valueExampleElem.value = 'Dragon Fruit';
+    })
+  }
+
+  if (valueExampleElem && valueUndefinedExampleBtnElem) {
+    valueUndefinedExampleBtnElem.addEventListener('click', () => {
+      valueExampleElem.value = undefined;
+    })
+  }
+}, 200)
 ```
 
 </auro-accordion>
