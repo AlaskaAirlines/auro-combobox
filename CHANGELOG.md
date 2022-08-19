@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [1.5.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.4...v1.5.0) (2022-08-19)
+
+
+### Bug Fixes
+
+* **menu:** improve select failure handling ([8ec1698](https://github.com/AlaskaAirlines/auro-combobox/commit/8ec1698366aa431eea1cdac5df815ffb06ff979e))
+
+
+### Features
+
+* **checkmark:** add attribute to make checkmark optional [#60](https://github.com/AlaskaAirlines/auro-combobox/issues/60) ([f3c2fb5](https://github.com/AlaskaAirlines/auro-combobox/commit/f3c2fb577290909853920ed9465b9f73bc48a67f))
+
 ## [1.4.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.4.3...v1.4.4) (2022-08-15)
 
 
