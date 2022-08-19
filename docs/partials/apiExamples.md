@@ -103,16 +103,26 @@ Populates the `required` attribute on the input. Used for client-side validation
 
 #### value
 
-Value selected for the dropdown menu. Can be used to pre-set the value of the combobox.
+Value selected for the dropdown menu.
+
+Can be used in the following ways:
+* Preset the value of the combobox to valid menu option
+* Set the value of the combobox to invalid menu option
+* Reset the value of the combobox to undefined
+
+Note: using a value that does not match a menu option will reset the combobox value to undefined.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/presetValue.html) -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/presetValue.html) -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.js) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
