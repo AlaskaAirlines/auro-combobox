@@ -286,6 +286,13 @@ class AuroCombobox extends LitElement {
       this.classList.add('combobox-filled');
       this.setAttribute('error', '');
     });
+
+    this.menu.addEventListener('auroMenu-selectValueReset', () => {
+      this.optionSelected = undefined;
+      this.displayValue = '';
+      this.classList.remove('combobox-filled');
+      this.removeAttribute('error');
+    });
   }
 
   /**
