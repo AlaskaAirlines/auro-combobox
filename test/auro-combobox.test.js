@@ -307,6 +307,30 @@ describe('auro-combobox', () => {
     await expect(el.optionSelected).to.be.equal(selectedOptions[0]);
   });
 
+  it('make invalid selection programmatically results in error ui', async () => {
+    const el = await presetValueFixture();
+    await waitUntil(() => el.ready);
+
+    el.value = 'Dragon Fruit';
+
+    await elementUpdated(el);
+
+    await expect(el.optionSelected).to.be.equal(undefined);
+    await expect(el.displayValue).to.be.equal('Dragon Fruit');
+    await expect(el.error).to.be.true;
+  });
+
+  it('reset selection value programmatically', async () => {
+    const el = await presetValueFixture();
+    await waitUntil(() => el.ready);
+
+    el.value = undefined;
+
+    await elementUpdated(el);
+
+    await expect(el.optionSelected).to.be.equal(undefined);
+  });
+
   it('makes a selection using the keyboard', async () => {
     const el = await defaultFixture();
     const menu = el.querySelector('auro-menu');
@@ -379,6 +403,18 @@ describe('auro-combobox', () => {
 async function defaultFixture() {
   return await fixture(html`
   <auro-combobox>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  `);
+}
+
+async function presetValueFixture() {
+  return await fixture(html`
+  <auro-combobox value="Apples">
     <span slot="label">Name</span>
     <auro-menu>
       <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
