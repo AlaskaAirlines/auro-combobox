@@ -21,5 +21,5 @@ setTimeout(() => {
       valueExampleElem.value = undefined;
     })
   }
-}, 200)
+}, 1000)
 
