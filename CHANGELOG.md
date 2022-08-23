@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.5.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.1...v1.5.2) (2022-08-23)
+
+
+### Bug Fixes
+
+* **docs:** increase timeout on value example ([527c972](https://github.com/AlaskaAirlines/auro-combobox/commit/527c972813370fb8c2f2338711d0060e7c9830e0))
+
 ## [1.5.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.0...v1.5.1) (2022-08-23)
 
 
