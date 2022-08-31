@@ -318,30 +318,19 @@ Note: using a value that does not match a menu option will reset the combobox va
 ```
 
 ```js
-setTimeout(() => {
-  const valueValidExampleBtnElem = document.querySelector('#valueValidExampleBtn');
-  const valueInvalidExampleBtnElem = document.querySelector('#valueInvalidExampleBtn')
-  const valueUndefinedExampleBtnElem = document.querySelector('#valueUndefinedExampleBtn')
-  const valueExampleElem = document.querySelector('#valueExample');
+export function initValueExamples(elem) {
+  document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
+    elem.value = 'Oranges';
+  })
 
-  if (valueExampleElem && valueValidExampleBtnElem) {
-    valueValidExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = 'Oranges';
-    })
-  }
+  document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+    elem.value = 'Dragon Fruit';
+  })
 
-  if (valueExampleElem && valueInvalidExampleBtnElem) {
-    valueInvalidExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = 'Dragon Fruit';
-    })
-  }
-
-  if (valueExampleElem && valueUndefinedExampleBtnElem) {
-    valueUndefinedExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = undefined;
-    })
-  }
-}, 200)
+  document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
+    elem.value = undefined;
+  })
+}
 ```
 
 </auro-accordion>
@@ -409,12 +398,11 @@ The focus method will apply focus state to the combobox input field.
   <span slot="trigger">See code</span>
 
 ```js
-const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
-const focusExampleElem = document.querySelector('#focusExample');
+export function focus(elem) {
+  const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
 
-if (focusExampleElem && focusExampleBtnElem) {
   focusExampleBtnElem.addEventListener('click', () => {
-    focusExampleElem.focus();
+    elem.focus();
   })
 }
 ```
