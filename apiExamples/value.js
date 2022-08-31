@@ -1,25 +1,13 @@
-setTimeout(() => {
-  const valueValidExampleBtnElem = document.querySelector('#valueValidExampleBtn');
-  const valueInvalidExampleBtnElem = document.querySelector('#valueInvalidExampleBtn')
-  const valueUndefinedExampleBtnElem = document.querySelector('#valueUndefinedExampleBtn')
-  const valueExampleElem = document.querySelector('#valueExample');
+export function initValueExamples(elem) {
+  document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
+    elem.value = 'Oranges';
+  })
 
-  if (valueExampleElem && valueValidExampleBtnElem) {
-    valueValidExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = 'Oranges';
-    })
-  }
+  document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+    elem.value = 'Dragon Fruit';
+  })
 
-  if (valueExampleElem && valueInvalidExampleBtnElem) {
-    valueInvalidExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = 'Dragon Fruit';
-    })
-  }
-
-  if (valueExampleElem && valueUndefinedExampleBtnElem) {
-    valueUndefinedExampleBtnElem.addEventListener('click', () => {
-      valueExampleElem.value = undefined;
-    })
-  }
-}, 1000)
-
+  document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
+    elem.value = undefined;
+  })
+}
