@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.5.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.2...v1.5.3) (2022-09-02)
+
+
+### Bug Fixes
+
+* **menu:** make menu a direct dependency ([74ea0a1](https://github.com/AlaskaAirlines/auro-combobox/commit/74ea0a1514fa05bb2a056acee09d7b9aedcae31e))
+
 ## [1.5.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.1...v1.5.2) (2022-08-23)
 
 
