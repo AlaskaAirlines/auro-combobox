@@ -91,10 +91,12 @@ describe('auro-combobox', () => {
   it('hides the bib when making a selection', async () => {
     const el = await defaultFixture();
     await waitUntil(() => el.ready);
-    
+
     const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const trigger = dropdown.querySelector('[slot="trigger"]');
 
     setInputValue(el, 'p');
+    trigger.click();
     await expect(dropdown.isPopoverVisible).to.be.true;
 
     el.value = 'Apples';
@@ -337,6 +339,10 @@ describe('auro-combobox', () => {
     const menuOptions = menu.querySelectorAll('auro-menuoption');
 
     setInputValue(el, 'a');
+
+    el.dispatchEvent(new KeyboardEvent('keydown', {
+      'key': 'Enter'
+    }));
 
     el.dispatchEvent(new KeyboardEvent('keydown', {
       'key': 'ArrowDown'
