@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.5.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.3...v1.5.4) (2022-09-07)
+
+
+### Reverts
+
+* Revert "chore(release): 1.5.3 [skip ci]" ([38021de](https://github.com/AlaskaAirlines/auro-combobox/commit/38021de86244b52961207fbcd1025ee39cd69b37))
+
 ## [1.5.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.1...v1.5.2) (2022-08-23)
 
 
