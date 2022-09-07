@@ -185,8 +185,8 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   handleRequired() {
-    if (this.required) {
-      if (!this.value) {
+    if (this.required && typeof this.value === 'string') {
+      if (this.value === undefined || this.value.length === 0) {
         this.error = true;
         this.setAttribute('error', '');
       } else {
@@ -300,15 +300,12 @@ class AuroCombobox extends LitElement {
     this.menu.addEventListener('auroMenu-selectValueFailure', () => {
       this.optionSelected = undefined;
       this.displayValue = this.value;
-      this.classList.add('combobox-filled');
-      this.setAttribute('error', '');
     });
 
     this.menu.addEventListener('auroMenu-selectValueReset', () => {
       this.optionSelected = undefined;
       this.displayValue = '';
-      this.classList.remove('combobox-filled');
-      this.removeAttribute('error');
+      this.handleRequired();
     });
   }
 
@@ -328,6 +325,14 @@ class AuroCombobox extends LitElement {
       }
     });
 
+    this.triggerInput.addEventListener('blur', () => {
+      if (typeof this.value === 'object') {
+        this.value = '';
+      }
+
+      this.handleRequired();
+    });
+
     this.triggerInput.addEventListener('input', () => {
       // pass the input value to menu to do match highlighting
       this.menu.matchWord = this.triggerInput.value;
@@ -345,7 +350,11 @@ class AuroCombobox extends LitElement {
         this.displayValue = this.triggerInput.value;
       }
       this.handleMenuOptions();
-      this.handleRequired();
+
+      // validate only if the the value was set programmatically
+      if (document.activeElement !== this) {
+        this.handleRequired();
+      }
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
       if (this.triggerInput.value.length === 0) {

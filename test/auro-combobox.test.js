@@ -309,19 +309,6 @@ describe('auro-combobox', () => {
     await expect(el.optionSelected).to.be.equal(selectedOptions[0]);
   });
 
-  it('make invalid selection programmatically results in error ui', async () => {
-    const el = await presetValueFixture();
-    await waitUntil(() => el.ready);
-
-    el.value = 'Dragon Fruit';
-
-    await elementUpdated(el);
-
-    await expect(el.optionSelected).to.be.equal(undefined);
-    await expect(el.displayValue).to.be.equal('Dragon Fruit');
-    await expect(el.error).to.be.true;
-  });
-
   it('reset selection value programmatically', async () => {
     const el = await presetValueFixture();
     await waitUntil(() => el.ready);
@@ -355,7 +342,7 @@ describe('auro-combobox', () => {
     await expect(el.optionSelected).to.be.equal(menuOptions[0]);
   });
 
-  it('throws an error state when trying to programmatically set a value that doesn\'t match an option', async () => {
+  it('Does not throw an error state when trying to programmatically set a value that doesn\'t match an option', async () => {
     const el = await defaultFixture();
     await waitUntil(() => el.ready);
 
@@ -367,7 +354,7 @@ describe('auro-combobox', () => {
 
     await elementUpdated(el);
 
-    await expect(el.hasAttribute('error')).to.be.true;
+    await expect(el.hasAttribute('error')).to.be.false;
   });
 
   it('handles the required state being set', async () => {
