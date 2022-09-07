@@ -45,7 +45,6 @@ class AuroCombobox extends LitElement {
     this.noFilter = false;
     this.value = null;
     this.optionSelected = null;
-    this.error = false;
 
     this.privateDefaults();
   }
@@ -258,6 +257,7 @@ class AuroCombobox extends LitElement {
         this.optionSelected = this.menu.optionSelected;
         this.value = this.optionSelected.value;
         this.displayValue = this.optionSelected.innerText;
+        this.triggerInput.value = this.optionSelected.innerText;
         this.menu.matchWord = this.triggerInput.value;
         this.classList.add('combobox-filled');
 
@@ -307,28 +307,15 @@ class AuroCombobox extends LitElement {
       this.auroInputReady = true;
     });
 
-    this.triggerInput.addEventListener('keydown', (evt) => {
-      if (evt.key.length === 1) {
-        this.dropdown.show();
-      }
-    }),
-
-    this.triggerInput.addEventListener('input', (evt) => {
+    this.triggerInput.addEventListener('input', () => {
       // pass the input value to menu to do match highlighting
       this.menu.matchWord = this.triggerInput.value;
-      if (this.ready && !this.optionSelected) {
-        this.optionActive = null;
-        this.menu.resetOptionsStates();
-        this.value = this.triggerInput.value;
-        this.displayValue = this.triggerInput.value;
-      }
-      if (this.optionSelected && (this.triggerInput.value !== this.optionSelected.value)) {
-        this.optionSelected = null;
-        this.optionActive = null;
-        this.menu.resetOptionsStates();
-        this.value = this.triggerInput.value;
-        this.displayValue = this.triggerInput.value;
-      }
+      // reset all states
+      this.displayValue = this.triggerInput.value;
+      this.value = null;
+      this.optionSelected = null;
+      this.optionActive = null;
+      this.menu.resetOptionsStates();
       this.handleMenuOptions();
       this.handleRequired();
 
@@ -337,12 +324,20 @@ class AuroCombobox extends LitElement {
         this.dropdown.hide();
         this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
+        this.dropdown.show();
         this.classList.add('combobox-filled');
       }
 
       // force the dropdown bib to hide if the input value has no matching suggestions
       if (!this.availableOptions || this.availableOptions.length === 0) {
         this.dropdown.hide();
+      }
+    });
+
+    this.triggerInput.addEventListener('blur', () => {
+      if (this.triggerInput.value.length > 0 && !this.optionSelected) {
+        this.setAttribute('error', '');
+        this.auroInputHelpText = this.msgSelectionMissing; /* eslint-disable-line camelcase */
       }
     });
 
@@ -425,9 +420,9 @@ class AuroCombobox extends LitElement {
     this.menu = this.querySelector('auro-menu');
     this.input = this.dropdown.querySelector('auro-input');
 
+    this.configureDropdown();
     this.configureMenu();
     this.configureInput();
-    this.configureDropdown();
     this.configureCombobox();
 
     this.checkReadiness();
