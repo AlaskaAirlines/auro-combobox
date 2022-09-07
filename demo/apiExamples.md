@@ -278,9 +278,9 @@ Can be used in the following ways:
 Note: using a value that does not match a menu option will reset the combobox value to undefined.
 
 <div class="exampleWrapper">
-  <auro-button id="valueValidExampleBtn">Set Value to Valid Option</auro-button>
-  <auro-button id="valueInvalidExampleBtn">Set Value to Invalid Option</auro-button>
-  <auro-button id="valueUndefinedExampleBtn">Set Value to Undefined</auro-button>
+  <auro-button id="valueValidExampleBtn">Set to an existing option</auro-button>
+  <auro-button id="valueInvalidExampleBtn">Set to custom value</auro-button>
+  <auro-button id="valueUndefinedExampleBtn">Reset</auro-button>
   <br/><br/>
   <auro-combobox id="valueExample" value="Apples">
     <span slot="label">Name</span>
@@ -299,9 +299,9 @@ Note: using a value that does not match a menu option will reset the combobox va
   <span slot="trigger">See code</span>
 
 ```html
-<auro-button id="valueValidExampleBtn">Set Value to Valid Option</auro-button>
-<auro-button id="valueInvalidExampleBtn">Set Value to Invalid Option</auro-button>
-<auro-button id="valueUndefinedExampleBtn">Set Value to Undefined</auro-button>
+<auro-button id="valueValidExampleBtn">Set to an existing option</auro-button>
+<auro-button id="valueInvalidExampleBtn">Set to custom value</auro-button>
+<auro-button id="valueUndefinedExampleBtn">Reset</auro-button>
 <br/><br/>
 <auro-combobox id="valueExample" value="Apples">
   <span slot="label">Name</span>
