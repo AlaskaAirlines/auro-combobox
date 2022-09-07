@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.5.5](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.4...v1.5.5) (2022-09-07)
+
+
+### Bug Fixes
+
+* **background:** make background color consistent across all states [#56](https://github.com/AlaskaAirlines/auro-combobox/issues/56) ([ebda061](https://github.com/AlaskaAirlines/auro-combobox/commit/ebda06114986fae1325a9fb06f5931a0b8a73fb6))
+
 ## [1.5.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.3...v1.5.4) (2022-09-07)
 
 
