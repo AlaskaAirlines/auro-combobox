@@ -142,7 +142,6 @@ class AuroCombobox extends LitElement {
         this.availableOptions.push(option);
       });
     } else {
-
       let noMatchOption = undefined; // eslint-disable-line no-undef-init
 
       this.options.forEach((option) => {
@@ -211,6 +210,28 @@ class AuroCombobox extends LitElement {
   }
 
   /**
+   * Hides the dropdown bib if its open.
+   * @private
+   * @returns {void}
+   */
+  hideBib() {
+    if (this.dropdown.isPopoverVisible) {
+      this.dropdown.hide();
+    }
+  }
+
+  /**
+   * Shows the dropdown bib if there are options to show.
+   * @private
+   * @returns {void}
+   */
+  showBib() {
+    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.triggerInput.value.length > 0) {
+      this.dropdown.show();
+    }
+  }
+
+  /**
    * Binds all behavior needed to the dropdown after rendering.
    * @private
    * @returns {void}
@@ -222,9 +243,7 @@ class AuroCombobox extends LitElement {
     });
 
     this.dropdown.addEventListener('auroDropdown-triggerClick', () => {
-      if (!this.isPopoverVisible && this.triggerInput.value.length > 0 && this.availableOptions) {
-        this.dropdown.show();
-      }
+      this.showBib();
     });
 
     if (!this.dropdown.hasAttribute('aria-expanded')) {
@@ -249,9 +268,7 @@ class AuroCombobox extends LitElement {
       }
 
       // dropdown bib should hide when making a selection
-      if (this.dropdown.isPopoverVisible) {
-        this.dropdown.hide();
-      }
+      this.hideBib();
 
       if (this.menu.optionSelected) {
         this.removeAttribute('error');
@@ -273,9 +290,7 @@ class AuroCombobox extends LitElement {
     });
 
     this.addEventListener('auroMenu-customEventFired', () => {
-      if (this.dropdown.isPopoverVisible) {
-        this.dropdown.hide();
-      }
+      this.hideBib();
     });
 
     this.addEventListener('auroMenu-activatedOption', (evt) => {
@@ -307,13 +322,13 @@ class AuroCombobox extends LitElement {
       this.auroInputReady = true;
     });
 
-    this.triggerInput.addEventListener('keydown', (evt) => {
-      if (evt.key.length === 1) {
-        this.dropdown.show();
+    this.triggerInput.addEventListener('keyup', (evt) => {
+      if (evt.key.length === 1 || evt.key === 'Backspace' || evt.key === 'Delete') {
+        this.showBib();
       }
-    }),
+    });
 
-    this.triggerInput.addEventListener('input', (evt) => {
+    this.triggerInput.addEventListener('input', () => {
       // pass the input value to menu to do match highlighting
       this.menu.matchWord = this.triggerInput.value;
       if (this.ready && !this.optionSelected) {
@@ -322,7 +337,7 @@ class AuroCombobox extends LitElement {
         this.value = this.triggerInput.value;
         this.displayValue = this.triggerInput.value;
       }
-      if (this.optionSelected && (this.triggerInput.value !== this.optionSelected.value)) {
+      if (this.optionSelected && this.triggerInput.value !== this.optionSelected.value) {
         this.optionSelected = null;
         this.optionActive = null;
         this.menu.resetOptionsStates();
@@ -334,7 +349,7 @@ class AuroCombobox extends LitElement {
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
       if (this.triggerInput.value.length === 0) {
-        this.dropdown.hide();
+        this.hideBib();
         this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
         this.classList.add('combobox-filled');
@@ -342,7 +357,7 @@ class AuroCombobox extends LitElement {
 
       // force the dropdown bib to hide if the input value has no matching suggestions
       if (!this.availableOptions || this.availableOptions.length === 0) {
-        this.dropdown.hide();
+        this.hideBib();
       }
     });
 
@@ -369,13 +384,13 @@ class AuroCombobox extends LitElement {
       if (evt.key === 'Enter') {
         if (this.dropdown.isPopoverVisible && this.optionActive) {
           this.menu.makeSelection();
-        } else if (this.triggerInput.value.length > 0 && this.availableOptions) {
-          this.dropdown.show();
+        } else {
+          this.showBib();
         }
       }
 
-      if (evt.key === 'Tab' && this.dropdown.isPopoverVisible) {
-        this.dropdown.hide();
+      if (evt.key === 'Tab') {
+        this.hideBib();
       }
 
       /**
@@ -387,7 +402,7 @@ class AuroCombobox extends LitElement {
         }
       }
 
-      if (this.dropdown.isPopoverVisible && this.availableOptions.length > 0) {
+      if (this.dropdown.isPopoverVisible) {
         if (evt.key === 'ArrowUp') {
           this.menu.selectNextItem('up');
         }
