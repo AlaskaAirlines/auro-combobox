@@ -45,7 +45,6 @@ class AuroCombobox extends LitElement {
     this.noFilter = false;
     this.value = null;
     this.optionSelected = null;
-    this.error = false;
 
     this.privateDefaults();
   }
