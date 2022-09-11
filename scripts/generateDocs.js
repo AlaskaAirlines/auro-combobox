@@ -87,8 +87,8 @@ function formatApiTableContents(content, destination) {
 
   fs.writeFileSync(destination, result, { encoding: 'utf8'});
 
-  fs.readFile('./demo/apiExamples.md', 'utf8', function(err, data) {
-    formatTemplateFileContents(data, './demo/apiExamples.md');
+  fs.readFile('./demo/api.md', 'utf8', function(err, data) {
+    formatTemplateFileContents(data, './demo/api.md');
   });
 }
 
@@ -144,42 +144,42 @@ function processReadme() {
 }
 
 /**
- * Compiles `./docTemplates/demo.md` -> `./demo/demo.md`
+ * Compiles `./docTemplates/index.md` -> `./demo/index.md`
  */
 
 function processDemo() {
   const callback = function(updatedContent, outputConfig) {
-    if (fs.existsSync('./demo/demo.md')) {
-      fs.readFile('./demo/demo.md', 'utf8', function(err, data) {
-        formatTemplateFileContents(data, './demo/demo.md');
+    if (fs.existsSync('./demo/index.md')) {
+      fs.readFile('./demo/index.md', 'utf8', function(err, data) {
+        formatTemplateFileContents(data, './demo/index.md');
       });
     } else {
-      console.log(chalk.red('ERROR: ./demo/demo.md file is missing'));
+      console.log(chalk.red('ERROR: ./demo/index.md file is missing'));
     }
   };
 
   const configDemo = {
     matchWord: 'AURO-GENERATED-CONTENT',
-    outputDir: './demo'
+    outputDir: './index'
   };
 
-  const markdownPath = path.join(__dirname, '../docs/partials/demo.md');
+  const markdownPath = path.join(__dirname, '../docs/partials/index.md');
 
   markdownMagic(markdownPath, configDemo, callback);
 }
 
 /**
- * Compiles `./docTemplates/apiExamples.md` -> `./demo/apiExamples.md`
+ * Compiles `./docTemplates/api.md` -> `./demo/api.md`
  */
 
 function processApiExamples() {
   const callback = function(updatedContent, outputConfig) {
-    if (fs.existsSync('./demo/apiExamples.md')) {
-      fs.readFile('./demo/apiExamples.md', 'utf8', function(err, data) {
-        formatApiTableContents(data, './demo/apiExamples.md');
+    if (fs.existsSync('./demo/api.md')) {
+      fs.readFile('./demo/api.md', 'utf8', function(err, data) {
+        formatApiTableContents(data, './demo/api.md');
       });
     } else {
-      console.log(chalk.red('ERROR: ./demo/apiExamples.md file is missing'));
+      console.log(chalk.red('ERROR: ./demo/api.md file is missing'));
     }
   };
 
@@ -188,7 +188,7 @@ function processApiExamples() {
     outputDir: './demo'
   };
 
-  const markdownPath = path.join(__dirname, '../docs/partials/apiExamples.md');
+  const markdownPath = path.join(__dirname, '../docs/partials/api.md');
 
   markdownMagic(markdownPath, config, callback);
 }
