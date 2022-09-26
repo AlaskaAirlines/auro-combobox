@@ -363,19 +363,16 @@ describe('auro-combobox', () => {
     // error applied on blur
     el.focus();
     el.shadowRoot.activeElement.blur();
-    let hasError = el.hasAttribute('error');
-    await expect(hasError).to.be.true;
+    await elementUpdated(el);
 
-    // error applied for typed value that doesn't match an option
-    setInputValue(el, 'pp');
-    hasError = el.hasAttribute('error');
-    await expect(hasError).to.be.true;
+    await expect(el.getAttribute('validity')).to.be.equal('valueMissing');
 
-    // error applied when changing to empty value
+    // no error when input has a value
     setInputValue(el, 'pp');
-    setInputValue(el, '');
-    hasError = el.hasAttribute('error');
-    await expect(hasError).to.be.true;
+
+    await elementUpdated(el);
+
+    await expect(el.getAttribute('validity')).to.be.equal('valid');
   });
 
   it('default to nocheckmark on selected option', async () => {

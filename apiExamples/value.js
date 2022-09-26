@@ -4,6 +4,7 @@ export function initValueExamples(elem) {
   })
 
   document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+    console.warn('dragon fruit', elem);
     elem.value = 'Dragon Fruit';
   })
 
