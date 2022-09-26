@@ -4,18 +4,20 @@
 
 ## Properties
 
-| Property         | Attribute        | Type      | Default | Description                                      |
-|------------------|------------------|-----------|---------|--------------------------------------------------|
-| [checkmark](#checkmark)      | `checkmark`      | `Boolean` |         | When attribute is present auro-menu will apply checkmarks to selected options. |
-| [disabled](#disabled)       | `disabled`       | `Boolean` |         | If set, disables the combobox.                   |
-| [error](#error)          | `error`          | `Boolean` |         | Sets a persistent error state (e.g. an error state returned from the server). |
-| [noFilter](#noFilter)       | `noFilter`       | `Boolean` | false   | If set, combobox will not filter menuoptions based in input. |
-| [noValidate](#noValidate)     | `noValidate`     | `Boolean` |         | If set, disables auto-validation on blur.        |
-| [optionSelected](#optionSelected) | `optionSelected` | `Object`  | null    | Specifies the current selected option.           |
-| [required](#required)       | `required`       | `Boolean` |         | Populates the `required` attribute on the input. Used for client-side validation. |
-| [triggerIcon](#triggerIcon)    | `triggerIcon`    | `Boolean` |         | If set, the `icon` attribute will be applied to the trigger `auro-input` element. |
-| [type](#type)           | `type`           | `String`  |         | Applies the defined value as the type attribute on auro-input. |
-| [value](#value)          | `value`          | `String`  | null    | Value selected for the dropdown menu.            |
+| Property            | Attribute           | Type      | Default     | Description                                      |
+|---------------------|---------------------|-----------|-------------|--------------------------------------------------|
+| [checkmark](#checkmark)         | `checkmark`         | `Boolean` |             | When attribute is present auro-menu will apply checkmarks to selected options. |
+| [disabled](#disabled)          | `disabled`          | `Boolean` |             | If set, disables the combobox.                   |
+| [error](#error)             | `error`             | `Boolean` |             | Sets a persistent error state (e.g. an error state returned from the server). |
+| [noFilter](#noFilter)          | `noFilter`          | `Boolean` | false       | If set, combobox will not filter menuoptions based in input. |
+| [noValidate](#noValidate)        | `noValidate`        | `Boolean` |             | If set, disables auto-validation on blur.        |
+| [optionSelected](#optionSelected)    | `optionSelected`    | `Object`  | null        | Specifies the current selected option.           |
+| [required](#required)          | `required`          | `Boolean` |             | Populates the `required` attribute on the input. Used for client-side validation. |
+| [setCustomValidity](#setCustomValidity) | `setCustomValidity` | `String`  |             | Sets a custom help text message to display for all validityStates. |
+| [triggerIcon](#triggerIcon)       | `triggerIcon`       | `Boolean` |             | If set, the `icon` attribute will be applied to the trigger `auro-input` element. |
+| [type](#type)              | `type`              | `String`  |             | Applies the defined value as the type attribute on auro-input. |
+| [validity](#validity)          | `validity`          | `String`  | "undefined" | Specifies the `validityState` this element is in. |
+| [value](#value)             | `value`             | `String`  | null        | Value selected for the dropdown menu.            |
 
 ## Methods
 
@@ -157,7 +159,7 @@ If set, combobox will not do suggestion filtering of the menuoptions. This optio
 Sets a persistent error state (e.g. an error state returned from the server).
 
 <div class="exampleWrapper">
-  <auro-combobox error>
+  <auro-combobox error="Custom error message">
     <span slot="label">Name</span>
     <auro-menu>
       <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
@@ -174,7 +176,7 @@ Sets a persistent error state (e.g. an error state returned from the server).
   <span slot="trigger">See code</span>
 
 ```html
-<auro-combobox error>
+<auro-combobox error="Custom error message">
   <span slot="label">Name</span>
   <auro-menu>
     <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
@@ -453,41 +455,6 @@ Sets the help text displayed below the trigger. The `helpText` slot can be used 
 <auro-combobox>
   <span slot="label">Name</span>
   <span slot="helpText">Custom help text</span>
-  <auro-menu>
-    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
-    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
-    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
-    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
-    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
-    <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
-    <auro-menuoption static nomatch>No matching option</auro-menuoption>
-  </auro-menu>
-</auro-combobox>
-```
-
-</auro-accordion>
-<div class="exampleWrapper">
-  <auro-combobox error>
-    <span slot="label">Name</span>
-    <span slot="helpText">Custom error message</span>
-    <auro-menu>
-      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
-      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
-      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
-      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
-      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
-      <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
-      <auro-menuoption static nomatch>No matching option</auro-menuoption>
-    </auro-menu>
-  </auro-combobox>
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-```html
-<auro-combobox error>
-  <span slot="label">Name</span>
-  <span slot="helpText">Custom error message</span>
   <auro-menu>
     <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
     <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>

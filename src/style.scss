@@ -6,8 +6,6 @@
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/utilityClasses/displayProperties';
 
 auro-input {
-  margin-left: var(--auro-size-sm);
-
   &::part(iconContainer) {
     top: 0;
     display: flex;
@@ -22,26 +20,21 @@ auro-input {
   &::part(helpText) {
     display: none;
   }
+
+  &::part(input) {
+    /* stylelint-disable declaration-no-important */
+    border-width: 0 !important;
+    border-color: unset !important;
+    background-color: unset !important;
+    outline: unset !important;
+    /* stylelint-enable declaration-no-important */
+  }
 }
 
 :host {
   auro-dropdown {
     &::part(trigger) {
       padding-right: var(--auro-size-sm);
-    }
-  }
-}
-
-:host(:not(.combobox-filled)) { /* stylelint-disable-line selector-class-pattern */
-  auro-input {
-    &:not(:focus-within) {
-      &::part(label) {
-        padding-top: 1.1rem;
-      }
-
-      &::part(accentIcon) {
-        margin-top: var(--auro-size-sm);
-      }
     }
   }
 }

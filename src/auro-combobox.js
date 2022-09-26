@@ -24,6 +24,8 @@ import styleCss from "./style-css.js";
  * @prop {String} value - Value selected for the dropdown menu.
  * @prop {Boolean} checkmark - When attribute is present auro-menu will apply checkmarks to selected options.
  * @attr {Boolean} error - Sets a persistent error state (e.g. an error state returned from the server).
+ * @attr {String} validity - Specifies the `validityState` this element is in.
+ * @attr {String} setCustomValidity - Sets a custom help text message to display for all validityStates.
  * @attr {Boolean} disabled - If set, disables the combobox.
  * @attr {Boolean} noFilter - If set, combobox will not filter menuoptions based in input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
@@ -43,6 +45,7 @@ class AuroCombobox extends LitElement {
     super();
 
     this.noFilter = false;
+    this.validity = undefined;
     this.value = null;
     this.optionSelected = null;
 
@@ -54,7 +57,6 @@ class AuroCombobox extends LitElement {
    * @returns {void} Internal defaults.
    */
   privateDefaults() {
-    this.displayValue = null;
     this.availableOptions = [];
     this.optionActive = null;
     this.msgSelectionMissing = 'Please select an option.';
@@ -68,6 +70,14 @@ class AuroCombobox extends LitElement {
       // ...super.properties,
       error: {
         type: Boolean,
+        reflect: true
+      },
+      setCustomValidity: {
+        type: String,
+        reflect: true
+      },
+      validity: {
+        type: String,
         reflect: true
       },
       disabled: {
@@ -105,11 +115,6 @@ class AuroCombobox extends LitElement {
        * @private
        */
       availableOptions: { type: Array },
-
-      /**
-       * @private
-       */
-      displayValue: { type: String },
 
       /**
        * @private
@@ -159,7 +164,7 @@ class AuroCombobox extends LitElement {
         }
 
         // only count options that match the typed input value AND are not currently selected
-        if (matchString.includes(this.triggerInput.value.toLowerCase())) {
+        if (this.triggerInput.value && matchString.includes(this.triggerInput.value.toLowerCase())) {
           option.removeAttribute('hidden');
           this.availableOptions.push(option);
         } else if (!option.hasAttribute('persistent')) {
@@ -174,23 +179,6 @@ class AuroCombobox extends LitElement {
         } else {
           noMatchOption.setAttribute('hidden', '');
         }
-      }
-    }
-  }
-
-  /**
-   * Determines the element error state based on the `required` attribute and input value.
-   * @private
-   * @returns {void}
-   */
-  handleRequired() {
-    if (this.required && typeof this.value === 'string') {
-      if (this.value === undefined || this.value.length === 0) {
-        this.error = true;
-        this.setAttribute('error', '');
-      } else {
-        this.error = false;
-        this.removeAttribute('error');
       }
     }
   }
@@ -225,7 +213,7 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   showBib() {
-    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.triggerInput.value.length > 0) {
+    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.triggerInput.value && this.triggerInput.value.length > 0) {
       this.dropdown.show();
     }
   }
@@ -262,10 +250,6 @@ class AuroCombobox extends LitElement {
 
     // handle the menu event for an option selection
     this.addEventListener('auroMenu-selectedOption', () => {
-      if (this.auroInputHelpText === this.msgSelectionMissing) {
-        this.auroInputHelpText = undefined; /* eslint-disable-line camelcase */
-      }
-
       // dropdown bib should hide when making a selection
       this.hideBib();
 
@@ -273,7 +257,7 @@ class AuroCombobox extends LitElement {
         this.removeAttribute('error');
         this.optionSelected = this.menu.optionSelected;
         this.value = this.optionSelected.value;
-        this.displayValue = this.optionSelected.innerText;
+        this.input.value = this.optionSelected.innerText;
         this.menu.matchWord = this.triggerInput.value;
         this.classList.add('combobox-filled');
 
@@ -298,13 +282,12 @@ class AuroCombobox extends LitElement {
 
     this.menu.addEventListener('auroMenu-selectValueFailure', () => {
       this.optionSelected = undefined;
-      this.displayValue = this.value;
     });
 
     this.menu.addEventListener('auroMenu-selectValueReset', () => {
       this.optionSelected = undefined;
-      this.displayValue = '';
-      this.handleRequired();
+      this.value = undefined;
+      this.validate();
     });
   }
 
@@ -324,12 +307,17 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.triggerInput.addEventListener('blur', () => {
+    /**
+     * Validate every time we remove focus from the datepicker.
+     */
+    this.addEventListener('focusout', () => {
+      if (document.activeElement !== this) {
+        this.validate();
+      }
+
       if (typeof this.value === 'object') {
         this.value = '';
       }
-
-      this.handleRequired();
     });
 
     this.triggerInput.addEventListener('input', () => {
@@ -339,20 +327,19 @@ class AuroCombobox extends LitElement {
         this.optionActive = null;
         this.menu.resetOptionsStates();
         this.value = this.triggerInput.value;
-        this.displayValue = this.triggerInput.value;
       }
       if (this.optionSelected && this.triggerInput.value !== this.optionSelected.value) {
         this.optionSelected = null;
         this.optionActive = null;
         this.menu.resetOptionsStates();
         this.value = this.triggerInput.value;
-        this.displayValue = this.triggerInput.value;
       }
       this.handleMenuOptions();
 
+      this.handleInputValueChange();
       // validate only if the the value was set programmatically
       if (document.activeElement !== this) {
-        this.handleRequired();
+        this.validate();
       }
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
@@ -369,17 +356,31 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.triggerInput.addEventListener('auroInput-validated', (evt) => {
-      if (evt.detail.isValid) {
-        this.removeAttribute('error');
-      } else {
-        this.setAttribute('error', '');
-      }
-    });
-
     this.triggerInput.addEventListener('auroInput-helpText', (evt) => {
-      this.auroInputHelpText = evt.detail.message; /* eslint-disable-line camelcase */
+      this.auroInputHelpText = evt.detail.message;
     });
+  }
+
+  /**
+   * Handle changes to the input value and trigger changes that should result.
+   * @private
+   * @returns {void}
+   */
+  handleInputValueChange() {
+    if (this.value !== this.input.value) {
+      this.value = this.input.value;
+
+      this.dispatchEvent(new CustomEvent('auroCombobox-valueSet', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
+    }
+
+    // This check prevents the component showing an error when a required datepicker is first rendered
+    if (this.input.value) {
+      this.validate();
+    }
   }
 
   /**
@@ -420,6 +421,31 @@ class AuroCombobox extends LitElement {
         }
       }
     });
+  }
+
+  /**
+   * Determines the validity state of the element.
+   * @private
+   * @returns {void}
+   */
+  validate() {
+    if (this.hasAttribute('error')) {
+      this.validity = 'customError';
+    } else {
+      if (this.validity !== this.input.validity) {
+        this.validity = this.input.validity;
+      }
+
+      /**
+       * Only validate once we interact with the datepicker
+       * this.value === undefined is the initial state pre-interaction.
+       *
+       * The validityState definitions are located at https://developer.mozilla.org/en-US/docs/Web/API/ValidityState.
+       */
+      if (this.value !== undefined && this.input.value.length > 0) {
+        // combobox specific validation goes here....
+      }
+    }
   }
 
   /**
@@ -522,7 +548,22 @@ class AuroCombobox extends LitElement {
   updated(changedProperties) {
     // After the component is ready, send direct value changes to auro-menu.
     if (this.ready && changedProperties.has('value')) {
-      this.menu.value = this.value;
+      if (this.value) {
+        this.input.value = this.value;
+        this.menu.value = this.value;
+      } else {
+        this.input.value = '';
+        this.menu.value = undefined;
+      }
+    }
+
+    if (changedProperties.has('error')) {
+      this.input.setAttribute('error', this.getAttribute('error'));
+      this.validate();
+    }
+
+    if (changedProperties.has('setCustomValidity')) {
+      this.input.setAttribute('setCustomValidity', this.setCustomValidity);
     }
   }
 
@@ -554,16 +595,16 @@ class AuroCombobox extends LitElement {
           matchWidth
           nocheckmark
           ?disabled="${this.disabled}"
-          ?error="${this.error}"
+          ?error="${this.validity !== undefined && this.validity !== 'valid'}"
           disableEventShow>
           <auro-input
             slot="trigger"
-            borderless
-            value="${this.displayValue === null ? `` : this.displayValue}"
+            bordered
             ?required="${this.required}"
             ?noValidate="${this.noValidate}"
-            .type="${this.type}"
-            ?icon="${this.triggerIcon}">
+            ?disabled="${this.disabled}"
+            ?icon="${this.triggerIcon}"
+            .type="${this.type}">
             <slot name="label" slot="label"></slot>
           </auro-input>
           <div class="menuWrapper">
@@ -575,21 +616,7 @@ class AuroCombobox extends LitElement {
                 ${this.auroInputHelpText}
               `
               : html`
-                ${this.error
-                  ? html`
-                    ${this.required
-                      ? html`
-                        ${this.msgSelectionMissing}
-                      `
-                      : html`
-                        <slot name="helpText"></slot>
-                      `
-                    }
-                  `
-                  : html`
-                    <slot name="helpText"></slot>
-                  `
-                }
+                <slot name="helpText"></slot>
               `
             }
           </span>
