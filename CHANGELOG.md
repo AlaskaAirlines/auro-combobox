@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.6.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.6...v1.6.0) (2022-09-27)
+
+
+### Features
+
+* **validity:** update to new validity system [#85](https://github.com/AlaskaAirlines/auro-combobox/issues/85) ([7736722](https://github.com/AlaskaAirlines/auro-combobox/commit/7736722183d315e0c28cec893387508020c1bdcb))
+
 ## [1.5.6](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.5...v1.5.6) (2022-09-08)
 
 
