@@ -326,6 +326,7 @@ export function initValueExamples(elem) {
   })
 
   document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+    console.warn('dragon fruit', elem);
     elem.value = 'Dragon Fruit';
   })
 
@@ -351,7 +352,6 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
       <auro-menuoption value="05/16/2022" id="option-date-1">
         05/16/2022
       </auro-menuoption>
-      <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -368,7 +368,6 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
     <auro-menuoption value="05/16/2022" id="option-date-1">
       05/16/2022
     </auro-menuoption>
-    <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
