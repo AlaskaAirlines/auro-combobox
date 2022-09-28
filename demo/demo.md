@@ -372,7 +372,6 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
       <auro-menuoption value="05/16/2022" id="option-date-1">
         05/16/2022
       </auro-menuoption>
-      <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
     </auro-menu>
   </auro-combobox>
 </div>
@@ -389,7 +388,6 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
     <auro-menuoption value="05/16/2022" id="option-date-1">
       05/16/2022
     </auro-menuoption>
-    <auro-menuoption static nomatch>No matching credit card saved</auro-menuoption>
   </auro-menu>
 </auro-combobox>
 ```
@@ -402,8 +400,8 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
   <auro-combobox id="persistent">
     <span slot="label">Address</span>
     <auro-menu id="customEvent">
-      <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
-      <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+      <auro-menuoption value="555 Address Way Seattle, WA 99999">555 Address Way Seattle, WA 99999</auro-menuoption>
+      <auro-menuoption value="333 Some Street Seattle, WA 99999">333 Some Street Seattle, WA 99999</auro-menuoption>
       <auro-menuoption event="addNewAddress" persistent>Add new address</auro-menuoption>
     </auro-menu>
   </auro-combobox>
@@ -415,8 +413,8 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 <auro-combobox id="persistent">
   <span slot="label">Address</span>
   <auro-menu id="customEvent">
-    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
-    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption value="555 Address Way Seattle, WA 99999">555 Address Way Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption value="333 Some Street Seattle, WA 99999">333 Some Street Seattle, WA 99999</auro-menuoption>
     <auro-menuoption event="addNewAddress" persistent>Add new address</auro-menuoption>
   </auro-menu>
 </auro-combobox>
