@@ -97,11 +97,12 @@ describe('auro-combobox', () => {
 
     setInputValue(el, 'p');
     trigger.click();
-    await expect(dropdown.isPopoverVisible).to.be.true;
+
+    await elementUpdated(el);
 
     el.value = 'Apples';
 
-    await waitUntil(() => el.optionSelected);
+    await elementUpdated(el);
 
     await expect(dropdown.isPopoverVisible).to.be.false;
   });
@@ -126,14 +127,16 @@ describe('auro-combobox', () => {
 
   it('hides the bib when selecting an option with a custom event', async () => {
     const el = await customEventFixture();
-    await waitUntil(() => el.ready);
 
     const dropdown = el.shadowRoot.querySelector('auro-dropdown');
-    const trigger = dropdown.querySelector('[slot="trigger"]');
+
+    await expect(dropdown.isPopoverVisible).to.be.false;
 
     setInputValue(el, 'a');
+    el.dispatchEvent(new KeyboardEvent('keydown', {
+      'key': 'Enter'
+    }));
 
-    trigger.click();
     await expect(dropdown.isPopoverVisible).to.be.true;
 
     el.dispatchEvent(new KeyboardEvent('keydown', {
@@ -144,7 +147,7 @@ describe('auro-combobox', () => {
       'key': 'Enter'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.false
+    await expect(dropdown.isPopoverVisible).to.be.false;
   });
 
   it('navigates menu with up and down arrow keys', async () => {

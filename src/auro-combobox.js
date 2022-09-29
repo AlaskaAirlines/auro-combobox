@@ -164,7 +164,7 @@ class AuroCombobox extends LitElement {
         }
 
         // only count options that match the typed input value AND are not currently selected
-        if (this.triggerInput.value && matchString.includes(this.triggerInput.value.toLowerCase())) {
+        if (this.input.value && matchString.includes(this.input.value.toLowerCase())) {
           option.removeAttribute('hidden');
           this.availableOptions.push(option);
         } else if (!option.hasAttribute('persistent')) {
@@ -213,7 +213,7 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   showBib() {
-    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.triggerInput.value && this.triggerInput.value.length > 0) {
+    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.input.value && this.input.value.length > 0) {
       this.dropdown.show();
     }
   }
@@ -258,7 +258,7 @@ class AuroCombobox extends LitElement {
         this.optionSelected = this.menu.optionSelected;
         this.value = this.optionSelected.value;
         this.input.value = this.optionSelected.innerText;
-        this.menu.matchWord = this.triggerInput.value;
+        this.menu.matchWord = this.input.value;
         this.classList.add('combobox-filled');
 
         // update the hidden state of options based on newly selected value
@@ -301,7 +301,7 @@ class AuroCombobox extends LitElement {
       this.auroInputReady = true;
     });
 
-    this.triggerInput.addEventListener('keyup', (evt) => {
+    this.input.addEventListener('keyup', (evt) => {
       if (evt.key.length === 1 || evt.key === 'Backspace' || evt.key === 'Delete') {
         this.showBib();
       }
@@ -320,20 +320,23 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.triggerInput.addEventListener('input', () => {
+    this.input.addEventListener('input', () => {
       // pass the input value to menu to do match highlighting
-      this.menu.matchWord = this.triggerInput.value;
+      this.menu.matchWord = this.input.value;
+
       if (this.ready && !this.optionSelected) {
         this.optionActive = null;
         this.menu.resetOptionsStates();
-        this.value = this.triggerInput.value;
+        this.value = this.input.value;
       }
-      if (this.optionSelected && this.triggerInput.value !== this.optionSelected.value) {
+
+      if (this.optionSelected && this.input.value !== this.optionSelected.innerText) {
         this.optionSelected = null;
         this.optionActive = null;
         this.menu.resetOptionsStates();
-        this.value = this.triggerInput.value;
+        this.value = this.input.value;
       }
+
       this.handleMenuOptions();
 
       this.handleInputValueChange();
@@ -343,7 +346,7 @@ class AuroCombobox extends LitElement {
       }
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
-      if (this.triggerInput.value.length === 0) {
+      if (this.input.value.length === 0) {
         this.hideBib();
         this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
@@ -356,7 +359,7 @@ class AuroCombobox extends LitElement {
       }
     });
 
-    this.triggerInput.addEventListener('auroInput-helpText', (evt) => {
+    this.input.addEventListener('auroInput-helpText', (evt) => {
       this.auroInputHelpText = evt.detail.message;
     });
   }
@@ -470,7 +473,6 @@ class AuroCombobox extends LitElement {
 
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
-    this.triggerInput = this.dropdown.querySelector('[slot="trigger"');
     this.menu = this.querySelector('auro-menu');
     this.input = this.dropdown.querySelector('auro-input');
 
@@ -549,8 +551,19 @@ class AuroCombobox extends LitElement {
     // After the component is ready, send direct value changes to auro-menu.
     if (this.ready && changedProperties.has('value')) {
       if (this.value) {
-        this.input.value = this.value;
-        this.menu.value = this.value;
+        if (this.optionSelected && this.optionSelected.value === this.value) {
+          // If value updates and the previously selected option already matches the new value
+          // just update the input value to use the innerText of the optionSelected
+          this.input.value = this.optionSelected.innerText;
+        } else {
+          // Otherwise just enter the value into the input
+          this.input.value = this.value;
+
+          // If the value got set programmatically make sure we hide the bib
+          if (!this.contains(document.activeElement)) {
+            this.hideBib();
+          }
+        }
       } else {
         this.input.value = '';
         this.menu.value = undefined;
