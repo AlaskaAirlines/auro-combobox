@@ -173,12 +173,14 @@ class AuroCombobox extends LitElement {
         }
       });
 
-      if (noMatchOption) {
-        if (this.availableOptions.length === 0) {
+      if (this.availableOptions.length === 0) {
+        if (noMatchOption) {
           noMatchOption.removeAttribute('hidden');
         } else {
-          noMatchOption.setAttribute('hidden', '');
+          this.hideBib();
         }
+      } else if (noMatchOption) {
+        noMatchOption.setAttribute('hidden', '');
       }
     }
   }
@@ -202,7 +204,7 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   hideBib() {
-    if (this.dropdown.isPopoverVisible) {
+    if (this.dropdown && this.dropdown.isPopoverVisible) {
       this.dropdown.hide();
     }
   }
@@ -213,7 +215,7 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   showBib() {
-    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.input.value && this.input.value.length > 0) {
+    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.availableOptions.length > 0 && this.input.value && this.input.value.length > 0) {
       this.dropdown.show();
     }
   }
