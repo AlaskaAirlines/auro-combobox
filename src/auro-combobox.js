@@ -378,7 +378,7 @@ class AuroCombobox extends LitElement {
     }
 
     // This check prevents the component showing an error when a required datepicker is first rendered
-    if (this.input.value) {
+    if (this.input.value && document.activeElement !== this) {
       this.validate();
     }
   }
