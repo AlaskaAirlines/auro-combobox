@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.6.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.0...v1.6.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* **height:** make height consistent with other form elements [#82](https://github.com/AlaskaAirlines/auro-combobox/issues/82) ([06c82a8](https://github.com/AlaskaAirlines/auro-combobox/commit/06c82a84611056db63d13ab722ba012bc77f40ae))
+
 # [1.6.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.5.6...v1.6.0) (2022-09-27)
 
 
