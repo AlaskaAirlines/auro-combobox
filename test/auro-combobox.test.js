@@ -294,6 +294,8 @@ describe('auro-combobox', () => {
   it('makes a selection programmatically', async () => {
     const el = await defaultFixture();
 
+    await waitUntil(() => el.ready);
+
     const menu = el.querySelector('auro-menu')
     const menuOptions = menu.querySelectorAll('auro-menuoption');
     let selectedOptions = [];
