@@ -257,10 +257,22 @@ class AuroCombobox extends LitElement {
 
       if (this.menu.optionSelected) {
         this.removeAttribute('error');
-        this.optionSelected = this.menu.optionSelected;
-        this.value = this.optionSelected.value;
-        this.input.value = this.optionSelected.innerText;
-        this.menu.matchWord = this.input.value;
+        if (this.optionSelected !== this.menu.optionSelected) {
+          this.optionSelected = this.menu.optionSelected;
+        }
+
+        if (this.value !== this.optionSelected.value) {
+          this.value = this.optionSelected.value;
+        }
+
+        if (this.input.value !== this.optionSelected.innerText) {
+          this.input.value = this.optionSelected.innerText;
+        }
+
+        if (this.menu.matchWord !== this.input.value) {
+          this.menu.matchWord = this.input.value;
+        }
+
         this.classList.add('combobox-filled');
 
         // update the hidden state of options based on newly selected value
@@ -323,20 +335,23 @@ class AuroCombobox extends LitElement {
     });
 
     this.input.addEventListener('input', () => {
-      // pass the input value to menu to do match highlighting
       this.menu.matchWord = this.input.value;
+      this.optionActive = null;
 
-      if (this.ready && !this.optionSelected) {
-        this.optionActive = null;
-        this.menu.resetOptionsStates();
-        this.value = this.input.value;
-      }
+      if (this.ready) {
+        if (this.value !== this.input.value) {
+          this.value = this.input.value;
+        }
 
-      if (this.optionSelected && this.input.value !== this.optionSelected.innerText) {
-        this.optionSelected = null;
-        this.optionActive = null;
+        if (this.value !== this.menu.value) {
+          this.menu.value = this.value;
+        }
+
+        if (this.optionSelected && this.input.value !== this.optionSelected.innerText) {
+          this.optionSelected = undefined;
+        }
+
         this.menu.resetOptionsStates();
-        this.value = this.input.value;
       }
 
       this.handleMenuOptions();
@@ -559,6 +574,7 @@ class AuroCombobox extends LitElement {
           this.input.value = this.optionSelected.innerText;
         } else {
           // Otherwise just enter the value into the input
+          this.optionSelected = undefined;
           this.input.value = this.value;
 
           // If the value got set programmatically make sure we hide the bib
