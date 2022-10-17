@@ -1,5 +1,16 @@
 # Semantic Release Automated Changelog
 
+## [1.6.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.1...v1.6.2) (2022-10-17)
+
+
+### Bug Fixes
+
+* **input:** use latest version to fix focus issue [#97](https://github.com/AlaskaAirlines/auro-combobox/issues/97) ([13de267](https://github.com/AlaskaAirlines/auro-combobox/commit/13de2670dcf46a28937aec7663d08c7db15ff42d))
+* **input:** use latest version to fix HTML5 mouse event issue [#99](https://github.com/AlaskaAirlines/auro-combobox/issues/99) ([bbe9613](https://github.com/AlaskaAirlines/auro-combobox/commit/bbe961317552b96f50ff51c2c424826021af8644))
+* **nomatch:** hide bib when no options available an no noMatchOption defined ([d689cea](https://github.com/AlaskaAirlines/auro-combobox/commit/d689ceaca455a2e62157c65dee38d5f590cfd2f9))
+* **selection:** correct logic for select by input value [#91](https://github.com/AlaskaAirlines/auro-combobox/issues/91) ([3379808](https://github.com/AlaskaAirlines/auro-combobox/commit/337980841bb3be4722de30dc1d5c1adef27bc643))
+* **value:** fix setting the value programatically with latest auro-input version ([1ab6342](https://github.com/AlaskaAirlines/auro-combobox/commit/1ab6342a5073e910d16a74994bc0288ae8a134b9))
+
 ## [1.6.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.0...v1.6.1) (2022-10-11)
 
 
