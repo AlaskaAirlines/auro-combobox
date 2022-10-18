@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.6.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.2...v1.6.3) (2022-10-18)
+
+
+### Bug Fixes
+
+* **icon:** correct accent icon style after auro-input update [#82](https://github.com/AlaskaAirlines/auro-combobox/issues/82) ([c945760](https://github.com/AlaskaAirlines/auro-combobox/commit/c9457609178f8d01faa58b254b843535488ebe9f))
+
 ## [1.6.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.1...v1.6.2) (2022-10-17)
 
 
