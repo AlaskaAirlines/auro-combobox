@@ -1,6 +1,7 @@
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../api.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
+
 ## API Examples
 
 ### Basic
@@ -15,6 +16,31 @@
   <span slot="trigger">See code</span>
 
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
+#### Dynamic Menu
+
+This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In 
+this example, each time the input's value changes, the data is updated and the menu is recreated.
+
+The menu in this example was populated from data from a country/city API. To keep the data set small,
+the data in the menu is based off an API call that returns all countries and cities that contain the substring
+"**germ**" (non case-sensitive) in their name.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/dynamicMenu.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/dynamicMenu.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/dynamicMenu.js) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>

@@ -1,3 +1,4 @@
+import { populateCombobox } from '../apiExamples/dynamicMenu';
 import { initValueExamples } from '../apiExamples/value';
 import { focus } from './../apiExamples/focus';
 
@@ -36,6 +37,17 @@ class Examples {
      */
     initializeExample('#focusExample', function(elem) {
       focus(elem);
+    });
+
+    /**
+     * Populate combobox via Dynamic API
+     */
+    initializeExample('#dynamicMenuExample', function(elem) {
+      const input = elem.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input');
+
+      input.addEventListener('input', () => {
+        populateCombobox(elem);
+      });
     });
   }
 }
