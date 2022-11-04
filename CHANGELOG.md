@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.6.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.3...v1.6.4) (2022-11-04)
+
+
+### Bug Fixes
+
+* **ui:** unset auro-input's box-shadow property [#104](https://github.com/AlaskaAirlines/auro-combobox/issues/104) ([f6a8ecc](https://github.com/AlaskaAirlines/auro-combobox/commit/f6a8ecc5433d334c2b4c9444254e9b9bd45612f1))
+
 ## [1.6.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.2...v1.6.3) (2022-10-18)
 
 
