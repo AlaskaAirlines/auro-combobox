@@ -22,12 +22,9 @@
 
 #### Dynamic Menu
 
-This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In 
-this example, each time the input's value changes, the data is updated and the menu is recreated.
+This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In this example, each time the input's value changes, the data is updated and the menu is recreated.
 
-The menu in this example was populated from data from a country/city API. To keep the data set small,
-the data in the menu is based off an API call that returns all countries and cities that contain the substring
-"**germ**" (non case-sensitive) in their name.
+The menu in this example was populated from data from a country/city API. To keep the data set small, the data in the menu is based off an API call that returns all countries and cities that contain the substring "**germ**" (non case-sensitive) in their name.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/dynamicMenu.html) -->

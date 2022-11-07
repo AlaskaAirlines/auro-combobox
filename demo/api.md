@@ -80,83 +80,90 @@
 
 #### Dynamic Menu
 
-This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In 
-this example, each time the input's value changes, the data is updated and the menu is recreated.
+This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In this example, each time the input's value changes, the data is updated and the menu is recreated.
 
-The menu in this example was populated from data from a country/city API. To keep the data set small,
-the data in the menu is based off an API call that returns all countries and cities that contain the substring
-"**germ**" (non case-sensitive) in their name.
+The menu in this example was populated from data from a country/city API. To keep the data set small, the data in the menu is based off an API call that returns all countries and cities that contain the substring "**germ**" (non case-sensitive) in their name.
 
 <div class="exampleWrapper">
+  <!-- HTML example file -->
+  <!-- ----------------- -->
   <auro-combobox id="dynamicMenuExample" noFilter>
     <span slot="label">Name</span>
-    <!-- The auro-combobox element requires an empty auro-menu element due to the requirements of auro-dropdown and auro-input -->
-    <auro-menu id="initMenu">
-    </auro-menu>
+    <!--
+      The auro-combobox element requires an empty auro-menu element
+      due to the requirements of auro-dropdown and auro-input
+    -->
+    <auro-menu id="initMenu"></auro-menu>
   </auro-combobox>
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
 ```html
+<!-- HTML example file -->
+<!-- ----------------- -->
 <auro-combobox id="dynamicMenuExample" noFilter>
   <span slot="label">Name</span>
-  <!-- The auro-combobox element requires an empty auro-menu element due to the requirements of auro-dropdown and auro-input -->
-  <auro-menu id="initMenu">
-  </auro-menu>
+  <!--
+    The auro-combobox element requires an empty auro-menu element
+    due to the requirements of auro-dropdown and auro-input
+  -->
+  <auro-menu id="initMenu"></auro-menu>
 </auro-combobox>
 ```
 
 ```js
+// Javascript example file
+// -----------------------
 import { DynamicData } from './dynamicMenuDataApi';
 
 // Resets the root menu
 function resetMenu(root) {
-    while (root.firstChild) {
-        root.removeChild(root.firstChild);
-    }
+  while (root.firstChild) {
+    root.removeChild(root.firstChild);
+  }
 }
 
 // Generates HTML for menu and submenus using country & city data from an external API
 function generateHtml(data) {
-    const initialMenu = document.querySelector('#initMenu');
+  const initialMenu = document.querySelector('#initMenu');
 
-    resetMenu(initialMenu);
+  resetMenu(initialMenu);
 
-    for (let index = 0; index < data.length; index++) {
-        let country = data[index]['country'];
-        let cities = data[index]['cities'];
+  for (let index = 0; index < data.length; index++) {
+    let country = data[index]['country'];
+    let cities = data[index]['cities'];
 
-        generateMenuOptionHtml(initialMenu, country, country);
+    generateMenuOptionHtml(initialMenu, country, country);
 
-        for (let indexB = 0; indexB < cities.length; indexB++) {
-            let subMenu = document.createElement('auro-menu');
+    for (let indexB = 0; indexB < cities.length; indexB++) {
+      let subMenu = document.createElement('auro-menu');
 
-            generateMenuOptionHtml(subMenu, cities[indexB], cities[indexB]);
+      generateMenuOptionHtml(subMenu, cities[indexB], cities[indexB]);
 
-            initialMenu.appendChild(subMenu);
-        }
-    };
+      initialMenu.appendChild(subMenu);
+    }
+  };
 }
 
 // Helper function that generates HTML for menuoptions
 function generateMenuOptionHtml(menu, label, value) {
-    let option = document.createElement('auro-menuoption');
+  let option = document.createElement('auro-menuoption');
 
-    option.value = value;
-    option.innerHTML = label;
+  option.value = value;
+  option.innerHTML = label;
 
-    menu.appendChild(option);
+  menu.appendChild(option);
 }
 
 // Main function that runs all JS to create example
 export async function populateCombobox(elem) {
-    const dynamicData = new DynamicData();
+  const dynamicData = new DynamicData();
 
-    let data = await dynamicData.getData();
-    data = dynamicData.filterData(data, elem.value);
+  let data = await dynamicData.getData();
+  data = dynamicData.filterData(data, elem.value);
 
-    generateHtml(data);
+  generateHtml(data);
 }
 ```
 
