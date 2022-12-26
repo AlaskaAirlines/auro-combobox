@@ -426,6 +426,10 @@ class AuroCombobox extends LitElement {
        * Prevent moving the cursor position while navigating the menu options.
        */
       if (evt.key === 'ArrowUp' || evt.key === 'ArrowDown') {
+        if (this.availableOptions.length > 0) {
+          this.dropdown.show();
+        }
+
         if (this.dropdown.isPopoverVisible) {
           evt.preventDefault();
         }
