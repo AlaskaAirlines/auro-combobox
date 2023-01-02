@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.7.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.4...v1.7.0) (2023-01-02)
+
+
+### Features
+
+* **ux:** open bib with arrow keys [#78](https://github.com/AlaskaAirlines/auro-combobox/issues/78) ([f716e08](https://github.com/AlaskaAirlines/auro-combobox/commit/f716e08dab776ef9e5888032a7ba621a468a6546))
+
 ## [1.6.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.3...v1.6.4) (2022-11-04)
 
 
