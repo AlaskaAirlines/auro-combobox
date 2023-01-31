@@ -256,7 +256,6 @@ class AuroCombobox extends LitElement {
       this.hideBib();
 
       if (this.menu.optionSelected) {
-        this.removeAttribute('error');
         if (this.optionSelected !== this.menu.optionSelected) {
           this.optionSelected = this.menu.optionSelected;
         }
