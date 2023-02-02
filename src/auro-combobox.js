@@ -215,8 +215,10 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   showBib() {
-    if (!this.dropdown.isPopoverVisible && this.availableOptions && this.availableOptions.length > 0 && this.input.value && this.input.value.length > 0) {
-      this.dropdown.show();
+    if (!this.dropdown.isPopoverVisible && this.input.value && this.input.value.length > 0) {
+      if (this.noFilter || (this.availableOptions && this.availableOptions.length > 0)) { // eslint-disable-line no-extra-parens
+        this.dropdown.show();
+      }
     }
   }
 
@@ -246,9 +248,14 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   configureMenu() {
-    this.menu.addEventListener('auroMenu-ready', () => {
+    if (this.noFilter) {
       this.auroMenuReady = true;
-    });
+    } else {
+      this.menu.addEventListener('auroMenu-ready', () => {
+        this.auroMenuReady = true;
+      });
+    }
+
 
     // handle the menu event for an option selection
     this.addEventListener('auroMenu-selectedOption', () => {
@@ -607,6 +614,10 @@ class AuroCombobox extends LitElement {
    * @returns {void}
    */
   handleSlotChange() {
+    if (this.auroMenuReady) {
+      this.options = this.menu.querySelectorAll('auro-menuoption');
+    }
+
     this.handleMenuOptions();
   }
 
