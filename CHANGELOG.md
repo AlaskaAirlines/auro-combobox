@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+## [1.7.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.0...v1.7.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* **error:** dont remove error attribute when choosing a menu value [#111](https://github.com/AlaskaAirlines/auro-combobox/issues/111) ([c421969](https://github.com/AlaskaAirlines/auro-combobox/commit/c4219693c87f1154bbcc3ca97ae15aa60d26d2b6))
+* **menu:** correct handling of empty dynamic menus [#115](https://github.com/AlaskaAirlines/auro-combobox/issues/115) ([0409bb8](https://github.com/AlaskaAirlines/auro-combobox/commit/0409bb82d6e279192edaf96fe4040239982b8bd5))
+
+
+### Performance Improvements
+
+* **actions:** update pipeline dependencies ([e2c7883](https://github.com/AlaskaAirlines/auro-combobox/commit/e2c788391b020e00c564f16f08e478bfea302a1f))
+* **deps:** update to latest deps versions ([895afdb](https://github.com/AlaskaAirlines/auro-combobox/commit/895afdbb4c5bc13aed1d38d967e27dd86e32dde3))
+
 # [1.7.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.6.4...v1.7.0) (2023-01-02)
 
 
