@@ -86,3 +86,18 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+### Swap values
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/swapValue.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/swapValue.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
