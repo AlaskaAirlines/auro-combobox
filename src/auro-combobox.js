@@ -14,6 +14,8 @@ import { LitElement, html } from "lit-element";
 /* eslint-disable max-lines */
 
 import '@aurodesignsystem/auro-menu';
+import '@aurodesignsystem/auro-input';
+import '@aurodesignsystem/auro-dropdown';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
