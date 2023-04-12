@@ -462,3 +462,122 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+### Swap values
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/swapValue.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/swapValue.html -->
+  <div id="swapExample">
+    <auro-combobox id="swapExampleLeft">
+      <span slot="label">Name</span>
+      <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+    </auro-combobox>
+    <auro-button id="swapExampleBtn" iconOnly secondary>
+      <auro-icon
+        customColor 
+        customSize
+        category="terminal" 
+        name="round-trip-arrows">
+      </auro-icon>
+    </auro-button>
+    <auro-combobox id="swapExampleRight">
+      <span slot="label">Name</span>
+      <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+    </auro-combobox>
+  </div>
+  
+  <style>
+    #swapExample {
+      display: flex;
+      flex-direction: row;
+  
+      align-items: center;
+    }
+  
+    #swapExampleLeft,
+    #swapExampleRight {
+      flex: 1;
+    }
+  
+    #swapExampleBtn {
+      margin: 0 5px;
+    }
+  </style>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/swapValue.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/swapValue.html -->
+```html
+<div id="swapExample">
+  <auro-combobox id="swapExampleLeft">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  <auro-button id="swapExampleBtn" iconOnly secondary>
+    <auro-icon
+      customColor 
+      customSize
+      category="terminal" 
+      name="round-trip-arrows">
+    </auro-icon>
+  </auro-button>
+  <auro-combobox id="swapExampleRight">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+
+<style>
+  #swapExample {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+  }
+
+  #swapExampleLeft,
+  #swapExampleRight {
+    flex: 1;
+  }
+
+  #swapExampleBtn {
+    margin: 0 5px;
+  }
+</style>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>

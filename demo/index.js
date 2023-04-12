@@ -1,34 +1,54 @@
 import { persistentEventOption } from '../apiExamples/persistent';
+import { swapComboboxValues } from '../apiExamples/swapValue';
 
 class Examples {
   initialize() {
-    function initializeExample(element, callback, retryCount) {
-      const elem = document.querySelector(element);
-
-      if (!elem || !elem.ready) {
-        // If the component is not ready, retry until it is
-        if (!retryCount && retryCount != 0) {
-          retryCount = 0;
+    function initializeExample(elements, callback, elementsPendingReady, retryCount) {
+      if (!elementsPendingReady) {
+        elementsPendingReady = elementsPendingReady || [];
+    
+        if (typeof elements === 'string') {
+          elementsPendingReady.push(elements);
         } else {
-          retryCount += 1;
+          elementsPendingReady = elements;
         }
-
-        if (retryCount < 10) {
-          setTimeout(initializeExample, 500, element, callback, retryCount);
-        } else {
-          console.error('Unable to initialize functional example code for:', element);
-        }
+    
+        initializeExample(elements, callback, elementsPendingReady);
       } else {
-        callback(elem);
+        let readyCount = 0;
+    
+        elementsPendingReady.forEach(element => {
+          if (document.querySelector(element) && document.querySelector(element)['ready']) {
+            readyCount++;
+          }
+        });
+    
+        retryCount = retryCount || 0;
+    
+        if (elementsPendingReady.length != readyCount && retryCount < 10) {
+          retryCount = retryCount + 1;
+          setTimeout(initializeExample, 500, elements, callback, elementsPendingReady, retryCount);
+        } else {
+          callback(elements);
+        }
       }
     }
 
     /**
      * Persistent option with custom event
      */
-    initializeExample('auro-combobox#persistent', function(elem) {
-      persistentEventOption(elem);
+    initializeExample('#persistent', function(selector) {
+      persistentEventOption(document.querySelector(selector));
     });
+
+    /**
+     * swap values example
+     */
+    (function(){
+      initializeExample(['#swapExampleBtn', '#swapExampleLeft', '#swapExampleRight'], function(selectors) {
+        swapComboboxValues(selectors);
+      });
+    }());
   }
 }
 
