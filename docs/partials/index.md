@@ -87,7 +87,11 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 
 </auro-accordion>
 
-### Swap values
+### Additional Use Case Examples
+
+#### Swapping Values Between Comboboxes
+
+This example illustrates using a JavaScript function attached to an auro-button component click event to swap the values of two `auro-combobox` elements. An example of this use case would be swapping the departure and arrival airports in a flight search form.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/swapValue.html) -->
