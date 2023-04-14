@@ -14,8 +14,6 @@ import { LitElement, html } from "lit-element";
 /* eslint-disable max-lines */
 
 import '@aurodesignsystem/auro-menu';
-import '@aurodesignsystem/auro-input';
-import '@aurodesignsystem/auro-dropdown';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
@@ -501,9 +499,9 @@ export class AuroCombobox extends LitElement {
   }
 
   firstUpdated() {
-    this.dropdown = this.shadowRoot.querySelector('auro-dropdown');
+    this.dropdown = this.shadowRoot.querySelector('combobox-dropdown');
     this.menu = this.querySelector('auro-menu');
-    this.input = this.dropdown.querySelector('auro-input');
+    this.input = this.dropdown.querySelector('combobox-input');
 
     this.configureMenu();
     this.configureInput();
@@ -572,7 +570,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
-    this.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input').
+    this.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input').
       focus();
   }
 
@@ -635,7 +633,7 @@ export class AuroCombobox extends LitElement {
             : undefined
           }
         </div>
-        <auro-dropdown
+        <combobox-dropdown
           for="dropdownMenu"
           bordered
           rounded
@@ -644,7 +642,7 @@ export class AuroCombobox extends LitElement {
           ?disabled="${this.disabled}"
           ?error="${this.validity !== undefined && this.validity !== 'valid'}"
           disableEventShow>
-          <auro-input
+          <combobox-input
             slot="trigger"
             bordered
             ?required="${this.required}"
@@ -653,7 +651,7 @@ export class AuroCombobox extends LitElement {
             ?icon="${this.triggerIcon}"
             .type="${this.type}">
             <slot name="label" slot="label"></slot>
-          </auro-input>
+          </combobox-input>
           <div class="menuWrapper">
             <slot slotchange="${this.handleSlotChange()}"></slot>
           </div>
@@ -667,13 +665,13 @@ export class AuroCombobox extends LitElement {
               `
             }
           </span>
-        </auro-dropdown>
+        </combobox-dropdown>
       </div>
     `;
   }
 }
 
-// define the name of the custom component
+// default internal definition
 if (!customElements.get("auro-combobox")) {
   customElements.define("auro-combobox", AuroCombobox);
 }

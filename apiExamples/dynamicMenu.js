@@ -45,7 +45,7 @@ function generateMenuOptionHtml(menu, label, value) {
 const dynamicData = new DynamicData();
 const dynamicMenuExample = document.querySelector('#dynamicMenuExample');
 
-const input = dynamicMenuExample.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input');
+const input = dynamicMenuExample.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input');
 
 input.addEventListener('input', () => {
   let data = dynamicData.getData();

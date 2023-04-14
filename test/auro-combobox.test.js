@@ -1,8 +1,5 @@
 import { fixture, html, expect, waitUntil, elementUpdated } from '@open-wc/testing';
-import '../src/auro-combobox.js';
-import '@aurodesignsystem/auro-input';
-import '@aurodesignsystem/auro-dropdown';
-import '@aurodesignsystem/auro-menu';
+import '../index.js';
 
 describe('auro-combobox', () => {
   it('auro-combobox custom element is defined', async () => {
@@ -40,7 +37,7 @@ describe('auro-combobox', () => {
   it('can programmatically apply focus to input', async () => {
    const el = await defaultFixture();
 
-    const input = el.shadowRoot.querySelector('auro-input');
+    const input = el.shadowRoot.querySelector('combobox-input');
 
     el.focus();
 
@@ -50,7 +47,7 @@ describe('auro-combobox', () => {
   it('shows the bib on click only when a value is typed', async () => {
     const el = await defaultFixture();
 
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
     const trigger = dropdown.querySelector('[slot="trigger"]');
     trigger.click();
     await expect(dropdown.isPopoverVisible).to.be.false;
@@ -62,7 +59,7 @@ describe('auro-combobox', () => {
   it('shows the bib when pressing enter and a value is typed', async () => {
     const el = await defaultFixture();
 
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     // Validate bib is not shown when hitting enter but there is no value in the input
     el.focus();
@@ -82,7 +79,7 @@ describe('auro-combobox', () => {
 
   it('hides the bib when there are no available options', async () => {
     const el = await defaultFixture();
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     setInputValue(el, 'zzzzzz');
     await expect(dropdown.isPopoverVisible).to.be.false;
@@ -92,7 +89,7 @@ describe('auro-combobox', () => {
     const el = await defaultFixture();
     await waitUntil(() => el.ready);
 
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
     const trigger = dropdown.querySelector('[slot="trigger"]');
 
     setInputValue(el, 'p');
@@ -109,7 +106,7 @@ describe('auro-combobox', () => {
 
   it('hides the bib when tabbing away from combobox', async () => {
     const el = await defaultFixture();
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
     const trigger = dropdown.querySelector('[slot="trigger"]');
 
     el.focus();
@@ -128,7 +125,7 @@ describe('auro-combobox', () => {
   it('hides the bib when selecting an option with a custom event', async () => {
     const el = await customEventFixture();
 
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     await expect(dropdown.isPopoverVisible).to.be.false;
 
@@ -153,7 +150,7 @@ describe('auro-combobox', () => {
   it('navigates menu with up and down arrow keys', async () => {
     const el = await defaultFixture();
 
-    const dropdown = el.shadowRoot.querySelector('auro-dropdown');
+    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     // Validate bib is shown when hitting enter but there is a value in the input
     setInputValue(el, 'pp');
@@ -372,8 +369,12 @@ describe('auro-combobox', () => {
 
     await expect(el.getAttribute('validity')).to.be.equal('valueMissing');
 
+    el.focus();
+
     // no error when input has a value
     setInputValue(el, 'pp');
+
+    el.shadowRoot.activeElement.blur();
 
     await elementUpdated(el);
 
@@ -506,7 +507,7 @@ async function noFilterFixture() {
 }
 
 function setInputValue(el, value) {
-  const auroInput = el.shadowRoot.querySelector('auro-input');
+  const auroInput = el.shadowRoot.querySelector('combobox-input');
   const input = auroInput.shadowRoot.querySelector('input');
 
   input.value = value;

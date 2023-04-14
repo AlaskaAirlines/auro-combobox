@@ -160,7 +160,7 @@ function generateMenuOptionHtml(menu, label, value) {
 const dynamicData = new DynamicData();
 const dynamicMenuExample = document.querySelector('#dynamicMenuExample');
 
-const input = dynamicMenuExample.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input');
+const input = dynamicMenuExample.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input');
 
 input.addEventListener('input', () => {
   let data = dynamicData.getData();
@@ -492,14 +492,12 @@ The focus method will apply focus state to the combobox input field.
   <span slot="trigger">See code</span>
 
 ```js
-// export function focus(elem) {
-  const focusExample = document.querySelector('#focusExample');
-  const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
+const focusExample = document.querySelector('#focusExample');
+const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
 
-  focusExampleBtnElem.addEventListener('click', () => {
-    focusExample.focus();
-  });
-// }
+focusExampleBtnElem.addEventListener('click', () => {
+  focusExample.focus();
+});
 ```
 
 ```html

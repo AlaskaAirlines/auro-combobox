@@ -20,4 +20,5 @@ dist/es5.js
 index.html
 
 # ignore src
-src/**/*
+src/**/*.scss
+src/**/*.css
