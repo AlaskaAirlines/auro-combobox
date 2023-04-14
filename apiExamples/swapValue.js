@@ -1,13 +1,15 @@
-export function swapComboboxValues(selectors) {
-  const btn = document.querySelector(selectors[0]);
-  const comboboxOne = document.querySelector(selectors[1]);
-  const comboboxTwo = document.querySelector(selectors[2]);
+const btn = document.querySelector('#swapExampleBtn');
+const comboboxOne = document.querySelector('#swapExampleLeft');
+const comboboxTwo = document.querySelector('#swapExampleRight');
 
-  btn.addEventListener('click', () => {
-    const valueOne = comboboxOne.value;
-    const valueTwo = comboboxTwo.value;
+console.log("hello");
+console.log(btn);
 
-    comboboxOne.value = valueTwo;
-    comboboxTwo.value = valueOne;
-  });
-}
+btn.addEventListener('click', () => {
+  console.log("btn clicked");
+  const valueOne = comboboxOne.value;
+  const valueTwo = comboboxTwo.value;
+
+  comboboxOne.value = valueTwo;
+  comboboxTwo.value = valueOne;
+});

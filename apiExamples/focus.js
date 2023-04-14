@@ -1,7 +1,8 @@
-export function focus(elem) {
+// export function focus(elem) {
+  const focusExample = document.querySelector('#focusExample');
   const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
 
   focusExampleBtnElem.addEventListener('click', () => {
-    elem.focus();
-  })
-}
+    focusExample.focus();
+  });
+// }

@@ -32,18 +32,12 @@
     <script type="module">
       import 'https://unpkg.com/marked@latest/marked.min.js';
       import 'https://unpkg.com/prismjs@latest/prism.js';
-      import { Examples } from './index.js';
       fetch('/index/index.md')
         .then((response) => response.text())
         .then((text) => {
           const rawHtml = marked.parse(text);
           document.querySelector('main').innerHTML = rawHtml;
           Prism.highlightAll();
-        })
-        .then(() => {
-          const examples = new Examples();
-
-          examples.initialize();
         });
     </script>
 
@@ -51,6 +45,7 @@
     <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
-    <script type="module" src="../src/auro-combobox.js"></script>
+    <script type="module" src="../index.js"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

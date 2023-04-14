@@ -42,7 +42,7 @@ import styleCss from "./style-css.js";
  */
 
 // build the component class
-class AuroCombobox extends LitElement {
+export class AuroCombobox extends LitElement {
   constructor() {
     super();
 

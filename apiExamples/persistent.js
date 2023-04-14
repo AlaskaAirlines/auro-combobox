@@ -1,6 +1,8 @@
-export function persistentEventOption(elem) {
-  elem.addEventListener('addNewAddress', () => {
-    console.warn('addNewAddress event fired');
-    alert(`addNewAddress event fired`);
-  });
-}
+const persistentExample = document.querySelector('#persistent');
+
+console.log(persistentExample);
+
+persistentExample.addEventListener('addNewAddress', () => {
+  console.warn('addNewAddress event fired');
+  alert(`addNewAddress event fired`);
+});
