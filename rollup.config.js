@@ -18,7 +18,7 @@ const getSharedPlugins = (isLegacy) => [
 
 const modernConfig = {
   input: {
-    ['auro-combobox__bundled']: './src/auro-combobox.js',
+    ['auro-combobox__bundled']: './index.js',
   },
   output: {
     format: 'esm',

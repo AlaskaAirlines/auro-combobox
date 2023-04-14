@@ -5,7 +5,7 @@
 
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/utilityClasses/displayProperties';
 
-auro-input {
+combobox-input {
   /* 3.5rem if --auro-size-700 not defined */
   min-height: var(--auro-size-700, 3.5rem);
   max-height: var(--auro-size-700, 3.5rem);
@@ -36,7 +36,7 @@ auro-input {
 }
 
 :host {
-  auro-dropdown {
+  combobox-dropdown {
     &::part(trigger) {
       padding-right: var(--auro-size-150, var(--auro-size-sm));
     }
