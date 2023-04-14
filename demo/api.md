@@ -156,15 +156,18 @@ function generateMenuOptionHtml(menu, label, value) {
   menu.appendChild(option);
 }
 
-// Main function that runs all JS to create example
-export async function populateCombobox(elem) {
-  const dynamicData = new DynamicData();
+// Main javascript that runs all JS to create example
+const dynamicData = new DynamicData();
+const dynamicMenuExample = document.querySelector('#dynamicMenuExample');
 
-  let data = await dynamicData.getData();
-  data = dynamicData.filterData(data, elem.value);
+const input = dynamicMenuExample.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input');
+
+input.addEventListener('input', () => {
+  let data = dynamicData.getData();
+  data = dynamicData.filterData(data, dynamicMenuExample.value);
 
   generateHtml(data);
-}
+});
 ```
 
 </auro-accordion>
@@ -411,20 +414,19 @@ Note: using a value that does not match a menu option will reset the combobox va
 ```
 
 ```js
-export function initValueExamples(elem) {
-  document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
-    elem.value = 'Oranges';
-  })
+const valueExample = document.querySelector('#valueExample');
 
-  document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
-    console.warn('dragon fruit', elem);
-    elem.value = 'Dragon Fruit';
-  })
+document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
+  valueExample.value = 'Oranges';
+});
 
-  document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
-    elem.value = undefined;
-  })
-}
+document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+  valueExample.value = 'Dragon Fruit';
+});
+
+document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
+  valueExample.value = undefined;
+});
 ```
 
 </auro-accordion>
@@ -490,13 +492,14 @@ The focus method will apply focus state to the combobox input field.
   <span slot="trigger">See code</span>
 
 ```js
-export function focus(elem) {
+// export function focus(elem) {
+  const focusExample = document.querySelector('#focusExample');
   const focusExampleBtnElem = document.querySelector('#focusExampleBtn');
 
   focusExampleBtnElem.addEventListener('click', () => {
-    elem.focus();
-  })
-}
+    focusExample.focus();
+  });
+// }
 ```
 
 ```html

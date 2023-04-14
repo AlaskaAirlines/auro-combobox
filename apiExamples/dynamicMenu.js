@@ -41,12 +41,15 @@ function generateMenuOptionHtml(menu, label, value) {
   menu.appendChild(option);
 }
 
-// Main function that runs all JS to create example
-export async function populateCombobox(elem) {
-  const dynamicData = new DynamicData();
+// Main javascript that runs all JS to create example
+const dynamicData = new DynamicData();
+const dynamicMenuExample = document.querySelector('#dynamicMenuExample');
 
-  let data = await dynamicData.getData();
-  data = dynamicData.filterData(data, elem.value);
+const input = dynamicMenuExample.shadowRoot.querySelector('auro-dropdown').querySelector('auro-input');
+
+input.addEventListener('input', () => {
+  let data = dynamicData.getData();
+  data = dynamicData.filterData(data, dynamicMenuExample.value);
 
   generateHtml(data);
-}
+});

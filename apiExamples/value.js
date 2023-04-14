@@ -1,14 +1,13 @@
-export function initValueExamples(elem) {
-  document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
-    elem.value = 'Oranges';
-  })
+const valueExample = document.querySelector('#valueExample');
 
-  document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
-    console.warn('dragon fruit', elem);
-    elem.value = 'Dragon Fruit';
-  })
+document.querySelector('#valueValidExampleBtn').addEventListener('click', () => {
+  valueExample.value = 'Oranges';
+});
 
-  document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
-    elem.value = undefined;
-  })
-}
+document.querySelector('#valueInvalidExampleBtn').addEventListener('click', () => {
+  valueExample.value = 'Dragon Fruit';
+});
+
+document.querySelector('#valueUndefinedExampleBtn').addEventListener('click', () => {
+  valueExample.value = undefined;
+});
