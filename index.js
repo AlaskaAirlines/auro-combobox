@@ -6,10 +6,6 @@ if (!customElements.get("combobox-input")) {
   customElements.define("combobox-input", class extends AuroInput {});
 }
 
-if (!customElements.get("combobox-dropdown")) {
-  customElements.define("combobox-dropdown", class extends AuroDropdown {});
-}
-
 /**
  * Register Custom Element.
  * @param {Object} name - Name to use for custom element.

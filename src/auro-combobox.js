@@ -4,7 +4,8 @@
 // ---------------------------------------------------------------------
 
 // If using litElement base class
-import { LitElement, html } from "lit";
+import { LitElement } from "lit";
+import { html, literal, unsafeStatic } from 'lit/static-html.js';
 
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
@@ -14,6 +15,7 @@ import { LitElement, html } from "lit";
 /* eslint-disable max-lines */
 
 import '@aurodesignsystem/auro-menu';
+import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
@@ -50,6 +52,13 @@ export class AuroCombobox extends LitElement {
     this.optionSelected = null;
 
     this.privateDefaults();
+
+    this.dropdownElementName = this.generateElementHash('auro-dropdown');
+    this.dropdownTag = literal`${unsafeStatic(this.dropdownElementName)}`;
+
+    if (!customElements.get(this.dropdownElementName)) {
+      customElements.define(this.dropdownElementName, class extends AuroDropdown {});
+    }
   }
 
   /**
@@ -124,12 +133,37 @@ export class AuroCombobox extends LitElement {
       /**
        * @private
        */
-      msgSelectionMissing: { type: String }
+      msgSelectionMissing: { type: String },
+
+      /**
+       * @private
+       */
+      dropdownElementName: { type: String },
+
+      /**
+       * @private
+       */
+      dropdownTag: { type: Object }
     };
   }
 
   static get styles() {
     return [styleCss];
+  }
+
+  /**
+   * Generates a unique string to be used for child auro element naming
+   * @private
+   * @param {string} - Defines the first part of the unique element name.
+   * @returns {string} - Unique string to be used for naming.
+   */
+  generateElementHash(baseName) {
+    let result = baseName;
+
+    result += '-';
+    result += Math.random().toString(36).replace(/[0-9]/g, '').substring(1,5);
+
+    return result;
   }
 
   /**
@@ -499,7 +533,7 @@ export class AuroCombobox extends LitElement {
   }
 
   firstUpdated() {
-    this.dropdown = this.shadowRoot.querySelector('combobox-dropdown');
+    this.dropdown = this.shadowRoot.querySelector(this.dropdownElementName);
     this.menu = this.querySelector('auro-menu');
     this.input = this.dropdown.querySelector('combobox-input');
 
@@ -570,7 +604,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
-    this.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input').
+    this.dropdown.querySelector('combobox-input').
       focus();
   }
 
@@ -633,7 +667,7 @@ export class AuroCombobox extends LitElement {
             : undefined
           }
         </div>
-        <combobox-dropdown
+        <${this.dropdownTag}
           for="dropdownMenu"
           bordered
           rounded
@@ -665,7 +699,7 @@ export class AuroCombobox extends LitElement {
               `
             }
           </span>
-        </combobox-dropdown>
+        </${this.dropdownTag}>
       </div>
     `;
   }

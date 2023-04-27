@@ -46,27 +46,23 @@ describe('auro-combobox', () => {
 
   it('shows the bib on click only when a value is typed', async () => {
     const el = await defaultFixture();
-
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
-    const trigger = dropdown.querySelector('[slot="trigger"]');
+    const trigger = el.dropdown.querySelector('[slot="trigger"]');
     trigger.click();
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
     setInputValue(el, 'p');
     trigger.click();
-    await expect(dropdown.isPopoverVisible).to.be.true;
+    await expect(el.dropdown.isPopoverVisible).to.be.true;
   });
 
   it('shows the bib when pressing enter and a value is typed', async () => {
     const el = await defaultFixture();
-
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     // Validate bib is not shown when hitting enter but there is no value in the input
     el.focus();
     el.dispatchEvent(new KeyboardEvent('keydown', {
       'key': 'Enter'
     }));
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
 
     // Validate bib is shown when hitting enter but there is a value in the input
     setInputValue(el, 'pp');
@@ -74,23 +70,21 @@ describe('auro-combobox', () => {
       'key': 'Enter'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.true;
+    await expect(el.dropdown.isPopoverVisible).to.be.true;
   });
 
   it('hides the bib when there are no available options', async () => {
     const el = await defaultFixture();
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     setInputValue(el, 'zzzzzz');
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
   });
 
   it('hides the bib when making a selection', async () => {
     const el = await defaultFixture();
     await waitUntil(() => el.ready);
 
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
-    const trigger = dropdown.querySelector('[slot="trigger"]');
+    const trigger = el.dropdown.querySelector('[slot="trigger"]');
 
     setInputValue(el, 'p');
     trigger.click();
@@ -101,40 +95,37 @@ describe('auro-combobox', () => {
 
     await elementUpdated(el);
 
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
   });
 
   it('hides the bib when tabbing away from combobox', async () => {
     const el = await defaultFixture();
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
-    const trigger = dropdown.querySelector('[slot="trigger"]');
+    const trigger = el.dropdown.querySelector('[slot="trigger"]');
 
     el.focus();
 
     setInputValue(el, 'p');
     trigger.click();
-    await expect(dropdown.isPopoverVisible).to.be.true;
+    await expect(el.dropdown.isPopoverVisible).to.be.true;
 
     el.dispatchEvent(new KeyboardEvent('keydown', {
       'key': 'Tab'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
   });
 
   it('hides the bib when selecting an option with a custom event', async () => {
     const el = await customEventFixture();
 
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
-
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
 
     setInputValue(el, 'a');
     el.dispatchEvent(new KeyboardEvent('keydown', {
       'key': 'Enter'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.true;
+    await expect(el.dropdown.isPopoverVisible).to.be.true;
 
     el.dispatchEvent(new KeyboardEvent('keydown', {
       'key': 'ArrowDown'
@@ -144,13 +135,11 @@ describe('auro-combobox', () => {
       'key': 'Enter'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.false;
+    await expect(el.dropdown.isPopoverVisible).to.be.false;
   });
 
   it('navigates menu with up and down arrow keys', async () => {
     const el = await defaultFixture();
-
-    const dropdown = el.shadowRoot.querySelector('combobox-dropdown');
 
     // Validate bib is shown when hitting enter but there is a value in the input
     setInputValue(el, 'pp');
@@ -158,7 +147,7 @@ describe('auro-combobox', () => {
       'key': 'Enter'
     }));
 
-    await expect(dropdown.isPopoverVisible).to.be.true;
+    await expect(el.dropdown.isPopoverVisible).to.be.true;
 
     const menu = el.querySelector('auro-menu');
     const menuOptions = menu.querySelectorAll('auro-menuoption');
