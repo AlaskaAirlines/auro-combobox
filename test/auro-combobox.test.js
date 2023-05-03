@@ -37,7 +37,7 @@ describe('auro-combobox', () => {
   it('can programmatically apply focus to input', async () => {
    const el = await defaultFixture();
 
-    const input = el.shadowRoot.querySelector('combobox-input');
+    const input = el.input;
 
     el.focus();
 
@@ -496,7 +496,7 @@ async function noFilterFixture() {
 }
 
 function setInputValue(el, value) {
-  const auroInput = el.shadowRoot.querySelector('combobox-input');
+  const auroInput = el.input;
   const input = auroInput.shadowRoot.querySelector('input');
 
   input.value = value;

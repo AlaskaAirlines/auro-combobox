@@ -6,6 +6,7 @@
 // If using litElement base class
 import { LitElement } from "lit";
 import { html, literal, unsafeStatic } from 'lit/static-html.js';
+// import version from './version';
 
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
@@ -16,6 +17,10 @@ import { html, literal, unsafeStatic } from 'lit/static-html.js';
 
 import '@aurodesignsystem/auro-menu';
 import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
+import dropdownVersion from './dropdownVersion';
+
+import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.js';
+import inputVersion from './inputVersion';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
@@ -53,11 +58,18 @@ export class AuroCombobox extends LitElement {
 
     this.privateDefaults();
 
-    this.dropdownElementName = this.generateElementHash('auro-dropdown');
+    this.dropdownElementName = this.generateElementHash('auro-dropdown', dropdownVersion);
     this.dropdownTag = literal`${unsafeStatic(this.dropdownElementName)}`;
 
     if (!customElements.get(this.dropdownElementName)) {
       customElements.define(this.dropdownElementName, class extends AuroDropdown {});
+    }
+
+    this.inputElementName = this.generateElementHash('auro-input', inputVersion);
+    this.inputTag = literal`${unsafeStatic(this.inputElementName)}`;
+
+    if (!customElements.get(this.inputElementName)) {
+      customElements.define(this.inputElementName, class extends AuroInput {});
     }
   }
 
@@ -143,7 +155,17 @@ export class AuroCombobox extends LitElement {
       /**
        * @private
        */
-      dropdownTag: { type: Object }
+      dropdownTag: { type: Object },
+
+      /**
+       * @private
+       */
+      inputElementName: { type: String },
+
+      /**
+       * @private
+       */
+      inputTag: { type: Object }
     };
   }
 
@@ -157,11 +179,11 @@ export class AuroCombobox extends LitElement {
    * @param {string} - Defines the first part of the unique element name.
    * @returns {string} - Unique string to be used for naming.
    */
-  generateElementHash(baseName) {
+  generateElementHash(baseName, version) {
     let result = baseName;
 
     result += '-';
-    result += Math.random().toString(36).replace(/[0-9]/g, '').substring(1,5);
+    result += version.replace(/[.]/g, '_');
 
     return result;
   }
@@ -535,7 +557,7 @@ export class AuroCombobox extends LitElement {
   firstUpdated() {
     this.dropdown = this.shadowRoot.querySelector(this.dropdownElementName);
     this.menu = this.querySelector('auro-menu');
-    this.input = this.dropdown.querySelector('combobox-input');
+    this.input = this.dropdown.querySelector(this.inputElementName);
 
     this.configureMenu();
     this.configureInput();
@@ -604,7 +626,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
-    this.dropdown.querySelector('combobox-input').
+    this.dropdown.querySelector(this.inputElementName).
       focus();
   }
 
@@ -676,7 +698,8 @@ export class AuroCombobox extends LitElement {
           ?disabled="${this.disabled}"
           ?error="${this.validity !== undefined && this.validity !== 'valid'}"
           disableEventShow>
-          <combobox-input
+          <${this.inputTag}
+            auro-input
             slot="trigger"
             bordered
             ?required="${this.required}"
@@ -685,7 +708,7 @@ export class AuroCombobox extends LitElement {
             ?icon="${this.triggerIcon}"
             .type="${this.type}">
             <slot name="label" slot="label"></slot>
-          </combobox-input>
+          </${this.inputTag}>
           <div class="menuWrapper">
             <slot slotchange="${this.handleSlotChange()}"></slot>
           </div>
