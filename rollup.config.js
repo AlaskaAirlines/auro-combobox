@@ -34,4 +34,40 @@ const modernConfig = {
   ]
 };
 
-export default [modernConfig];
+const indexExamplesConfig = {
+  input: {
+    ['index__bundled']: './demo/index.js',
+  },
+  output: {
+    format: 'esm',
+    dir: 'demo/'
+  },
+  plugins: [
+    ...getSharedPlugins(false),
+    !production &&
+      serve({
+        open: true,
+        openPage: '/docs/'
+      })
+  ]
+};
+
+const apiExamplesConfig = {
+  input: {
+    ['api__bundled']: './demo/api.js',
+  },
+  output: {
+    format: 'esm',
+    dir: 'demo/'
+  },
+  plugins: [
+    ...getSharedPlugins(false),
+    !production &&
+      serve({
+        open: true,
+        openPage: '/docs/'
+      })
+  ]
+};
+
+export default [modernConfig, indexExamplesConfig, apiExamplesConfig];
