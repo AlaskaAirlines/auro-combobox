@@ -1,10 +1,4 @@
-import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.js';
-import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
 import { AuroCombobox } from './src/auro-combobox.js';
-
-if (!customElements.get("combobox-input")) {
-  customElements.define("combobox-input", class extends AuroInput {});
-}
 
 /**
  * Register Custom Element.

@@ -110,7 +110,8 @@
             "./package.json",
             "./CHANGELOG.md",
             "./README.md",
-            "./docs/api.md"
+            "./docs/api.md",
+            "./src/version.js"
           ]
         }
       ],
@@ -127,7 +128,8 @@
     "web components"
   ],
   "scripts": {
-    "build": "npm-run-all build:sass sass:render dist:js build:api test build:docs bundler build:demoScripts postinstall types",
+    "build": "npm-run-all build:version build:sass sass:render dist:js build:api test build:docs bundler build:demoScripts postinstall",
+    "build:version": "node scripts/version.js",
     "build:ci": "npm-run-all sweep build",
     "build:api": "wca analyze 'src/auro-combobox.js' --outFiles docs/api.md",
     "build:dev:assets": "npm-run-all build:sass:component postCss:component sass:render",

@@ -39,6 +39,7 @@ jobs:
         with:
           node-version: 18.x
       - run: npm ci
+      - run: npm run version
       - run: npm run build
       - uses: cycjimmy/semantic-release-action@v3
         env:
