@@ -421,3 +421,117 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 ```
 
 </auro-accordion>
+
+### Additional Use Case Examples
+
+#### Swapping Values Between Comboboxes
+
+This example illustrates using a JavaScript function attached to an auro-button component click event to swap the values of two `auro-combobox` elements. An example of this use case would be swapping the departure and arrival airports in a flight search form.
+
+<div class="exampleWrapper">
+  <div id="swapExample">
+    <auro-combobox id="swapExampleLeft">
+      <span slot="label">Name</span>
+      <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+    </auro-combobox>
+    <auro-button id="swapExampleBtn" iconOnly secondary>
+      <auro-icon
+        customColor 
+        customSize
+        category="terminal" 
+        name="round-trip-arrows">
+      </auro-icon>
+    </auro-button>
+    <auro-combobox id="swapExampleRight">
+      <span slot="label">Name</span>
+      <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+    </auro-combobox>
+  </div>
+  <style>
+    #swapExample {
+      display: flex;
+      flex-direction: row;
+
+      align-items: center;
+    }
+
+    #swapExampleLeft,
+    #swapExampleRight {
+      flex: 1;
+    }
+
+    #swapExampleBtn {
+      margin: 0 5px;
+    }
+  </style>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<div id="swapExample">
+  <auro-combobox id="swapExampleLeft">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  <auro-button id="swapExampleBtn" iconOnly secondary>
+    <auro-icon
+      customColor 
+      customSize
+      category="terminal" 
+      name="round-trip-arrows">
+    </auro-icon>
+  </auro-button>
+  <auro-combobox id="swapExampleRight">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+</div>
+<style>
+  #swapExample {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+  }
+
+  #swapExampleLeft,
+  #swapExampleRight {
+    flex: 1;
+  }
+
+  #swapExampleBtn {
+    margin: 0 5px;
+  }
+</style>
+```
+
+</auro-accordion>
