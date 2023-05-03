@@ -160,7 +160,7 @@ function processDemo() {
 
   const configDemo = {
     matchWord: 'AURO-GENERATED-CONTENT',
-    outputDir: './demo'
+    outputDir: './index'
   };
 
   const markdownPath = path.join(__dirname, '../docs/partials/index.md');
