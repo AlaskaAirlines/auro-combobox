@@ -1,6 +1,8 @@
 # standard ignore
 *config*
 *conf*
+LICENSE
+NOTICE
 
 .github/
 .gitignore
@@ -16,6 +18,17 @@ demo/**/*.scss
 demo/**/*.html
 
 dist/es5.js
+dist/auro-combobox.js
+dist/style-css.js
+dist/style-fixed-css.js
+
+demo/api.js
+demo/index.js
+
+apiExamples/
+docTemplates/
+
+CHANGELOG.md
 
 index.html
 

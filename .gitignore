@@ -5,7 +5,7 @@ node_modules/
 ## Demo support files
 demo/*.css
 demo/*.css.map
-demo/*__bundled.js
+demo/*min.js
 
 ## CSS built from Sass process
 src/*.css
