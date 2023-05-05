@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.7.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.3...v1.7.4) (2023-05-05)
+
+
+### Performance Improvements
+
+* **docs:** remove minification of doc example js ([18057b1](https://github.com/AlaskaAirlines/auro-combobox/commit/18057b16a9be851154c78f3a40d1087566c78c25))
+
 ## [1.7.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.2...v1.7.3) (2023-05-04)
 
 
