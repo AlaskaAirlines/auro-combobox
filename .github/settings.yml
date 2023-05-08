@@ -68,7 +68,7 @@ branches:
 labels:
   - name: auro-combobox
     cat: default
-    color: fa23e4
+    color: 'fa23e4'
     description:
     process: Key filter for this repo
   - name: not-reviewed
@@ -78,7 +78,7 @@ labels:
     color: 'A9A9A9'
     description: Completed work has been released
   - name: 'Status: help wanted'
-    color: '2492eb'
+    color: '6bb7fb'
     description: Team is asking for assistance to complete the work
   - name: 'Status: Work In Progress'
     description: Issue or Pull Request work is in Progress
@@ -88,9 +88,9 @@ labels:
     description: Progress on the issue is blocked, immediate attention is required
     aliases:
     - blocked
-  - name: 'Status: Abandoned'
+  - name: 'Abandoned'
     color: '156fad'
-    description: The issue or Pull Request is wont-fix
+    description: The author of this issue or Pull Request is not responding
     aliases:
     - wontfix
     - invalid
@@ -103,12 +103,12 @@ labels:
     aliases:
     - bug
   - name: 'Type: Feature'
-    color: 'e5ad07'
+    color: 'ffd200'
     description: New Feature
     aliases:
     - enhancement
   - name: 'Type: Design'
-    color: 'e5ad07'
+    color: 'ffd200'
     description: New or related Design work
     aliases:
     - enhancement
@@ -119,8 +119,21 @@ labels:
     - test
     - testing
   - name: 'Type: Documentation'
-    color: 'f26135'
+    color: 'ffd200'
     description: Documentation only changes
     aliases:
     - documents
     - document
+  - name: 'Type: Perf'
+    color: 'ffd200'
+    description: Performance update to existing code
+  - name: 'Question'
+    color: 'b83302'
+    description: Further information is requested
+    aliases:
+    - question
+  - name: 'Type: UI Update'
+    color: 'ffd200'
+    description: Changes to the user interface
+    aliases:
+    - dependencies
