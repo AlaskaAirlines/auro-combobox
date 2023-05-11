@@ -1,7 +1,7 @@
 <!--
 The README.md file is a compiled document. No edits should be made directly to this file.
 
-README.md is created by running `npm run build:markdownDocs`.
+README.md is created by running `npm run build:docs`.
 
 This file is generated based on a template fetched from
 `https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
@@ -82,10 +82,9 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 
 ```html
 <!-- **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk. -->
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
-<script src="https://unpkg.com/@aurodesignsystem/auro-combobox@latest/dist/auro-combobox__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@aurodesignsystem/auro-combobox@latest/dist/auro-combobox__bundled.es5.js" nomodule></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/webcorestylesheets@latest/dist/bundled/essentials.css" />
+<script src="https://cdn.jsdelivr.net/@aurodesignsystem/auro-combobox@latest/dist/auro-combobox__bundled.js" type="module"></script>
 ```
 
 ## auro-combobox use cases

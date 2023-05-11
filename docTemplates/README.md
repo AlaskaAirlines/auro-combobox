@@ -1,7 +1,7 @@
 <!--
 The README.md file is a compiled document. No edits should be made directly to this file.
 
-README.md is created by running `npm run build:markdownDocs`.
+README.md is created by running `npm run build:docs`.
 
 This file is generated based on a template fetched from
 `https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
@@ -18,9 +18,6 @@ The following sections are editable by making changes to the following files:
 -->
 
 # [Name]
-
-<!-- AUROLABS-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/labsDisclaimer.md) -->
-<!-- AUROLABS-GENERATED-CONTENT:END -->
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/description.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
