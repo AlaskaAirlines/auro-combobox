@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [1.7.5](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.4...v1.7.5) (2023-05-11)
+
+
+### Performance Improvements
+
+* **examples:** refactor initialization of examples [#140](https://github.com/AlaskaAirlines/auro-combobox/issues/140) ([0f0e7bc](https://github.com/AlaskaAirlines/auro-combobox/commit/0f0e7bca51b443a0f06cba854ef141b27d7716af))
+* **examples:** refactor the initialization of examples [#140](https://github.com/AlaskaAirlines/auro-combobox/issues/140) ([4ca1c9e](https://github.com/AlaskaAirlines/auro-combobox/commit/4ca1c9ee7d3327dcf0998d6895aad3873e09d383))
+
 ## [1.7.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.3...v1.7.4) (2023-05-05)
 
 
