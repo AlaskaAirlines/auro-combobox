@@ -24,7 +24,11 @@ body:
     attributes:
       label: Please describe the bug
       description: List out the steps to reproduce the behavior
-      placeholder: 1. Go to '...' 2. Click on '....' 3. Scroll down to '....' 4. See error
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
   - type: dropdown
     id: repro
     attributes:
