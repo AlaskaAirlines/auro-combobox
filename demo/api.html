@@ -32,7 +32,6 @@
     <script type="module">
       import 'https://cdn.jsdelivr.net/npm/marked@latest/marked.min.js';
       import 'https://cdn.jsdelivr.net/npm/prismjs@latest/prism.js';
-      import { initComboboxApiExamples } from './api.min.js';
       fetch('/demo/api.md')
         .then((response) => response.text())
         .then((text) => {
@@ -40,8 +39,6 @@
           document.querySelector('main').innerHTML = rawHtml;
           Prism.highlightAll();
         });
-
-      initComboboxApiExamples();
     </script>
 
     <!-- If additional elements are needed for the demo, add them here. -->
@@ -49,5 +46,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@alaskaairux/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
     <script type="module" src="../index.js"></script>
+    <script src="./api.min.js"></script>
+    <script>
+      initComboboxApiExamples();
+    </script>
   </body>
 </html>
