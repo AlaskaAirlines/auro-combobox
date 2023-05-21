@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.7.6](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.5...v1.7.6) (2023-05-21)
+
+
+### Performance Improvements
+
+* **examples:** modify the bundles created for the examples when running the build [#144](https://github.com/AlaskaAirlines/auro-combobox/issues/144) ([d05e829](https://github.com/AlaskaAirlines/auro-combobox/commit/d05e829e1c9f2efd774fd97bf33e3aabf5da4632))
+
 ## [1.7.5](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.4...v1.7.5) (2023-05-11)
 
 
