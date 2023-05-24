@@ -1,5 +1,16 @@
 # Semantic Release Automated Changelog
 
+## [1.7.7](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.6...v1.7.7) (2023-05-24)
+
+
+### Performance Improvements
+
+* **es5:** remove legacy es5 bundling resources [#134](https://github.com/AlaskaAirlines/auro-combobox/issues/134) ([cd9831a](https://github.com/AlaskaAirlines/auro-combobox/commit/cd9831a2197160889e4587b204ec2d26946164dd))
+* **node18:** update to Node 18 [#136](https://github.com/AlaskaAirlines/auro-combobox/issues/136) ([70220fb](https://github.com/AlaskaAirlines/auro-combobox/commit/70220fb5baf5c191f73091dd6d2da319f2ac0c79))
+* update general feedback for update node 18 ([3fe6130](https://github.com/AlaskaAirlines/auro-combobox/commit/3fe61305063d905fece6d53779f56a4c520ebeb1))
+* update legacy dependencies [#137](https://github.com/AlaskaAirlines/auro-combobox/issues/137) ([dc8b465](https://github.com/AlaskaAirlines/auro-combobox/commit/dc8b465d5dd2b6027386c4f043b1417fc8da7e7e))
+* update to Lit2.0, TS support, issue templates, component registration extension [#135](https://github.com/AlaskaAirlines/auro-combobox/issues/135) ([0829716](https://github.com/AlaskaAirlines/auro-combobox/commit/08297160deaa867422b1ba76f63ed25504f771eb))
+
 ## [1.7.6](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.5...v1.7.6) (2023-05-21)
 
 
