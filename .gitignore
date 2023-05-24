@@ -6,6 +6,7 @@ node_modules/
 demo/*.css
 demo/*.css.map
 demo/*min.js
+docTemplates/
 
 ## CSS built from Sass process
 src/*.css
