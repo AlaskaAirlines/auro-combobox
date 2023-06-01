@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.7.8](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.7...v1.7.8) (2023-06-01)
+
+
+### Performance Improvements
+
+* **deps:** update latest version of auro-dropdown ([9365da3](https://github.com/AlaskaAirlines/auro-combobox/commit/9365da3906f5f03222ba9059a193df911789abd5))
+
 ## [1.7.7](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.6...v1.7.7) (2023-05-24)
 
 
