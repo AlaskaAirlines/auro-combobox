@@ -3,14 +3,19 @@
 
 // ---------------------------------------------------------------------
 
-const fs = require('fs');
+// import { AuroDependencyVersioning } from "./dependencyVersioning.mjs";
 
-const dropdownJson = require('../node_modules/@aurodesignsystem/auro-dropdown/package.json');
-const dropdownVersion = dropdownJson.version;
+function writeDepVersionFile(pkg) {
+  const fs = require('fs');
 
-fs.writeFileSync('./src/dropdownVersion.js', `export default '${dropdownVersion}'`);
+  const path = '../node_modules/' + pkg + '/package.json';
+  const json = require(path);
+  const version = json.version;
+  const elemSubName = pkg.substring(pkg.indexOf('auro-') + 5);
+  const versionFilePath = './src/' + elemSubName + 'Version.js';
 
-const inputJson = require('../node_modules/@aurodesignsystem/auro-input/package.json');
-const inputVersion = inputJson.version;
+  fs.writeFileSync(versionFilePath, `export default '${version}'`);
+};
 
-fs.writeFileSync('./src/inputVersion.js', `export default '${inputVersion}'`);
+writeDepVersionFile('@aurodesignsystem/auro-dropdown');
+writeDepVersionFile('@aurodesignsystem/auro-input');

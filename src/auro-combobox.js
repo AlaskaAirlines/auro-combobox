@@ -5,15 +5,15 @@
 
 // If using litElement base class
 import { LitElement } from "lit";
-import { html, literal, unsafeStatic } from 'lit/static-html.js';
-// import version from './version';
+import { html } from 'lit/static-html.js';
+import { AuroDependencyVersioning } from "../scripts/dependencyVersioning.mjs";
 
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit";
 // import AuroElement from '@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
-/* eslint-disable max-lines */
+/* eslint-disable max-lines, lit/binding-positions, lit/no-invalid-html */
 
 import '@aurodesignsystem/auro-menu';
 import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
@@ -58,19 +58,12 @@ export class AuroCombobox extends LitElement {
 
     this.privateDefaults();
 
-    this.dropdownElementName = this.generateElementHash('auro-dropdown', dropdownVersion);
-    this.dropdownTag = literal`${unsafeStatic(this.dropdownElementName)}`;
-
-    if (!customElements.get(this.dropdownElementName)) {
-      customElements.define(this.dropdownElementName, class extends AuroDropdown {});
-    }
-
-    this.inputElementName = this.generateElementHash('auro-input', inputVersion);
-    this.inputTag = literal`${unsafeStatic(this.inputElementName)}`;
-
-    if (!customElements.get(this.inputElementName)) {
-      customElements.define(this.inputElementName, class extends AuroInput {});
-    }
+    /**
+     * Generate unique names for dependency components.
+     */
+    const versioning = new AuroDependencyVersioning();
+    this.dropdownTag = versioning.generateTag('auro-dropdown', dropdownVersion, AuroDropdown);
+    this.inputTag = versioning.generateTag('auro-input', inputVersion, AuroInput);
   }
 
   /**
@@ -171,21 +164,6 @@ export class AuroCombobox extends LitElement {
 
   static get styles() {
     return [styleCss];
-  }
-
-  /**
-   * Generates a unique string to be used for child auro element naming
-   * @private
-   * @param {string} - Defines the first part of the unique element name.
-   * @returns {string} - Unique string to be used for naming.
-   */
-  generateElementHash(baseName, version) {
-    let result = baseName;
-
-    result += '-';
-    result += version.replace(/[.]/g, '_');
-
-    return result;
   }
 
   /**
@@ -555,9 +533,9 @@ export class AuroCombobox extends LitElement {
   }
 
   firstUpdated() {
-    this.dropdown = this.shadowRoot.querySelector(this.dropdownElementName);
+    this.dropdown = this.shadowRoot.querySelector(this.dropdownTag._$litStatic$); // eslint-disable-line no-underscore-dangle
     this.menu = this.querySelector('auro-menu');
-    this.input = this.dropdown.querySelector(this.inputElementName);
+    this.input = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
 
     this.configureMenu();
     this.configureInput();
@@ -626,8 +604,9 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
-    this.dropdown.querySelector(this.inputElementName).
-      focus();
+    const inputEl = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
+
+    inputEl.focus();
   }
 
   updated(changedProperties) {
