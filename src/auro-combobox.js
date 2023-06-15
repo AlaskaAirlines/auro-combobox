@@ -6,7 +6,7 @@
 // If using litElement base class
 import { LitElement } from "lit";
 import { html } from 'lit/static-html.js';
-import { AuroDependencyVersioning } from "../scripts/dependencyVersioning.mjs";
+import { AuroDependencyVersioning } from "../scripts/dependencyTagVersioning.mjs";
 
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
