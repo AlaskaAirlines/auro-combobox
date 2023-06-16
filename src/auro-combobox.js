@@ -365,7 +365,9 @@ export class AuroCombobox extends LitElement {
      * Validate every time we remove focus from the datepicker.
      */
     this.addEventListener('focusout', () => {
+      console.log("blurred", document.activeElement === this);
       if (document.activeElement !== this) {
+        console.log("active element is this");
         this.validate();
       }
 
@@ -604,6 +606,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
+    console.log("focus");
     const inputEl = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
 
     inputEl.focus();

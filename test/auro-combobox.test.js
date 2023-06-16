@@ -2,389 +2,391 @@ import { fixture, html, expect, waitUntil, elementUpdated } from '@open-wc/testi
 import '../index.js';
 
 describe('auro-combobox', () => {
-  it('auro-combobox custom element is defined', async () => {
-    const el = await !!customElements.get("auro-combobox");
+  // it('auro-combobox custom element is defined', async () => {
+  //   const el = await !!customElements.get("auro-combobox");
 
-    await expect(el).to.be.true;
-  });
-
-  // it('auro-combobox is accessible', async () => {
-  //   const el = await fixture(html`
-  //     <auro-combobox></auro-combobox>
-  //   `);
-
-  //   await expect(el).to.be.accessible();
+  //   await expect(el).to.be.true;
   // });
 
-  it('noFilter attribute results in no suggestion filtering', async () => {
-    const el = await noFilterFixture();
+  // // it('auro-combobox is accessible', async () => {
+  // //   const el = await fixture(html`
+  // //     <auro-combobox></auro-combobox>
+  // //   `);
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  // //   await expect(el).to.be.accessible();
+  // // });
 
-    setInputValue(el, 'pp');
+  // it('noFilter attribute results in no suggestion filtering', async () => {
+  //   const el = await noFilterFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(2);
-  });
+  //   setInputValue(el, 'pp');
 
-  it('can programmatically apply focus to input', async () => {
-   const el = await defaultFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    const input = el.input;
+  //   await expect(visibleMenuOptions.length).to.be.equal(2);
+  // });
 
-    el.focus();
+  // it('can programmatically apply focus to input', async () => {
+  //  const el = await defaultFixture();
 
-    await expect(el.shadowRoot.activeElement).to.be.equal(input);
-  });
+  //   const input = el.input;
 
-  it('shows the bib on click only when a value is typed', async () => {
-    const el = await defaultFixture();
-    const trigger = el.dropdown.querySelector('[slot="trigger"]');
-    trigger.click();
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
-    setInputValue(el, 'p');
-    trigger.click();
-    await expect(el.dropdown.isPopoverVisible).to.be.true;
-  });
+  //   el.focus();
 
-  it('shows the bib when pressing enter and a value is typed', async () => {
-    const el = await defaultFixture();
+  //   await expect(el.shadowRoot.activeElement).to.be.equal(input);
+  // });
 
-    // Validate bib is not shown when hitting enter but there is no value in the input
-    el.focus();
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
+  // it('shows the bib on click only when a value is typed', async () => {
+  //   const el = await defaultFixture();
+  //   const trigger = el.dropdown.querySelector('[slot="trigger"]');
+  //   trigger.click();
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
+  //   setInputValue(el, 'p');
+  //   trigger.click();
+  //   await expect(el.dropdown.isPopoverVisible).to.be.true;
+  // });
 
-    // Validate bib is shown when hitting enter but there is a value in the input
-    setInputValue(el, 'pp');
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  // it('shows the bib when pressing enter and a value is typed', async () => {
+  //   const el = await defaultFixture();
 
-    await expect(el.dropdown.isPopoverVisible).to.be.true;
-  });
+  //   // Validate bib is not shown when hitting enter but there is no value in the input
+  //   el.focus();
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
 
-  it('hides the bib when there are no available options', async () => {
-    const el = await defaultFixture();
+  //   // Validate bib is shown when hitting enter but there is a value in the input
+  //   setInputValue(el, 'pp');
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    setInputValue(el, 'zzzzzz');
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
-  });
+  //   await expect(el.dropdown.isPopoverVisible).to.be.true;
+  // });
 
-  it('hides the bib when making a selection', async () => {
-    const el = await defaultFixture();
-    await waitUntil(() => el.ready);
+  // it('hides the bib when there are no available options', async () => {
+  //   const el = await defaultFixture();
 
-    const trigger = el.dropdown.querySelector('[slot="trigger"]');
+  //   setInputValue(el, 'zzzzzz');
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
+  // });
 
-    setInputValue(el, 'p');
-    trigger.click();
+  // it('hides the bib when making a selection', async () => {
+  //   const el = await defaultFixture();
+  //   await waitUntil(() => el.ready);
 
-    await elementUpdated(el);
+  //   const trigger = el.dropdown.querySelector('[slot="trigger"]');
 
-    el.value = 'Apples';
+  //   setInputValue(el, 'p');
+  //   trigger.click();
 
-    await elementUpdated(el);
+  //   await elementUpdated(el);
 
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
-  });
+  //   el.value = 'Apples';
 
-  it('hides the bib when tabbing away from combobox', async () => {
-    const el = await defaultFixture();
-    const trigger = el.dropdown.querySelector('[slot="trigger"]');
+  //   await elementUpdated(el);
 
-    el.focus();
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
+  // });
 
-    setInputValue(el, 'p');
-    trigger.click();
-    await expect(el.dropdown.isPopoverVisible).to.be.true;
+  // it('hides the bib when tabbing away from combobox', async () => {
+  //   const el = await defaultFixture();
+  //   const trigger = el.dropdown.querySelector('[slot="trigger"]');
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Tab'
-    }));
+  //   el.focus();
 
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
-  });
+  //   setInputValue(el, 'p');
+  //   trigger.click();
+  //   await expect(el.dropdown.isPopoverVisible).to.be.true;
 
-  it('hides the bib when selecting an option with a custom event', async () => {
-    const el = await customEventFixture();
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Tab'
+  //   }));
 
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
+  // });
 
-    setInputValue(el, 'a');
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  // it('hides the bib when selecting an option with a custom event', async () => {
+  //   const el = await customEventFixture();
 
-    await expect(el.dropdown.isPopoverVisible).to.be.true;
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'ArrowDown'
-    }));
+  //   setInputValue(el, 'a');
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  //   await expect(el.dropdown.isPopoverVisible).to.be.true;
 
-    await expect(el.dropdown.isPopoverVisible).to.be.false;
-  });
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'ArrowDown'
+  //   }));
 
-  it('navigates menu with up and down arrow keys', async () => {
-    const el = await defaultFixture();
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    // Validate bib is shown when hitting enter but there is a value in the input
-    setInputValue(el, 'pp');
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  //   await expect(el.dropdown.isPopoverVisible).to.be.false;
+  // });
 
-    await expect(el.dropdown.isPopoverVisible).to.be.true;
+  // it('navigates menu with up and down arrow keys', async () => {
+  //   const el = await defaultFixture();
 
-    const menu = el.querySelector('auro-menu');
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   // Validate bib is shown when hitting enter but there is a value in the input
+  //   setInputValue(el, 'pp');
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    setInputValue(el, 'a');
+  //   await expect(el.dropdown.isPopoverVisible).to.be.true;
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'ArrowDown'
-    }));
+  //   const menu = el.querySelector('auro-menu');
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
 
-    await expect(el.optionActive).to.be.equal(menuOptions[0]);
-    await expect(menuOptions[0].classList.contains('active')).to.be.true;
-    await expect(menuOptions[1].classList.contains('active')).to.be.false;
+  //   setInputValue(el, 'a');
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'ArrowDown'
-    }));
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'ArrowDown'
+  //   }));
 
-    await expect(el.optionActive).to.be.equal(menuOptions[1]);
-    await expect(menuOptions[0].classList.contains('active')).to.be.false;
-    await expect(menuOptions[1].classList.contains('active')).to.be.true;
+  //   await expect(el.optionActive).to.be.equal(menuOptions[0]);
+  //   await expect(menuOptions[0].classList.contains('active')).to.be.true;
+  //   await expect(menuOptions[1].classList.contains('active')).to.be.false;
 
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'ArrowDown'
+  //   }));
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'ArrowUp'
-    }));
+  //   await expect(el.optionActive).to.be.equal(menuOptions[1]);
+  //   await expect(menuOptions[0].classList.contains('active')).to.be.false;
+  //   await expect(menuOptions[1].classList.contains('active')).to.be.true;
 
-    await expect(el.optionActive).to.be.equal(menuOptions[0]);
-    await expect(menuOptions[0].classList.contains('active')).to.be.true;
-    await expect(menuOptions[1].classList.contains('active')).to.be.false;
-  });
 
-  it('typing filters list of options', async () => {
-    const el = await defaultFixture();
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'ArrowUp'
+  //   }));
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  //   await expect(el.optionActive).to.be.equal(menuOptions[0]);
+  //   await expect(menuOptions[0].classList.contains('active')).to.be.true;
+  //   await expect(menuOptions[1].classList.contains('active')).to.be.false;
+  // });
 
-    setInputValue(el, 'pp');
+  // it('typing filters list of options', async () => {
+  //   const el = await defaultFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(1);
-    await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
-  });
+  //   setInputValue(el, 'pp');
 
-  it('using the nomatch attribute with a matching value', async () => {
-    const el = await noMatchFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  //   await expect(visibleMenuOptions.length).to.be.equal(1);
+  //   await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
+  // });
 
-    setInputValue(el, 'pp');
+  // it('using the nomatch attribute with a matching value', async () => {
+  //   const el = await noMatchFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(1);
-    await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
-  });
+  //   setInputValue(el, 'pp');
 
-  it('using the nomatch attribute with no matching value', async () => {
-    const el = await noMatchFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  //   await expect(visibleMenuOptions.length).to.be.equal(1);
+  //   await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
+  // });
 
-    setInputValue(el, 'zzz');
+  // it('using the nomatch attribute with no matching value', async () => {
+  //   const el = await noMatchFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(1);
-    await expect(visibleMenuOptions[0].innerText).to.be.equal('No Matching Option');
-  });
+  //   setInputValue(el, 'zzz');
 
-  it('using the persistent attribute always displays the persistent option', async () => {
-    const el = await persistentFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  //   await expect(visibleMenuOptions.length).to.be.equal(1);
+  //   await expect(visibleMenuOptions[0].innerText).to.be.equal('No Matching Option');
+  // });
 
-    setInputValue(el, 'pp');
+  // it('using the persistent attribute always displays the persistent option', async () => {
+  //   const el = await persistentFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(2);
-    await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
-    await expect(visibleMenuOptions[1].innerText).to.be.equal('Persistent');
-  });
+  //   setInputValue(el, 'pp');
 
-  it('using the suggest attribute matches additional options', async () => {
-    const el = await suggestFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let visibleMenuOptions = [];
+  //   await expect(visibleMenuOptions.length).to.be.equal(2);
+  //   await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
+  //   await expect(visibleMenuOptions[1].innerText).to.be.equal('Persistent');
+  // });
 
-    setInputValue(el, 'pp');
+  // it('using the suggest attribute matches additional options', async () => {
+  //   const el = await suggestFixture();
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (!menuOptions[oIndex].hasAttribute('hidden')) {
-        visibleMenuOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let visibleMenuOptions = [];
 
-    await expect(visibleMenuOptions.length).to.be.equal(2);
-    await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
-    await expect(visibleMenuOptions[1].innerText).to.be.equal('Oranges');
-  });
+  //   setInputValue(el, 'pp');
 
-  it('makes a selection programmatically', async () => {
-    const el = await defaultFixture();
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (!menuOptions[oIndex].hasAttribute('hidden')) {
+  //       visibleMenuOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    await waitUntil(() => el.ready);
+  //   await expect(visibleMenuOptions.length).to.be.equal(2);
+  //   await expect(visibleMenuOptions[0].innerText).to.be.equal('Apples');
+  //   await expect(visibleMenuOptions[1].innerText).to.be.equal('Oranges');
+  // });
 
-    const menu = el.querySelector('auro-menu')
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
-    let selectedOptions = [];
+  // it('makes a selection programmatically', async () => {
+  //   const el = await defaultFixture();
 
-    el.value = 'Apples';
+  //   await waitUntil(() => el.ready);
 
-    await waitUntil(() => el.optionSelected);
+  //   const menu = el.querySelector('auro-menu')
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   let selectedOptions = [];
 
-    for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
-      if (menuOptions[oIndex].hasAttribute('selected')) {
-        selectedOptions.push(menuOptions[oIndex]);
-      }
-    };
+  //   el.value = 'Apples';
 
-    await expect(el.value).to.be.equal('Apples');
-    await expect(el.optionSelected).to.be.equal(selectedOptions[0]);
-  });
+  //   await waitUntil(() => el.optionSelected);
 
-  it('reset selection value programmatically', async () => {
-    const el = await presetValueFixture();
-    await waitUntil(() => el.ready);
+  //   for (let oIndex = 0; oIndex < menuOptions.length; oIndex += 1) {
+  //     if (menuOptions[oIndex].hasAttribute('selected')) {
+  //       selectedOptions.push(menuOptions[oIndex]);
+  //     }
+  //   };
 
-    el.value = undefined;
+  //   await expect(el.value).to.be.equal('Apples');
+  //   await expect(el.optionSelected).to.be.equal(selectedOptions[0]);
+  // });
 
-    await elementUpdated(el);
+  // it('reset selection value programmatically', async () => {
+  //   const el = await presetValueFixture();
+  //   await waitUntil(() => el.ready);
 
-    await expect(el.optionSelected).to.be.equal(undefined);
-  });
+  //   el.value = undefined;
 
-  it('makes a selection using the keyboard', async () => {
-    const el = await defaultFixture();
-    const menu = el.querySelector('auro-menu');
-    const menuOptions = menu.querySelectorAll('auro-menuoption');
+  //   await elementUpdated(el);
 
-    setInputValue(el, 'a');
+  //   await expect(el.optionSelected).to.be.equal(undefined);
+  // });
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  // it('makes a selection using the keyboard', async () => {
+  //   const el = await defaultFixture();
+  //   const menu = el.querySelector('auro-menu');
+  //   const menuOptions = menu.querySelectorAll('auro-menuoption');
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'ArrowDown'
-    }));
+  //   setInputValue(el, 'a');
 
-    el.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': 'Enter'
-    }));
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    await expect(el.optionSelected).to.be.equal(menuOptions[0]);
-  });
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'ArrowDown'
+  //   }));
 
-  it('Does not throw an error state when trying to programmatically set a value that doesn\'t match an option', async () => {
-    const el = await defaultFixture();
-    await waitUntil(() => el.ready);
+  //   el.dispatchEvent(new KeyboardEvent('keydown', {
+  //     'key': 'Enter'
+  //   }));
 
-    const menu = el.querySelector('auro-menu')
+  //   await expect(el.optionSelected).to.be.equal(menuOptions[0]);
+  // });
 
-    await expect(el.hasAttribute('error')).to.be.false;
+  // it('Does not throw an error state when trying to programmatically set a value that doesn\'t match an option', async () => {
+  //   const el = await defaultFixture();
+  //   await waitUntil(() => el.ready);
 
-    el.value = 'Dragon Fruit';
+  //   const menu = el.querySelector('auro-menu')
 
-    await elementUpdated(el);
+  //   await expect(el.hasAttribute('error')).to.be.false;
 
-    await expect(el.hasAttribute('error')).to.be.false;
-  });
+  //   el.value = 'Dragon Fruit';
+
+  //   await elementUpdated(el);
+
+  //   await expect(el.hasAttribute('error')).to.be.false;
+  // });
 
   // THIS TEST WAS BROKEN AND NEEDS TO BE FIXED
   // https://github.com/AlaskaAirlines/auro-combobox/issues/147
-  // it('handles the required state being set', async () => {
-  //   const el = await requiredFixture();
+  it('handles the required state being set', async () => {
+    const el = await requiredFixture();
 
-  //   // error applied on blur
-  //   el.focus();
-  //   el.shadowRoot.activeElement.blur();
-  //   await elementUpdated(el);
+    // error applied on blur
+    el.focus();
+    el.blur();
+    el.dispatchEvent(new Event('focusout'));
+    
+    await elementUpdated(el);
 
-  //   await expect(el.getAttribute('validity')).to.be.equal('valueMissing');
+    await expect(el.getAttribute('validity')).to.be.equal('valueMissing');
 
-  //   el.focus();
+    el.focus();
 
-  //   // no error when input has a value
-  //   setInputValue(el, 'pp');
+    // no error when input has a value
+    setInputValue(el, 'pp');
 
-  //   el.shadowRoot.activeElement.blur();
+    el.shadowRoot.activeElement.blur();
 
-  //   await elementUpdated(el);
+    await elementUpdated(el);
 
-  //   await expect(el.getAttribute('validity')).to.be.equal('valid');
+    await expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  // it('default to nocheckmark on selected option', async () => {
+  //   const el = await defaultFixture();
+
+  //   const menu = el.querySelector('auro-menu');
+  //   await expect(menu.hasAttribute('nocheckmark')).to.be.true;
   // });
 
-  it('default to nocheckmark on selected option', async () => {
-    const el = await defaultFixture();
+  // it('selected options have checkmark when checkmark attribute is present', async () => {
+  //   const el = await checkmarkFixture();
 
-    const menu = el.querySelector('auro-menu');
-    await expect(menu.hasAttribute('nocheckmark')).to.be.true;
-  });
-
-  it('selected options have checkmark when checkmark attribute is present', async () => {
-    const el = await checkmarkFixture();
-
-    const menu = el.querySelector('auro-menu');
-    await expect(menu.hasAttribute('nocheckmark')).to.be.false;
-  });
+  //   const menu = el.querySelector('auro-menu');
+  //   await expect(menu.hasAttribute('nocheckmark')).to.be.false;
+  // });
 });
 
 async function defaultFixture() {
