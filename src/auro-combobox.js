@@ -4,16 +4,23 @@
 // ---------------------------------------------------------------------
 
 // If using litElement base class
-import { LitElement, html } from "lit";
+import { LitElement } from "lit";
+import { html } from 'lit/static-html.js';
+import { AuroDependencyVersioning } from "../scripts/dependencyTagVersioning.mjs";
 
 // If using auroElement base class
 // See instructions for importing auroElement base class https://git.io/JULq4
 // import { html, css } from "lit";
 // import AuroElement from '@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
-/* eslint-disable max-lines */
+/* eslint-disable max-lines, lit/binding-positions, lit/no-invalid-html */
 
 import '@aurodesignsystem/auro-menu';
+import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
+import dropdownVersion from './dropdownVersion';
+
+import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.js';
+import inputVersion from './inputVersion';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
@@ -50,6 +57,13 @@ export class AuroCombobox extends LitElement {
     this.optionSelected = null;
 
     this.privateDefaults();
+
+    /**
+     * Generate unique names for dependency components.
+     */
+    const versioning = new AuroDependencyVersioning();
+    this.dropdownTag = versioning.generateTag('auro-dropdown', dropdownVersion, AuroDropdown);
+    this.inputTag = versioning.generateTag('auro-input', inputVersion, AuroInput);
   }
 
   /**
@@ -124,7 +138,27 @@ export class AuroCombobox extends LitElement {
       /**
        * @private
        */
-      msgSelectionMissing: { type: String }
+      msgSelectionMissing: { type: String },
+
+      /**
+       * @private
+       */
+      dropdownElementName: { type: String },
+
+      /**
+       * @private
+       */
+      dropdownTag: { type: Object },
+
+      /**
+       * @private
+       */
+      inputElementName: { type: String },
+
+      /**
+       * @private
+       */
+      inputTag: { type: Object }
     };
   }
 
@@ -499,9 +533,9 @@ export class AuroCombobox extends LitElement {
   }
 
   firstUpdated() {
-    this.dropdown = this.shadowRoot.querySelector('combobox-dropdown');
+    this.dropdown = this.shadowRoot.querySelector(this.dropdownTag._$litStatic$); // eslint-disable-line no-underscore-dangle
     this.menu = this.querySelector('auro-menu');
-    this.input = this.dropdown.querySelector('combobox-input');
+    this.input = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
 
     this.configureMenu();
     this.configureInput();
@@ -570,8 +604,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   focus() {
-    this.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input').
-      focus();
+    this.input.focus();
   }
 
   updated(changedProperties) {
@@ -633,7 +666,7 @@ export class AuroCombobox extends LitElement {
             : undefined
           }
         </div>
-        <combobox-dropdown
+        <${this.dropdownTag}
           for="dropdownMenu"
           bordered
           rounded
@@ -642,7 +675,8 @@ export class AuroCombobox extends LitElement {
           ?disabled="${this.disabled}"
           ?error="${this.validity !== undefined && this.validity !== 'valid'}"
           disableEventShow>
-          <combobox-input
+          <${this.inputTag}
+            auro-input
             slot="trigger"
             bordered
             ?required="${this.required}"
@@ -651,7 +685,7 @@ export class AuroCombobox extends LitElement {
             ?icon="${this.triggerIcon}"
             .type="${this.type}">
             <slot name="label" slot="label"></slot>
-          </combobox-input>
+          </${this.inputTag}>
           <div class="menuWrapper">
             <slot slotchange="${this.handleSlotChange()}"></slot>
           </div>
@@ -665,7 +699,7 @@ export class AuroCombobox extends LitElement {
               `
             }
           </span>
-        </combobox-dropdown>
+        </${this.dropdownTag}>
       </div>
     `;
   }
