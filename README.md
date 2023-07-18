@@ -30,7 +30,6 @@ For the most up to date information on [UI development browser support](https://
 [![Build Status](https://img.shields.io/github/actions/workflow/status/AlaskaAirlines/auro-combobox/testPublish.yml?style=for-the-badge)](https://github.com/AlaskaAirlines/auro-combobox/actions/workflows/testPublish.yml)
 [![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-combobox)
 [![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-combobox?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@aurodesignsystem/auro-combobox?style=for-the-badge)](https://snyk.io/test/npm/@aurodesignsystem/auro-combobox?tab=issues)
 
 ```shell
 $ npm i @aurodesignsystem/auro-combobox
