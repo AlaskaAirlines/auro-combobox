@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-const versionWriter = require("./versionWriter");
+const versionWriter = require("@aurodesignsystem/auro-library/scripts/build/versionWriter");
 
 versionWriter.writeDepVersionFile('@aurodesignsystem/auro-dropdown');
 versionWriter.writeDepVersionFile('@aurodesignsystem/auro-input');
