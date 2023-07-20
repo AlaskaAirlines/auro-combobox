@@ -1,5 +1,18 @@
 # Semantic Release Automated Changelog
 
+# [1.8.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.8...v1.8.0) (2023-07-20)
+
+
+### Features
+
+* **deps:** dynamic renaming of dependency elements with version [#127](https://github.com/AlaskaAirlines/auro-combobox/issues/127) ([7eb76f7](https://github.com/AlaskaAirlines/auro-combobox/commit/7eb76f751579b14217417a2a2b30ae284f470ae0))
+* **deps:** update package dependencies ([c47c969](https://github.com/AlaskaAirlines/auro-combobox/commit/c47c9697f08b017c964da77d94bbd0e670eea5ec))
+
+
+### Performance Improvements
+
+* **deps:** update to latest dependencies ([46edd32](https://github.com/AlaskaAirlines/auro-combobox/commit/46edd329dd83645c85d0a81340248991242d87e0))
+
 ## [1.7.8](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.7...v1.7.8) (2023-06-01)
 
 
