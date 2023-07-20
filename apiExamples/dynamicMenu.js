@@ -45,10 +45,10 @@ export function dynamicMenuExample() {
   // Main javascript that runs all JS to create example
   const dynamicData = new DynamicData();
   const dynamicMenuExample = document.querySelector('#dynamicMenuExample');
+  const dropdownEl = dynamicMenuExample.shadowRoot.querySelector(dynamicMenuExample.dropdownTag._$litStatic$);
+  const inputEl = dropdownEl.querySelector(dynamicMenuExample.inputTag._$litStatic$);
 
-  const input = dynamicMenuExample.shadowRoot.querySelector('combobox-dropdown').querySelector('combobox-input');
-
-  input.addEventListener('input', () => {
+  inputEl.addEventListener('input', () => {
     let data = dynamicData.getData();
     data = dynamicData.filterData(data, dynamicMenuExample.value);
 
