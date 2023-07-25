@@ -18,7 +18,7 @@ body:
     attributes:
       value: >
         [![See it on
-        NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/auro-combobox)
+        NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-combobox)
   - type: textarea
     id: details
     attributes:
@@ -35,7 +35,7 @@ body:
       label: Reproducing the error
       description: Are you able to reproduce this issue on the [Auro docsite](https://auro.alaskaair.com/)?
       options:
-       - This issue is reproducible on the Auro docsite
+        - This issue is reproducible on the Auro docsite
         - This issue cannot be reproduced on the Auro docsite
   - type: textarea
     id: expected
