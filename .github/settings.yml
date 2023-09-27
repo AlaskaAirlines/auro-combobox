@@ -23,6 +23,9 @@ repository:
   # Updates the default branch for this repository.
   default_branch: main
 
+  # Either `true` to enable automatic deletion of branches on merge, or `false` to disable
+  delete_branch_on_merge: true
+
   # Either `true` to allow squash-merging pull requests, or `false` to prevent
   # squash-merging.
   allow_squash_merge: false
@@ -47,7 +50,8 @@ branches:
         # Dismiss approved reviews automatically when a new commit is pushed.
         dismiss_stale_reviews: true
         # Blocks merge until code owners have reviewed.
-        require_code_owner_reviews: false
+        require_code_owner_reviews: true
+        # Required. Require status checks to pass before merging. Set to null to disable
         # Specify which users and teams can dismiss pull request reviews. Pass an empty dismissal_restrictions object to disable. User and team dismissal_restrictions are only available for organization-owned repositories. Omit this parameter for personal repositories.
         dismissal_restrictions:
           users: ["blackfalcon"]
@@ -71,21 +75,42 @@ labels:
     color: 'fa23e4'
     description:
     process: Key filter for this repo
+  - name: duplicate
+    color: '156fad'
+    description: This Issue or Pull Request already exists
   - name: not-reviewed
-    color: '000000'
-    description: This issue has not yet been reviewed by the Auro team
+    color: '222222'
+    description: Issue has not been reviewed by Auro team members
+  - name: good first issue
+    color: '6bb7fb'
+    description: Good for newcomers
+    aliases:
+    - beginner-friendly
+    - beginner
+    - good-starter-issue
+    - good for beginner
+    - Good for beginners
+    - starter-issue
+    - starter
+  - name: help wanted
+    color: '6bb7fb'
+    description: Extra attention is needed, this user requires assistance to complete
+      the work
   - name: released
     color: 'A9A9A9'
     description: Completed work has been released
-  - name: 'Status: help wanted'
-    color: '6bb7fb'
-    description: Team is asking for assistance to complete the work
   - name: 'Status: Work In Progress'
     description: Issue or Pull Request work is in Progress
     color: 'c0e585'
+  - name: 'Status: Review Needed'
+    color: 'c0e585'
+    description: Work is completed, user is requesting feedback
+  - name: 'Status: Complete'
+    color: 'c0e585'
+    description: Owner has completed work and considers it ready to be merged
   - name: 'Status: Blocked'
     color: 'df0b37'
-    description: Progress on the issue is blocked, immediate attention is required
+    description: Progress on the issue is Blocked, immediate attention is required
     aliases:
     - blocked
   - name: 'Abandoned'
@@ -94,11 +119,8 @@ labels:
     aliases:
     - wontfix
     - invalid
-  - name: 'Type: Spike'
-    color: 'ab33d6'
-    description: Team requires further research or investigation
   - name: 'Type: Bug'
-    color: 'df0b37'
+    color: df0b37
     description: Bug or Bug fixes
     aliases:
     - bug
@@ -112,18 +134,27 @@ labels:
     description: New or related Design work
     aliases:
     - enhancement
-  - name: 'Type: Testing'
-    color: 'fff0cd'
-    description: Test maintenance and support
+  - name: 'Type: Content'
+    color: 'ffd200'
+    description: Adding or editing content
     aliases:
-    - test
-    - testing
+    - enhancement
+  - name: 'Type: Refactoring'
+    color: 'ffd200'
+    description: A code change that neither fixes a bug nor adds a feature
+    aliases:
+    - refactor
   - name: 'Type: Documentation'
     color: 'ffd200'
     description: Documentation only changes
     aliases:
     - documents
     - document
+  - name: 'Type: CI'
+    color: 'ffd200'
+    description: Changes to CI configuration files and scripts
+    aliases:
+    - ci
   - name: 'Type: Perf'
     color: 'ffd200'
     description: Performance update to existing code
@@ -132,6 +163,11 @@ labels:
     description: Further information is requested
     aliases:
     - question
+  - name: 'Type: Dependencies'
+    color: 'ffd200'
+    description: Pull requests that update a dependency file
+    aliases:
+    - dependencies
   - name: 'Type: UI Update'
     color: 'ffd200'
     description: Changes to the user interface
