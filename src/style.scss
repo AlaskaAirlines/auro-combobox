@@ -3,12 +3,14 @@
 
 /* stylelint-disable max-nesting-depth */
 
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/utilityClasses/displayProperties';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/utilityClasses/displayProperties';
+
+// Support for fallback values
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
 [auro-input] {
-  /* 3.5rem if --auro-size-700 not defined */
-  min-height: var(--auro-size-700, 3.5rem);
-  max-height: var(--auro-size-700, 3.5rem);
+  min-height: var(--ds-size-700, $ds-size-700);
+  max-height: var(--ds-size-700, $ds-size-700);
 
   &::part(iconContainer) {
     top: 0;
@@ -38,7 +40,7 @@
 :host {
   combobox-dropdown {
     &::part(trigger) {
-      padding-right: var(--auro-size-150, var(--auro-size-sm));
+      padding-right: var(--ds-size-150, $ds-size-150);
     }
   }
 }

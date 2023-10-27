@@ -152,7 +152,3 @@ Automated tests are required for every Auro component. See `.\test\auro-combobox
 
 Bundled assets are only generated in the remote and not merged back to this repo. To review and/or test a bundled asset locally, run `$ npm run bundler` to generate assets.
 
-### Demo deployment
-
-To deploy a demo version of the component for review, run `npm run build:demo` to create a `./build` directory that can be pushed to any static server.
-
