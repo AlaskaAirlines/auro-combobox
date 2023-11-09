@@ -3,10 +3,8 @@
 
 /* stylelint-disable max-nesting-depth */
 
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/src/utilityClasses/displayProperties';
-
-// Support for fallback values
-@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
 [auro-input] {
   min-height: var(--ds-size-700, $ds-size-700);
