@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.8.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.8.0...v1.8.1) (2023-12-05)
+
+
+### Performance Improvements
+
+* **token:** update token per new theming [#153](https://github.com/AlaskaAirlines/auro-combobox/issues/153) ([2d99869](https://github.com/AlaskaAirlines/auro-combobox/commit/2d99869a276c29438400ab7149f84a9cdb6d58af))
+
 # [1.8.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.7.8...v1.8.0) (2023-07-20)
 
 
