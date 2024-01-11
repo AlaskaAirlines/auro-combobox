@@ -1,4 +1,5 @@
-
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../api.md) -->
+<!-- The below content is automatically added from ./../api.md -->
 
 # auro-combobox
 
@@ -39,6 +40,7 @@
 |            | Default slot for the menu content.   |
 | [helpText](#helpText) | Defines the content of the helpText. |
 | [label](#label)    | Defines the content of the label.    |
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Examples
 
@@ -47,6 +49,8 @@
 <div class="twoColDemoRow">
   <div>
     <div class="exampleWrapper">
+      <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+      <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
       <auro-combobox>
         <span slot="label">Name</span>
         <auro-menu>
@@ -58,9 +62,12 @@
           <auro-menuoption static nomatch>No matching option</auro-menuoption>
         </auro-menu>
       </auro-combobox>
+      <!-- AURO-GENERATED-CONTENT:END -->
     </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
 <auro-combobox>
@@ -75,7 +82,7 @@
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### Dynamic Menu
@@ -85,6 +92,8 @@ This example demonstrates a data driven combobox. The data is used to populate t
 The menu in this example was populated from data from a country/city API. To keep the data set small, the data in the menu is based off an API call that returns all countries and cities that contain the substring "**germ**" (non case-sensitive) in their name.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/dynamicMenu.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/dynamicMenu.html -->
   <!-- HTML example file -->
   <!-- ----------------- -->
   <auro-combobox id="dynamicMenuExample" noFilter>
@@ -95,9 +104,12 @@ The menu in this example was populated from data from a country/city API. To kee
     -->
     <auro-menu id="initMenu"></auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/dynamicMenu.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/dynamicMenu.html -->
 
 ```html
 <!-- HTML example file -->
@@ -111,6 +123,9 @@ The menu in this example was populated from data from a country/city API. To kee
   <auro-menu id="initMenu"></auro-menu>
 </auro-combobox>
 ```
+<!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/dynamicMenu.js) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/dynamicMenu.js -->
 
 ```js
 // Javascript example file
@@ -171,7 +186,7 @@ export function dynamicMenuExample() {
   });
 }
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Property Examples
@@ -181,6 +196,8 @@ export function dynamicMenuExample() {
 If set, disables the combobox.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/disabled.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/disabled.html -->
   <auro-combobox disabled>
     <span slot="label">Name</span>
     <auro-menu>
@@ -193,9 +210,12 @@ If set, disables the combobox.
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/disabled.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/disabled.html -->
 
 ```html
 <auro-combobox disabled>
@@ -211,7 +231,7 @@ If set, disables the combobox.
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### noFilter
@@ -219,6 +239,8 @@ If set, disables the combobox.
 If set, combobox will not do suggestion filtering of the menuoptions. This option is useful when the `<auro-menuoption>` elements are being pre-filtered externally to combobox (e.g. using the citysearch API).
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noFilter.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/noFilter.html -->
   <auro-combobox noFilter>
     <span slot="label">Name</span>
     <auro-menu>
@@ -230,9 +252,12 @@ If set, combobox will not do suggestion filtering of the menuoptions. This optio
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noFilter.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/noFilter.html -->
 
 ```html
 <auro-combobox noFilter>
@@ -247,7 +272,7 @@ If set, combobox will not do suggestion filtering of the menuoptions. This optio
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### error
@@ -255,6 +280,8 @@ If set, combobox will not do suggestion filtering of the menuoptions. This optio
 Sets a persistent error state (e.g. an error state returned from the server).
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/error.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/error.html -->
   <auro-combobox error="Custom error message">
     <span slot="label">Name</span>
     <auro-menu>
@@ -267,9 +294,12 @@ Sets a persistent error state (e.g. an error state returned from the server).
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/error.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/error.html -->
 
 ```html
 <auro-combobox error="Custom error message">
@@ -285,7 +315,7 @@ Sets a persistent error state (e.g. an error state returned from the server).
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### noValidate
@@ -293,6 +323,8 @@ Sets a persistent error state (e.g. an error state returned from the server).
 Intended for use with the `required` attribute. If set, disables auto-validation on blur. By using these two attributes in combination the validation for required fields is still computed for forms but no validation messaging will be generated in the UI.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noValidate.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/noValidate.html -->
   <auro-combobox required noValidate>
     <span slot="label">Name</span>
     <auro-menu>
@@ -305,9 +337,12 @@ Intended for use with the `required` attribute. If set, disables auto-validation
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noValidate.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/noValidate.html -->
 
 ```html
 <auro-combobox required noValidate>
@@ -323,7 +358,7 @@ Intended for use with the `required` attribute. If set, disables auto-validation
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### required
@@ -331,6 +366,8 @@ Intended for use with the `required` attribute. If set, disables auto-validation
 Populates the `required` attribute on the input. Used for client-side validation.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/required.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/required.html -->
   <auro-combobox required>
     <span slot="label">Name</span>
     <auro-menu>
@@ -343,9 +380,12 @@ Populates the `required` attribute on the input. Used for client-side validation
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/required.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/required.html -->
 
 ```html
 <auro-combobox required>
@@ -361,7 +401,7 @@ Populates the `required` attribute on the input. Used for client-side validation
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### value
@@ -376,6 +416,8 @@ Can be used in the following ways:
 Note: using a value that does not match a menu option will reset the combobox value to undefined.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/value.html -->
   <auro-button id="valueValidExampleBtn">Set to an existing option</auro-button>
   <auro-button id="valueInvalidExampleBtn">Set to custom value</auro-button>
   <auro-button id="valueUndefinedExampleBtn">Reset</auro-button>
@@ -392,9 +434,12 @@ Note: using a value that does not match a menu option will reset the combobox va
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/value.html -->
 
 ```html
 <auro-button id="valueValidExampleBtn">Set to an existing option</auro-button>
@@ -414,6 +459,9 @@ Note: using a value that does not match a menu option will reset the combobox va
   </auro-menu>
 </auro-combobox>
 ```
+<!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.js) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/value.js -->
 
 ```js
 export function valueExample() {
@@ -432,7 +480,7 @@ export function valueExample() {
   });
 }
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 #### type
@@ -440,6 +488,8 @@ export function valueExample() {
 When defined, the `auro-input` in the combobox trigger will use the defined `type` (e.g. `credit-card`).
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeMonthDayYear.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/typeMonthDayYear.html -->
   <auro-combobox type="month-day-year" triggerIcon>
     <span slot="label">Date</span>
     <auro-menu>
@@ -451,9 +501,12 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
       </auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeMonthDayYear.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/typeMonthDayYear.html -->
 
 ```html
 <auro-combobox type="month-day-year" triggerIcon>
@@ -468,7 +521,7 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Method Examples
@@ -478,6 +531,8 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
 The focus method will apply focus state to the combobox input field.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/focus.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/focus.html -->
   <auro-button id="focusExampleBtn">Apply focus to combobox</auro-button>
   <br /><br />
   <auro-combobox id="focusExample">
@@ -491,9 +546,12 @@ The focus method will apply focus state to the combobox input field.
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/focus.js) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/focus.js -->
 
 ```js
 export function focusExample() {
@@ -505,6 +563,9 @@ export function focusExample() {
   });
 }
 ```
+<!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/focus.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/focus.html -->
 
 ```html
 <auro-button id="focusExampleBtn">Apply focus to combobox</auro-button>
@@ -521,7 +582,7 @@ export function focusExample() {
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Slot Examples
@@ -531,6 +592,8 @@ export function focusExample() {
 Sets the help text displayed below the trigger. The `helpText` slot can be used to provide additional context for the combobox. When using the `error` property, the `helpText` slot can be used to describe the error.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/helpText.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/helpText.html -->
   <auro-combobox>
     <span slot="label">Name</span>
     <span slot="helpText">Custom help text</span>
@@ -544,9 +607,12 @@ Sets the help text displayed below the trigger. The `helpText` slot can be used 
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/helpText.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/helpText.html -->
 
 ```html
 <auro-combobox>
@@ -563,5 +629,5 @@ Sets the help text displayed below the trigger. The `helpText` slot can be used 
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
