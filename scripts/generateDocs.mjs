@@ -119,17 +119,17 @@ function processReadme() {
 }
 
 /**
- * Compiles `./docTemplates/demo.md` -> `./demo/demo.md`
+ * Compiles `./docTemplates/index.md` -> `./demo/index.md`
  */
 
 function processDemo() {
   const callback = function(updatedContent, outputConfig) {
-    if (fs.existsSync('./demo/demo.md')) {
-      fs.readFile('./demo/demo.md', 'utf8', function(err, data) {
-        formatTemplateFileContents(data, './demo/demo.md');
+    if (fs.existsSync('./demo/index.md')) {
+      fs.readFile('./demo/index.md', 'utf8', function(err, data) {
+        formatTemplateFileContents(data, './demo/index.md');
       });
     } else {
-      console.log('ERROR: ./demo/demo.md file is missing');
+      console.log('ERROR: ./demo/index.md file is missing');
     }
   };
 
@@ -138,13 +138,13 @@ function processDemo() {
     outputDir: './demo'
   };
 
-  const markdownPath = path.join(__dirname, '../docs/partials/demo.md');
+  const markdownPath = path.join(__dirname, '../docs/partials/index.md');
 
   markdownMagic(markdownPath, configDemo, callback);
 }
 
 /**
- * Compiles `./docTemplates/apiExamples.md` -> `./demo/apiExamples.md`
+ * Compiles `./docTemplates/api.md` -> `./demo/api.md`
  */
 
 function processApiExamples() {
