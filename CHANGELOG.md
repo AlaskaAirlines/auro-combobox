@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.9.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.8.1...v1.9.0) (2024-01-21)
+
+
+### Features
+
+* add suport for SSR projects ([9617344](https://github.com/AlaskaAirlines/auro-combobox/commit/9617344eea88718b04ce87f8805fd129b73732ea))
+
 ## [1.8.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.8.0...v1.8.1) (2023-12-05)
 
 
