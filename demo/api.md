@@ -64,7 +64,7 @@
       </auro-combobox>
       <!-- AURO-GENERATED-CONTENT:END -->
     </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
@@ -106,7 +106,7 @@ The menu in this example was populated from data from a country/city API. To kee
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/dynamicMenu.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/dynamicMenu.html -->
@@ -212,7 +212,7 @@ If set, disables the combobox.
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/disabled.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/disabled.html -->
@@ -254,7 +254,7 @@ If set, combobox will not do suggestion filtering of the menuoptions. This optio
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noFilter.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/noFilter.html -->
@@ -296,7 +296,7 @@ Sets a persistent error state (e.g. an error state returned from the server).
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/error.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/error.html -->
@@ -339,7 +339,7 @@ Intended for use with the `required` attribute. If set, disables auto-validation
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noValidate.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/noValidate.html -->
@@ -382,7 +382,7 @@ Populates the `required` attribute on the input. Used for client-side validation
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/required.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/required.html -->
@@ -436,7 +436,7 @@ Note: using a value that does not match a menu option will reset the combobox va
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/value.html -->
@@ -503,7 +503,7 @@ When defined, the `auro-input` in the combobox trigger will use the defined `typ
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeMonthDayYear.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/typeMonthDayYear.html -->
@@ -548,7 +548,7 @@ The focus method will apply focus state to the combobox input field.
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/focus.js) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/focus.js -->
@@ -609,7 +609,7 @@ Sets the help text displayed below the trigger. The `helpText` slot can be used 
   </auro-combobox>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/helpText.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/helpText.html -->
