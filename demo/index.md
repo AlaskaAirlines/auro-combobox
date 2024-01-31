@@ -1,9 +1,14 @@
 # combobox
 
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
+<!-- The below content is automatically added from ./description.md -->
 `<auro-combobox>` is the combination of [dropdown](http://auro.alaskaair.com/components/auro/dropdown), [input](http://auro.alaskaair.com/components/auro/input), and [menu](http://auro.alaskaair.com/components/auro/menu) and allows users to filter search results from a predefined list as they type. When the user starts typing in the text input, a dropdown of a menu shows up to display options that match the user’s search.
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## auro-combobox use cases
 
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
+<!-- The below content is automatically added from ./useCases.md -->
 The `<auro-combobox>` element should be used in situations where users may:
 
 * Search
@@ -13,10 +18,13 @@ The `<auro-combobox>` element should be used in situations where users may:
   * Options: user chooses filters for their search by using combobox
 * Select
   * Quantity: user types a quantity to select an option within a range (for example, the user may be limited to 2-34)
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## Example(s)
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
   <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu>
@@ -28,9 +36,12 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
 <auro-combobox>
@@ -45,12 +56,14 @@ The `<auro-combobox>` element should be used in situations where users may:
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Airports example
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/airports.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/airports.html -->
   <auro-combobox>
     <span slot="label">Name</span>
     <auro-menu>
@@ -182,9 +195,12 @@ The `<auro-combobox>` element should be used in situations where users may:
       <auro-menuoption static nomatch>Unknown airport... </auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/airports.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/airports.html -->
 
 ```html
 <auro-combobox>
@@ -319,12 +335,14 @@ The `<auro-combobox>` element should be used in situations where users may:
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Example with checkmark for selected option
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/withCheckmark.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/withCheckmark.html -->
   <auro-combobox checkmark>
       <span slot="label">Name</span>
       <auro-menu>
@@ -336,9 +354,12 @@ The `<auro-combobox>` element should be used in situations where users may:
           <auro-menuoption static nomatch>No matching option</auro-menuoption>
       </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/withCheckmark.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/withCheckmark.html -->
 
 ```html
 <auro-combobox checkmark>
@@ -353,7 +374,7 @@ The `<auro-combobox>` element should be used in situations where users may:
     </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Using the type attribute
@@ -363,6 +384,8 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 `type="credit-card"` is not currently supported.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/typeMonthDayYear.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/typeMonthDayYear.html -->
   <auro-combobox type="month-day-year" triggerIcon>
     <span slot="label">Date</span>
     <auro-menu>
@@ -374,9 +397,12 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
       </auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/typeMonthDayYear.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/typeMonthDayYear.html -->
 
 ```html
 <auro-combobox type="month-day-year" triggerIcon>
@@ -391,12 +417,14 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Persistent menuoption with a custom event
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/persistent.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/persistent.html -->
   <auro-combobox id="persistent">
     <span slot="label">Address</span>
     <auro-menu id="customEvent">
@@ -405,9 +433,12 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
       <auro-menuoption event="addNewAddress" persistent>Add new address</auro-menuoption>
     </auro-menu>
   </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/persistent.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/persistent.html -->
 
 ```html
 <auro-combobox id="persistent">
@@ -419,7 +450,7 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
   </auro-menu>
 </auro-combobox>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
 ### Additional Use Case Examples
@@ -429,6 +460,8 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 This example illustrates using a JavaScript function attached to an auro-button component click event to swap the values of two `auro-combobox` elements. An example of this use case would be swapping the departure and arrival airports in a flight search form.
 
 <div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/swapValue.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/swapValue.html -->
   <div id="swapExample">
     <auro-combobox id="swapExampleLeft">
       <span slot="label">Name</span>
@@ -478,9 +511,12 @@ This example illustrates using a JavaScript function attached to an auro-button 
       margin: 0 5px;
     }
   </style>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/swapValue.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/swapValue.html -->
 
 ```html
 <div id="swapExample">
@@ -533,5 +569,5 @@ This example illustrates using a JavaScript function attached to an auro-button 
   }
 </style>
 ```
-
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
