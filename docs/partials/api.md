@@ -6,12 +6,11 @@
 
 ### Basic
 
-<div class="twoColDemoRow">
-  <div>
-    <div class="exampleWrapper">
-      <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-      <!-- AURO-GENERATED-CONTENT:END -->
-    </div>
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
@@ -20,7 +19,7 @@
 
 </auro-accordion>
 
-#### Dynamic Menu
+### Dynamic Menu
 
 This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In this example, each time the input's value changes, the data is updated and the menu is recreated.
 
@@ -126,7 +125,24 @@ Populates the `required` attribute on the input. Used for client-side validation
 
 #### value
 
-Value selected for the dropdown menu.
+Use the `value` attribute to programmatically set the value of the combobox.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/programmaticValue.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
+#### Dynamically Set Value
+
+Use the `value` attribute in combination with another element to dynamically set the value of the combobox.
 
 Can be used in the following ways:
 * Preset the value of the combobox to valid menu option
@@ -139,6 +155,7 @@ Note: using a value that does not match a menu option will reset the combobox va
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
+
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 

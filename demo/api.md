@@ -46,24 +46,22 @@
 
 ### Basic
 
-<div class="twoColDemoRow">
-  <div>
-    <div class="exampleWrapper">
-      <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-      <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-      <auro-combobox>
-        <span slot="label">Name</span>
-        <auro-menu>
-          <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
-          <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
-          <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
-          <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
-          <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
-          <auro-menuoption static nomatch>No matching option</auro-menuoption>
-        </auro-menu>
-      </auro-combobox>
-      <!-- AURO-GENERATED-CONTENT:END -->
-    </div>
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <auro-combobox>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
@@ -85,7 +83,7 @@
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-#### Dynamic Menu
+### Dynamic Menu
 
 This example demonstrates a data driven combobox. The data is used to populate the `auro-menu`. In this example, each time the input's value changes, the data is updated and the menu is recreated.
 
@@ -406,7 +404,50 @@ Populates the `required` attribute on the input. Used for client-side validation
 
 #### value
 
-Value selected for the dropdown menu.
+Use the `value` attribute to programmatically set the value of the combobox.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/programmaticValue.html -->
+  <auro-combobox value="Apples">
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </auro-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/programmaticValue.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/programmaticValue.html -->
+
+```html
+<auro-combobox value="Apples">
+  <span slot="label">Name</span>
+  <auro-menu>
+    <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+    <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+    <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+    <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+    <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+    <auro-menuoption value="Prefer Alaska" id="option-5">Prefer Alaska</auro-menuoption>
+    <auro-menuoption static nomatch>No matching option</auro-menuoption>
+  </auro-menu>
+</auro-combobox>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+
+#### Dynamically Set Value
+
+Use the `value` attribute in combination with another element to dynamically set the value of the combobox.
 
 Can be used in the following ways:
 * Preset the value of the combobox to valid menu option
