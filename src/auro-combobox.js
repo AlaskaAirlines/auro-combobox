@@ -19,7 +19,7 @@ import '@aurodesignsystem/auro-menu';
 import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
 import dropdownVersion from './dropdownVersion';
 
-import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.js';
+import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.mjs';
 import inputVersion from './inputVersion';
 
 // Import touch detection lib
