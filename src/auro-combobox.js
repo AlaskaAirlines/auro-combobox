@@ -17,10 +17,10 @@ import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts
 
 import '@aurodesignsystem/auro-menu';
 import { AuroDropdown } from '@aurodesignsystem/auro-dropdown/src/auro-dropdown.js';
-import dropdownVersion from './dropdownVersion';
+import dropdownVersion from './dropdownVersion.js';
 
-import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.mjs';
-import inputVersion from './inputVersion';
+import { AuroInput } from '@aurodesignsystem/auro-input/src/auro-input.js';
+import inputVersion from './inputVersion.js';
 
 // Import touch detection lib
 import styleCss from "./style-css.js";
