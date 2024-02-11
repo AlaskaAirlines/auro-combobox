@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.9.5](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.4...v1.9.5) (2024-02-11)
+
+
+### Performance Improvements
+
+* update deps and ESM badge ([c35d047](https://github.com/AlaskaAirlines/auro-combobox/commit/c35d047a59b320045dd548ac2057653c9d074f1d))
+
 ## [1.9.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.3...v1.9.4) (2024-02-10)
 
 
