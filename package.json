@@ -20,7 +20,7 @@
     "node": "^18 || ^20"
   },
   "dependencies": {
-    "@alaskaairux/icons": "^4.36.1",
+    "@alaskaairux/icons": "^4.36.2",
     "@aurodesignsystem/auro-dropdown": "^2.10.1",
     "@aurodesignsystem/auro-input": "^2.17.4",
     "@aurodesignsystem/auro-menu": "^3.11.0",
