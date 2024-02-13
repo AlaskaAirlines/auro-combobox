@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.9.7](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.6...v1.9.7) (2024-02-13)
+
+
+### Performance Improvements
+
+* update auro dependencies ([d2eb3a2](https://github.com/AlaskaAirlines/auro-combobox/commit/d2eb3a2df9e5854dcd9159555c7332be4b0590eb))
+
 ## [1.9.6](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.5...v1.9.6) (2024-02-13)
 
 
