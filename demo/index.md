@@ -474,12 +474,12 @@ This example illustrates using a JavaScript function attached to an auro-button 
         <auro-menuoption static nomatch>No matching option</auro-menuoption>
       </auro-menu>
     </auro-combobox>
-    <auro-button id="swapExampleBtn" iconOnly secondary>
+    <auro-button id="swapExampleBtn" iconOnly>
       <auro-icon
-        customColor 
-        customSize
+        customColor
         category="terminal" 
-        name="round-trip-arrows">
+        name="round-trip-arrows"
+        slot="icon">
       </auro-icon>
     </auro-button>
     <auro-combobox id="swapExampleRight">
@@ -531,12 +531,12 @@ This example illustrates using a JavaScript function attached to an auro-button 
       <auro-menuoption static nomatch>No matching option</auro-menuoption>
     </auro-menu>
   </auro-combobox>
-  <auro-button id="swapExampleBtn" iconOnly secondary>
+  <auro-button id="swapExampleBtn" iconOnly>
     <auro-icon
-      customColor 
-      customSize
+      customColor
       category="terminal" 
-      name="round-trip-arrows">
+      name="round-trip-arrows"
+      slot="icon">
     </auro-icon>
   </auro-button>
   <auro-combobox id="swapExampleRight">
