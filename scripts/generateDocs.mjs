@@ -5,7 +5,7 @@ import https from 'https';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-const readmeTemplateUrl = 'https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md';
+const readmeTemplateUrl = 'https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README_esm.md';
 const dirDocTemplates = './docTemplates';
 const readmeFilePath = dirDocTemplates + '/README.md';
 
@@ -91,8 +91,8 @@ function formatApiTableContents(content, destination) {
 
   fs.writeFileSync(destination, result, { encoding: 'utf8'});
 
-  fs.readFile('./demo/apiExamples.md', 'utf8', function(err, data) {
-    formatTemplateFileContents(data, './demo/apiExamples.md');
+  fs.readFile('./demo/api.md', 'utf8', function(err, data) {
+    formatTemplateFileContents(data, './demo/api.md');
   });
 }
 
@@ -123,7 +123,7 @@ function processReadme() {
 }
 
 /**
- * Compiles `./docTemplates/demo.md` -> `./demo/index.md`
+ * Compiles `./docs/partials/index.md` -> `./demo/index.md`
  */
 
 function processDemo() {
@@ -148,17 +148,17 @@ function processDemo() {
 }
 
 /**
- * Compiles `./docTemplates/apiExamples.md` -> `./demo/apiExamples.md`
+ * Compiles `./docs/partials/api.md` -> `./demo/api.md`
  */
 
 function processApiExamples() {
   const callback = function(updatedContent, outputConfig) {
-    if (fs.existsSync('./demo/apiExamples.md')) {
-      fs.readFile('./demo/apiExamples.md', 'utf8', function(err, data) {
-        formatApiTableContents(data, './demo/apiExamples.md');
+    if (fs.existsSync('./demo/api.md')) {
+      fs.readFile('./demo/api.md', 'utf8', function(err, data) {
+        formatApiTableContents(data, './demo/api.md');
       });
     } else {
-      console.log('ERROR: ./demo/apiExamples.md file is missing');
+      console.log('ERROR: ./demo/api.md file is missing');
     }
   };
 
@@ -167,7 +167,7 @@ function processApiExamples() {
     outputDir: './demo'
   };
 
-  const markdownPath = path.join(__dirname, '../docs/partials/apiExamples.md');
+  const markdownPath = path.join(__dirname, '../docs/partials/api.md');
 
   markdownMagic(markdownPath, config, callback);
 }
