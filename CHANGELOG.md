@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+## [1.9.8](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.7...v1.9.8) (2024-02-19)
+
+
+### Bug Fixes
+
+* **swap:** fix button in swap value example [#161](https://github.com/AlaskaAirlines/auro-combobox/issues/161) ([8689f2c](https://github.com/AlaskaAirlines/auro-combobox/commit/8689f2c90482b111649ca220c788efc92d89fe57))
+
+
+### Performance Improvements
+
+* **deps:** update dependencies ([eeb75e4](https://github.com/AlaskaAirlines/auro-combobox/commit/eeb75e45c1b601f12908ea73eac25f98779fb591))
+
 ## [1.9.7](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.6...v1.9.7) (2024-02-13)
 
 
