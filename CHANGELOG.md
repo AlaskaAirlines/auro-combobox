@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.9.9](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.8...v1.9.9) (2024-02-20)
+
+
+### Performance Improvements
+
+* **docs:** add example for custom registration ([82f5370](https://github.com/AlaskaAirlines/auro-combobox/commit/82f53706b3dee24a0e4a32e0b26fd28293bfc8e0))
+
 ## [1.9.8](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.7...v1.9.8) (2024-02-19)
 
 
