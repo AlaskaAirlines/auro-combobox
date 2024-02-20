@@ -571,3 +571,53 @@ This example illustrates using a JavaScript function attached to an auro-button 
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+
+## Recommended Use and Version Control
+
+There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom clement. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-combobox` custom element is defined automatically.
+
+To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `registerComponent(name)` method and pass in a unique name.
+
+```js
+import './node_modules/@aurodesignsystem/auro-combobox';
+registerComponent('custom-combobox');
+```
+
+This will create a new custom element that you can use in your HTML that will function identically to the `<auro-combobox>` element.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/custom.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/custom.html -->
+  <custom-combobox>
+      <span slot="label">Name</span>
+      <auro-menu>
+        <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+        <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+        <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+        <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+        <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+        <auro-menuoption static nomatch>No matching option</auro-menuoption>
+      </auro-menu>
+    </custom-combobox>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/custom.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/custom.html -->
+
+```html
+<custom-combobox>
+    <span slot="label">Name</span>
+    <auro-menu>
+      <auro-menuoption value="Apples" id="option-0">Apples</auro-menuoption>
+      <auro-menuoption value="Oranges" id="option-1">Oranges</auro-menuoption>
+      <auro-menuoption value="Peaches" id="option-2">Peaches</auro-menuoption>
+      <auro-menuoption value="Grapes" id="option-3">Grapes</auro-menuoption>
+      <auro-menuoption value="Cherries" id="option-4">Cherries</auro-menuoption>
+      <auro-menuoption static nomatch>No matching option</auro-menuoption>
+    </auro-menu>
+  </custom-combobox>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
