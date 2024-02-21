@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+## [1.9.10](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.9...v1.9.10) (2024-02-21)
+
+
+### Bug Fixes
+
+* **examples:** add logging messages and force build ([b326fa3](https://github.com/AlaskaAirlines/auro-combobox/commit/b326fa3598a691abd6cd7f72a5fc773498a979d5))
+
+
+### Performance Improvements
+
+* **docs:** fix demo JS examples ([ea4731a](https://github.com/AlaskaAirlines/auro-combobox/commit/ea4731a68517daa830d470c5a4bbebb0a3a3363a))
+
 ## [1.9.9](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.8...v1.9.9) (2024-02-20)
 
 
