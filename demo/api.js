@@ -18,3 +18,5 @@ export function initComboboxApiExamples(initCount) {
     }
   }
 }
+
+initComboboxApiExamples();
