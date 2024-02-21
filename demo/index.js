@@ -16,3 +16,5 @@ export function initComboboxIndexExamples(initCount) {
     }
   }
 }
+
+initComboboxIndexExamples();
