@@ -72,7 +72,9 @@ The `type` attribute may be used to apply the corresponding `type` attribute on 
 
 </auro-accordion>
 
-### Persistent menuoption with a custom event
+### Persistent menu option with a custom event
+
+This example demonstrates a static menu option that will always appears regardless of the suggestion filtering performed. In this example "Add new address" will always be a displayed menu option.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/persistent.html) -->
