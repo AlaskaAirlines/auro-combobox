@@ -48,12 +48,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
-    <script type="module" src="../index.js"></script>
-    <script type="module">
+
+    <script type="module" data-demo-script="true">
       import { registerComponent } from '../index.js';
+      import { initExamples } from "./index.min.js"
 
       registerComponent('custom-combobox');
+      initExamples();
     </script>
-    <script src="./index.min.js"></script>
   </body>
 </html>
