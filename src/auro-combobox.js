@@ -8,11 +8,6 @@ import { LitElement } from "lit";
 import { html } from 'lit/static-html.js';
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
 
-// If using auroElement base class
-// See instructions for importing auroElement base class https://git.io/JULq4
-// import { html, css } from "lit";
-// import AuroElement from '@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
-
 /* eslint-disable max-lines, lit/binding-positions, lit/no-invalid-html */
 
 import '@aurodesignsystem/auro-menu';
@@ -250,7 +245,7 @@ export class AuroCombobox extends LitElement {
    */
   showBib() {
     if (!this.dropdown.isPopoverVisible && this.input.value && this.input.value.length > 0) {
-      if (this.noFilter || (this.availableOptions && this.availableOptions.length > 0)) { // eslint-disable-line no-extra-parens
+      if (this.availableOptions && this.availableOptions.length > 0) { // eslint-disable-line no-extra-parens
         this.dropdown.show();
       }
     }

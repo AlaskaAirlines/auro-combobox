@@ -17,10 +17,12 @@ class DynamicData {
     for (let index = 0; index < data.length; index ++) {
       let countryName = data[index]['country'].toLowerCase();
 
-      data[index]['cities'] = data[index]['cities'].filter(city => city.toLowerCase().includes(value.toLowerCase()));
+      if (value) {
+        data[index]['cities'] = data[index]['cities'].filter(city => city.toLowerCase().includes(value.toLowerCase()));
 
-      if (value && (countryName.includes(value.toLowerCase()) || data[index]['cities'].length > 0)) {
-        filteredData.push(data[index]);
+        if (countryName.includes(value.toLowerCase()) || data[index]['cities'].length > 0) {
+          filteredData.push(data[index]);
+        }
       }
     };
 
