@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.9.13](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.12...v1.9.13) (2024-04-04)
+
+
+### Bug Fixes
+
+* **deps:** correctly import library as a dependency [#166](https://github.com/AlaskaAirlines/auro-combobox/issues/166) ([10d160c](https://github.com/AlaskaAirlines/auro-combobox/commit/10d160c57699f9df991e78d01cbd9758f795dc57))
+
 ## [1.9.12](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.11...v1.9.12) (2024-03-06)
 
 
