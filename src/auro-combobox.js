@@ -8,6 +8,8 @@ import { LitElement } from "lit";
 import { html } from 'lit/static-html.js';
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
 
+import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/validation.js';
+
 /* eslint-disable max-lines, lit/binding-positions, lit/no-invalid-html */
 
 import '@aurodesignsystem/auro-menu';
@@ -52,6 +54,11 @@ export class AuroCombobox extends LitElement {
     this.optionSelected = null;
 
     this.privateDefaults();
+
+    /**
+     * @private
+     */
+    this.validation = new AuroFormValidation();
 
     /**
      * Generate unique names for dependency components.
@@ -336,7 +343,7 @@ export class AuroCombobox extends LitElement {
     this.menu.addEventListener('auroMenu-selectValueReset', () => {
       this.optionSelected = undefined;
       this.value = undefined;
-      this.validate();
+      this.validation.validate(this);
     });
   }
 
@@ -361,7 +368,7 @@ export class AuroCombobox extends LitElement {
      */
     this.addEventListener('focusout', () => {
       if (document.activeElement !== this) {
-        this.validate();
+        this.validation.validate(this);
       }
 
       if (typeof this.value === 'object') {
@@ -394,7 +401,7 @@ export class AuroCombobox extends LitElement {
       this.handleInputValueChange();
       // validate only if the the value was set programmatically
       if (document.activeElement !== this) {
-        this.validate();
+        this.validation.validate(this);
       }
 
       // hide the menu if the value is empty otherwise show if there are available suggestions
@@ -442,7 +449,7 @@ export class AuroCombobox extends LitElement {
 
     // This check prevents the component showing an error when a required datepicker is first rendered
     if (this.input.value) {
-      this.validate();
+      this.validation.validate(this);
     }
   }
 
@@ -488,31 +495,6 @@ export class AuroCombobox extends LitElement {
         }
       }
     });
-  }
-
-  /**
-   * Determines the validity state of the element.
-   * @private
-   * @returns {void}
-   */
-  validate() {
-    if (this.hasAttribute('error')) {
-      this.validity = 'customError';
-    } else {
-      if (this.validity !== this.input.validity) {
-        this.validity = this.input.validity;
-      }
-
-      /**
-       * Only validate once we interact with the datepicker
-       * this.value === undefined is the initial state pre-interaction.
-       *
-       * The validityState definitions are located at https://developer.mozilla.org/en-US/docs/Web/API/ValidityState.
-       */
-      if (this.value !== undefined && this.input.value.length > 0) {
-        // combobox specific validation goes here....
-      }
-    }
   }
 
   /**
@@ -636,7 +618,7 @@ export class AuroCombobox extends LitElement {
 
     if (changedProperties.has('error')) {
       this.input.setAttribute('error', this.getAttribute('error'));
-      this.validate();
+      this.validation.validate(this);
     }
 
     if (changedProperties.has('setCustomValidity')) {
