@@ -8,6 +8,7 @@ import { LitElement } from "lit";
 import { html } from 'lit/static-html.js';
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
 
+import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
 import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/validation.js';
 
 /* eslint-disable max-lines, lit/binding-positions, lit/no-invalid-html */
@@ -59,6 +60,11 @@ export class AuroCombobox extends LitElement {
      * @private
      */
     this.validation = new AuroFormValidation();
+
+    /**
+     * @private
+     */
+    this.runtimeUtils = new AuroLibraryRuntimeUtils();
 
     /**
      * Generate unique names for dependency components.
@@ -518,6 +524,9 @@ export class AuroCombobox extends LitElement {
   }
 
   firstUpdated() {
+    // Add the tag name as an attribute if it is different than the component name
+    this.runtimeUtils.handleComponentTagRename(this, 'auro-datepicker');
+
     this.dropdown = this.shadowRoot.querySelector(this.dropdownTag._$litStatic$); // eslint-disable-line no-underscore-dangle
     this.menu = this.querySelector('auro-menu');
     this.input = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
@@ -661,7 +670,6 @@ export class AuroCombobox extends LitElement {
           ?error="${this.validity !== undefined && this.validity !== 'valid'}"
           disableEventShow>
           <${this.inputTag}
-            auro-input
             slot="trigger"
             bordered
             ?required="${this.required}"
