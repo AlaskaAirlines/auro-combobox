@@ -402,6 +402,7 @@ export class AuroCombobox extends LitElement {
         this.hideBib();
         this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
+        this.showBib();
         this.classList.add('combobox-filled');
       }
 
