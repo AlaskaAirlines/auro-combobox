@@ -402,7 +402,14 @@ export class AuroCombobox extends LitElement {
         this.hideBib();
         this.classList.remove('combobox-filled');
       } else if (!this.dropdown.isPopoverVisible && this.availableOptions) {
-        this.showBib();
+        const hasFocus = this.contains(document.activeElement);
+
+        // if the focus is within the combobox, then show the bib
+        // this will prevent the bib from being shown while loading & presetting the value
+        if (hasFocus) {
+          this.showBib();
+        }
+
         this.classList.add('combobox-filled');
       }
 
