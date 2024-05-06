@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.9.14](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.13...v1.9.14) (2024-05-06)
+
+
+### Bug Fixes
+
+* **dropdown:** force the the dropdown to expand when the input value changes [#175](https://github.com/AlaskaAirlines/auro-combobox/issues/175) ([75bac5a](https://github.com/AlaskaAirlines/auro-combobox/commit/75bac5a6b84f7dd55c81d2901b56ec6f313b81da))
+
 ## [1.9.13](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.12...v1.9.13) (2024-04-04)
 
 
