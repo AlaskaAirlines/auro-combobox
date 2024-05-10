@@ -1,5 +1,23 @@
 # Semantic Release Automated Changelog
 
+# [1.10.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.14...v1.10.0) (2024-05-10)
+
+
+### Bug Fixes
+
+* **border:** update border styles after for new input version ([31f6c85](https://github.com/AlaskaAirlines/auro-combobox/commit/31f6c85ed958eae85bf8dd805070f8a2d483f042))
+* **events:** update help text event and event docs ([d027521](https://github.com/AlaskaAirlines/auro-combobox/commit/d0275211686673787b0bd419184fda95401e936b))
+
+
+### Features
+
+* **validitation:** implement form validation repo [#173](https://github.com/AlaskaAirlines/auro-combobox/issues/173) ([09d9e35](https://github.com/AlaskaAirlines/auro-combobox/commit/09d9e35cfe781a5dbdc997f89429b6d01e4a30f7))
+
+
+### Performance Improvements
+
+* **library:** add library runtime util functionality for custom components ([a20ecbd](https://github.com/AlaskaAirlines/auro-combobox/commit/a20ecbdbaa5ba14d39b03aec65919226248e4bba))
+
 ## [1.9.14](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.13...v1.9.14) (2024-05-06)
 
 
