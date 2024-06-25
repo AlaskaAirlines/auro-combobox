@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@alaskaairux/icons": "^4.41.1",
-    "@aurodesignsystem/auro-dropdown": "<=2.10.6",
+    "@aurodesignsystem/auro-dropdown": "^3.0.0-beta.1",
     "@aurodesignsystem/auro-formvalidation": "^1.0.3",
-    "@aurodesignsystem/auro-input": "^3.0.1",
+    "@aurodesignsystem/auro-input": "^3.1.0-beta.1",
     "@aurodesignsystem/auro-library": "^2.6.0",
-    "@aurodesignsystem/auro-menu": "^3.11.9",
+    "@aurodesignsystem/auro-menu": "^3.12.0-beta.1",
     "chalk": "^5.3.0",
     "lit": "^3.1.4"
   },
@@ -140,7 +140,7 @@
   "scripts": {
     "build": "npm-run-all build:sass sass:render types",
     "build:test": "npm-run-all test linters",
-    "build:release": "npm-run-all build build:test build:api build:docs bundler postinstall",
+    "build:release": "npm-run-all build:version build build:test build:api build:docs bundler postinstall",
     "build:ci": "npm-run-all sweep build:release",
     "build:api": "wca analyze 'src/auro-combobox.js' --outFiles docs/api.md",
     "build:dev:assets": "npm-run-all build:sass:component postCss:component sass:render",
