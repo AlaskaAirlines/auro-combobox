@@ -1,18 +1,16 @@
 # Semantic Release Automated Changelog
 
-## [1.10.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.1...v1.10.2) (2024-07-02)
+# [1.11.0-beta.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.11.0-beta.1) (2024-06-26)
+
+
+### Features
+
+* **theme:** support theme enabled dependencies ([4f18baa](https://github.com/AlaskaAirlines/auro-combobox/commit/4f18baa1ad5d9217a13784899dfa96cec1e60cfd))
 
 
 ### Performance Improvements
 
-* **deps:** update component to use the latest version of auro-menu ([b882a8a](https://github.com/AlaskaAirlines/auro-combobox/commit/b882a8abb85a268a23c051d4e533d631e86bcfcd))
-
-## [1.10.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.10.1) (2024-06-28)
-
-
-### Performance Improvements
-
-* **deps:** use latest version of auro-menu with SSR fix ([d1ad0e4](https://github.com/AlaskaAirlines/auro-combobox/commit/d1ad0e4c35e8ae8fd2608e4d268d7f8a82a8a9e4))
+* **deps:** update to latest dependencies and necessary config changes to support those updates ([88687c1](https://github.com/AlaskaAirlines/auro-combobox/commit/88687c1116d2069474270c56ea54d103a170f9ca))
 
 # [1.10.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.14...v1.10.0) (2024-05-10)
 
