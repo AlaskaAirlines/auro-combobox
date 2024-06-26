@@ -259,7 +259,7 @@ export class AuroCombobox extends LitElement {
    */
   showBib() {
     if (!this.dropdown.isPopoverVisible && this.input.value && this.input.value.length > 0) {
-      if (this.availableOptions && this.availableOptions.length > 0) { // eslint-disable-line no-extra-parens
+      if (this.availableOptions && this.availableOptions.length > 0) {
         this.dropdown.show();
       }
     }
