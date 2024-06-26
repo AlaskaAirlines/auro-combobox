@@ -40,9 +40,9 @@ import styleCss from "./style-css.js";
  * @slot - Default slot for the menu content.
  * @slot label - Defines the content of the label.
  * @slot helpText - Defines the content of the helpText.
- * @fires auroCombobox-ready - Notifies that the component has finished initializing.
- * @fires auroCombobox-valueSet - Notifies that the component has a new value set.
- * @fires auroFormElement-validated - Notifies that the component value(s) have been validated.
+ * @event auroCombobox-ready - Notifies that the component has finished initializing.
+ * @event auroCombobox-valueSet - Notifies that the component has a new value set.
+ * @event auroFormElement-validated - Notifies that the component value(s) have been validated.
  */
 
 // build the component class
@@ -259,7 +259,7 @@ export class AuroCombobox extends LitElement {
    */
   showBib() {
     if (!this.dropdown.isPopoverVisible && this.input.value && this.input.value.length > 0) {
-      if (this.availableOptions && this.availableOptions.length > 0) { // eslint-disable-line no-extra-parens
+      if (this.availableOptions && this.availableOptions.length > 0) {
         this.dropdown.show();
       }
     }
