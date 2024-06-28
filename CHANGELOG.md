@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.10.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.10.1) (2024-06-28)
+
+
+### Performance Improvements
+
+* **deps:** use latest version of auro-menu with SSR fix ([d1ad0e4](https://github.com/AlaskaAirlines/auro-combobox/commit/d1ad0e4c35e8ae8fd2608e4d268d7f8a82a8a9e4))
+
 # [1.10.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.14...v1.10.0) (2024-05-10)
 
 
