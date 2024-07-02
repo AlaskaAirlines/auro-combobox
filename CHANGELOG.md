@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.10.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.1...v1.10.2) (2024-07-02)
+
+
+### Performance Improvements
+
+* **deps:** update component to use the latest version of auro-menu ([b882a8a](https://github.com/AlaskaAirlines/auro-combobox/commit/b882a8abb85a268a23c051d4e533d631e86bcfcd))
+
 ## [1.10.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.10.1) (2024-06-28)
 
 
