@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [1.11.0-beta.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.11.0-beta.1...v1.11.0-beta.2) (2024-08-19)
+
+
+### Performance Improvements
+
+* **menu:** update menu beta version ([3ebd5cf](https://github.com/AlaskaAirlines/auro-combobox/commit/3ebd5cf8690c7b82802f6abbd75c46857f356832))
+* update dependencies and use auro-library build scripts ([e6a12aa](https://github.com/AlaskaAirlines/auro-combobox/commit/e6a12aa0f8194a1ebbdd555f1c3fa487e7a20ac2))
+
 # [1.11.0-beta.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.11.0-beta.1) (2024-06-26)
 
 
