@@ -526,7 +526,7 @@ export class AuroCombobox extends LitElement {
 
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
-    this.runtimeUtils.handleComponentTagRename(this, 'auro-datepicker');
+    this.runtimeUtils.handleComponentTagRename(this, 'auro-combobox');
 
     this.dropdown = this.shadowRoot.querySelector(this.dropdownTag._$litStatic$); // eslint-disable-line no-underscore-dangle
     this.menu = this.querySelector('auro-menu');
