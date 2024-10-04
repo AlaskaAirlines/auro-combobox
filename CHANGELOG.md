@@ -1,43 +1,5 @@
 # Semantic Release Automated Changelog
 
-# [2.0.0-beta.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.11.0-beta.2...v2.0.0-beta.1) (2024-10-03)
-
-
-### Bug Fixes
-
-* update tag name attribute function parameter ([e40662d](https://github.com/AlaskaAirlines/auro-combobox/commit/e40662d082d7d3b02271a46bc63b56af930512ef))
-
-
-### Performance Improvements
-
-* refactor custom component registration config ([bc4fe13](https://github.com/AlaskaAirlines/auro-combobox/commit/bc4fe138d6a8aa4c2899815a083d5764b8d52fa3))
-* update dependencies ([9187393](https://github.com/AlaskaAirlines/auro-combobox/commit/9187393dffbad8316f84a023e2e6f3d935cb1124))
-
-
-### BREAKING CHANGES
-
-* trigger major release for color theme support #179
-
-# [1.11.0-beta.2](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.11.0-beta.1...v1.11.0-beta.2) (2024-08-19)
-
-
-### Performance Improvements
-
-* **menu:** update menu beta version ([3ebd5cf](https://github.com/AlaskaAirlines/auro-combobox/commit/3ebd5cf8690c7b82802f6abbd75c46857f356832))
-* update dependencies and use auro-library build scripts ([e6a12aa](https://github.com/AlaskaAirlines/auro-combobox/commit/e6a12aa0f8194a1ebbdd555f1c3fa487e7a20ac2))
-
-# [1.11.0-beta.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.0...v1.11.0-beta.1) (2024-06-26)
-
-
-### Features
-
-* **theme:** support theme enabled dependencies ([4f18baa](https://github.com/AlaskaAirlines/auro-combobox/commit/4f18baa1ad5d9217a13784899dfa96cec1e60cfd))
-
-
-### Performance Improvements
-
-* **deps:** update to latest dependencies and necessary config changes to support those updates ([88687c1](https://github.com/AlaskaAirlines/auro-combobox/commit/88687c1116d2069474270c56ea54d103a170f9ca))
-
 # [1.10.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.9.14...v1.10.0) (2024-05-10)
 
 
