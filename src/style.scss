@@ -28,11 +28,12 @@
   &::part(wrapper) {
     /* stylelint-disable declaration-no-important */
     border-width: 0 !important;
-    border-color: unset !important;
-    background-color: unset !important;
     box-shadow: unset !important;
     outline: unset !important;
     /* stylelint-enable declaration-no-important */
+
+    --ds-auro-input-border-color: transparent;
+    --ds-auro-input-container-color: transparent;
   }
 }
 
