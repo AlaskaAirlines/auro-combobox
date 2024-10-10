@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+## [2.0.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.0.0...v2.0.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* clean up build to include index.min.js [#193](https://github.com/AlaskaAirlines/auro-combobox/issues/193) ([f888534](https://github.com/AlaskaAirlines/auro-combobox/commit/f888534374643e5b94eaa15a7dbc30cf3d387bd1))
+* convert border and background color to use css prop overrides [#193](https://github.com/AlaskaAirlines/auro-combobox/issues/193) ([81f2561](https://github.com/AlaskaAirlines/auro-combobox/commit/81f2561460b61f550f6b2a19069f573e503d3105))
+* update the dropdown package to fix safari outline bug [#193](https://github.com/AlaskaAirlines/auro-combobox/issues/193) ([79556a8](https://github.com/AlaskaAirlines/auro-combobox/commit/79556a87278a8433fe64e62d69d4413daeb0f105))
+
 # [2.0.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v1.10.2...v2.0.0) (2024-10-04)
 
 
