@@ -176,6 +176,18 @@ export class AuroCombobox extends LitElement {
   }
 
   /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-combobox"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroCombobox.register("custom-combobox") // this will register this element to <custom-combobox/>
+   *
+   */
+  static register(name = "auro-combobox") {
+    AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroCombobox);
+  }
+
+  /**
    * Processes hidden state of all menu options and determines if there are any available options not hidden.
    * @private
    * @returns {void}
@@ -697,9 +709,4 @@ export class AuroCombobox extends LitElement {
       </div>
     `;
   }
-}
-
-// default internal definition
-if (!customElements.get("auro-combobox")) {
-  customElements.define("auro-combobox", AuroCombobox);
 }

@@ -1,7 +1,10 @@
 /* eslint-disable jsdoc/require-jsdoc, no-magic-numbers, no-param-reassign */
-
 import { persistentExample } from '../apiExamples/persistent';
 import { swapValueExample } from '../apiExamples/swapValue';
+
+import { AuroCombobox } from '../src/auro-combobox.js';
+
+AuroCombobox.register('custom-combobox');
 
 export function initExamples(initCount) {
   initCount = initCount || 0;
