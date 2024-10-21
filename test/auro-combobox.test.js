@@ -1,5 +1,6 @@
 import { fixture, html, expect, waitUntil, elementUpdated } from '@open-wc/testing';
 import '../index.js';
+import '@aurodesignsystem/auro-menu';
 
 describe('auro-combobox', () => {
   it('auro-combobox custom element is defined', async () => {
