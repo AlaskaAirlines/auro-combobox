@@ -4,6 +4,12 @@ import { dynamicMenuExample } from '../apiExamples/dynamicMenu';
 import { valueExample } from '../apiExamples/value';
 import { focusExample } from '../apiExamples/focus';
 
+
+import { AuroCombobox } from '../src/auro-combobox.js';
+import '@aurodesignsystem/auro-menu';
+
+AuroCombobox.register();
+
 export function initExamples(initCount) {
   initCount = initCount || 0;
 
