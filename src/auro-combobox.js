@@ -246,7 +246,7 @@ export class AuroCombobox extends LitElement {
    */
   generateOptionsArray() {
     if (this.menu) {
-      this.options = this.menu.querySelectorAll('auro-menuoption');
+      this.options = this.menu.querySelectorAll('auro-menuoption, [auro-menuoption]');
     } else {
       this.options = [];
     }
@@ -302,6 +302,15 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   configureMenu() {
+    this.menu = this.querySelector('auro-menu, [auro-menu]');
+    // a racing condition on custom-combobox with custom-menu
+    if (!this.menu) {
+      setTimeout(() => {
+        this.configureMenu();
+      }, 0);
+      return;
+    }
+
     if (this.noFilter) {
       this.auroMenuReady = true;
     } else {
@@ -524,7 +533,7 @@ export class AuroCombobox extends LitElement {
   performUpdate() {
     super.performUpdate();
 
-    this.menus = [...this.querySelectorAll('auro-menu')];
+    this.menus = [...this.querySelectorAll('auro-menu, [auro-menu]')];
 
     for (let index = 0; index < this.menus.length; index += 1) {
       if (this.checkmark) {
@@ -540,7 +549,6 @@ export class AuroCombobox extends LitElement {
     this.runtimeUtils.handleComponentTagRename(this, 'auro-combobox');
 
     this.dropdown = this.shadowRoot.querySelector(this.dropdownTag._$litStatic$); // eslint-disable-line no-underscore-dangle
-    this.menu = this.querySelector('auro-menu');
     this.input = this.dropdown.querySelector(this.inputTag._$litStatic$); // eslint-disable-line no-underscore-dangle
 
     this.configureMenu();
@@ -654,7 +662,14 @@ export class AuroCombobox extends LitElement {
    */
   handleSlotChange() {
     if (this.auroMenuReady) {
-      this.options = this.menu.querySelectorAll('auro-menuoption');
+      this.options = this.menu.querySelectorAll('auro-menuoption, [auro-menuoption]');
+      this.options.forEach((opt) => {
+        if (this.checkmark) {
+          opt.removeAttribute('nocheckmark');
+        } else {
+          opt.setAttribute('nocheckmark', '');
+        }
+      });
     }
 
     this.handleMenuOptions();
