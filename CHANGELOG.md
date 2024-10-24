@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [2.1.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.0.1...v2.1.0) (2024-10-24)
+
+
+### Bug Fixes
+
+* make `AuroCombobox` to take custom `AuroMenu` ([78bb949](https://github.com/AlaskaAirlines/auro-combobox/commit/78bb9493d4689305b38602df51e983dfc74a9863))
+
+
+### Features
+
+* **api:** add register static method [#195](https://github.com/AlaskaAirlines/auro-combobox/issues/195) ([6c346b1](https://github.com/AlaskaAirlines/auro-combobox/commit/6c346b1b53fb816849f459a4da5c4cae9510c34d))
+
 ## [2.0.1](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.0.0...v2.0.1) (2024-10-10)
 
 
