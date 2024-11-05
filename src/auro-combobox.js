@@ -200,13 +200,13 @@ export class AuroCombobox extends LitElement {
         this.availableOptions.push(option);
       });
     } else {
-      let noMatchOption = undefined; // eslint-disable-line no-undef-init
+      this.noMatchOption = undefined;
 
       this.options.forEach((option) => {
         let matchString = option.innerText.toLowerCase();
 
         if (option.hasAttribute('nomatch')) {
-          noMatchOption = option;
+          this.noMatchOption = option;
         }
 
         if (option.hasAttribute('persistent')) {
@@ -217,8 +217,8 @@ export class AuroCombobox extends LitElement {
           matchString = `${matchString} ${option.getAttribute('suggest')}`.toLowerCase();
         }
 
-        // only count options that match the typed input value AND are not currently selected
-        if (this.input.value && matchString.includes(this.input.value.toLowerCase())) {
+        // only count options that match the typed input value AND are not currently selected AND are not static
+        if (this.input.value && matchString.includes(this.input.value.toLowerCase()) && !option.hasAttribute('static')) {
           option.removeAttribute('hidden');
           this.availableOptions.push(option);
         } else if (!option.hasAttribute('persistent')) {
@@ -228,13 +228,13 @@ export class AuroCombobox extends LitElement {
       });
 
       if (this.availableOptions.length === 0) {
-        if (noMatchOption) {
-          noMatchOption.removeAttribute('hidden');
+        if (this.noMatchOption) {
+          this.noMatchOption.removeAttribute('hidden');
         } else {
           this.hideBib();
         }
-      } else if (noMatchOption) {
-        noMatchOption.setAttribute('hidden', '');
+      } else if (this.noMatchOption) {
+        this.noMatchOption.setAttribute('hidden', '');
       }
     }
   }
@@ -270,7 +270,7 @@ export class AuroCombobox extends LitElement {
    */
   showBib() {
     if (!this.dropdown.isPopoverVisible && this.input.value && this.input.value.length > 0) {
-      if (this.availableOptions && this.availableOptions.length > 0) {
+      if ((this.availableOptions && this.availableOptions.length > 0) || this.noMatchOption !== undefined) { // eslint-disable-line no-extra-parens
         this.dropdown.show();
       }
     }
