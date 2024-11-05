@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+## [2.1.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.1.3...v2.1.4) (2024-11-05)
+
+
+### Bug Fixes
+
+* restore nomatch opton behavior [#120](https://github.com/AlaskaAirlines/auro-combobox/issues/120) ([706ba3b](https://github.com/AlaskaAirlines/auro-combobox/commit/706ba3b71299fb32a696aac3af2f95944008f362))
+
+
+### Performance Improvements
+
+* improve rollup config ([f37042c](https://github.com/AlaskaAirlines/auro-combobox/commit/f37042c95401007c6cc4e4306069a71ad83d495e))
+* update dependencies ([96a3650](https://github.com/AlaskaAirlines/auro-combobox/commit/96a365070c0478e5ac011428bf92c20ca3008139))
+* update dependencies ([f7925c3](https://github.com/AlaskaAirlines/auro-combobox/commit/f7925c3cb1d1aac5c2b49a60647e51d2929f9fac))
+
 ## [2.1.3](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.1.2...v2.1.3) (2024-10-31)
 
 
