@@ -4,7 +4,7 @@ The README.md file is a compiled document. No edits should be made directly to t
 README.md is created by running `npm run build:docs`.
 
 This file is generated based on a template fetched from
-`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
+`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README_updated_paths.md`
 and copied to `./componentDocs/README.md` each time the the docs are compiled.
 
 The following sections are editable by making changes to the following files:
@@ -19,12 +19,12 @@ The following sections are editable by making changes to the following files:
 
 # Combobox
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/description.md) -->
-<!-- The below content is automatically added from ./../docs/partials/description.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/description.md) -->
+<!-- The below content is automatically added from ./docs/partials/description.md -->
 `<auro-combobox>` is the combination of [dropdown](http://auro.alaskaair.com/components/auro/dropdown), [input](http://auro.alaskaair.com/components/auro/input), and [menu](http://auro.alaskaair.com/components/auro/menu) and allows users to filter search results from a predefined list as they type. When the user starts typing in the text input, a dropdown of a menu shows up to display options that match the user’s search.
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/readmeAddlInfo.md) -->
-<!-- The below content is automatically added from ./../docs/partials/readmeAddlInfo.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/readmeAddlInfo.md) -->
+<!-- The below content is automatically added from ./docs/partials/readmeAddlInfo.md -->
 <!-- AURO-GENERATED-CONTENT This file is to be used for any additional content that should be included in the README.md which is specific to this component. -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
@@ -37,10 +37,11 @@ For the most up to date information on [UI development browser support](https://
 
 ## Install
 
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/componentInstall.md) -->
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/componentInstall_esm.md) -->
 [![Build Status](https://img.shields.io/github/actions/workflow/status/AlaskaAirlines/auro-combobox/testPublish.yml?style=for-the-badge)](https://github.com/AlaskaAirlines/auro-combobox/actions/workflows/testPublish.yml)
 [![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-combobox?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-combobox)
 [![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-combobox?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+![ESM supported](https://img.shields.io/badge/ESM-compatible-FFE900?style=for-the-badge)
 
 ```shell
 $ npm i @aurodesignsystem/auro-combobox
@@ -71,8 +72,8 @@ import "@aurodesignsystem/auro-combobox";
 
 <!-- AURO-GENERATED-CONTENT:END -->
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
 <auro-combobox>
@@ -112,8 +113,8 @@ In cases where the project is not able to process JS assets, there are pre-proce
 
 ## auro-combobox use cases
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/useCases.md) -->
-<!-- The below content is automatically added from ./../docs/partials/useCases.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/useCases.md) -->
+<!-- The below content is automatically added from ./docs/partials/useCases.md -->
 The `<auro-combobox>` element should be used in situations where users may:
 
 * Search
@@ -129,8 +130,8 @@ The `<auro-combobox>` element should be used in situations where users may:
 
 ### Default auro-combobox
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
 <auro-combobox>
