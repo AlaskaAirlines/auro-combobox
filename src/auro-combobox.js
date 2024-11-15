@@ -67,6 +67,11 @@ export class AuroCombobox extends LitElement {
     this.runtimeUtils = new AuroLibraryRuntimeUtils();
 
     /**
+     * @private
+     */
+    this.observer = new MutationObserver(() => this.handleSlotChange());
+
+    /**
      * Generate unique names for dependency components.
      */
     const versioning = new AuroDependencyVersioning();
@@ -685,9 +690,17 @@ export class AuroCombobox extends LitElement {
    */
   observeSlotChanges() {
     const [slot] = this.shadowRoot.querySelector("#defaultSlot").assignedElements();
-    const observer = new MutationObserver(() => this.handleSlotChange());
-    observer.observe(slot, {childList: true,
-      subtree: true});
+
+    if (slot) {
+      this.observer.observe(slot, {
+        childList: true,
+        subtree: true
+      });
+    }
+  }
+
+  disconnectedCallback() {
+    this.observer.disconnect();
   }
 
   // function that renders the HTML and CSS into  the scope of the component
