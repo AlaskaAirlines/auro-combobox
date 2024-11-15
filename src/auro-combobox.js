@@ -69,7 +69,7 @@ export class AuroCombobox extends LitElement {
     /**
      * @private
      */
-    this.observer = new MutationObserver(() => this.handleSlotChange());
+    this.observer = new MutationObserver(() => this.handleDeepSlotChanges());
 
     /**
      * Generate unique names for dependency components.
@@ -662,24 +662,29 @@ export class AuroCombobox extends LitElement {
   }
 
   /**
-   * Watch for slot changes and recalculate the menuoptions.
+   * Recalculate the menuoptions on deep slot changes.
    * @private
    * @returns {void}
    */
-  handleSlotChange() {
+  handleDeepSlotChanges() {
+    this.updateMenuOptions();
     this.showBib();
+  }
 
-    if (this.auroMenuReady) {
-      this.options = this.menu.querySelectorAll('auro-menuoption, [auro-menuoption]');
-      this.options.forEach((opt) => {
-        if (this.checkmark) {
-          opt.removeAttribute('nocheckmark');
-        } else {
-          opt.setAttribute('nocheckmark', '');
-        }
-      });
+  /**
+   * Menu specific updates.
+   * @private
+   * @returns {void}
+   */
+  updateMenuOptions() {
+    if (!this.auroMenuReady) {
+      return;
     }
 
+    this.options = this.menu.querySelectorAll('auro-menuoption, [auro-menuoption]');
+    this.options.forEach((opt) => {
+      opt.toggleAttribute('nocheckmark', !this.checkmark);
+    });
     this.handleMenuOptions();
   }
 
@@ -689,10 +694,10 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   observeSlotChanges() {
-    const [slot] = this.shadowRoot.querySelector("#defaultSlot").assignedElements();
+    const [slotContent] = this.shadowRoot.querySelector("#defaultSlot").assignedElements();
 
-    if (slot) {
-      this.observer.observe(slot, {
+    if (slotContent) {
+      this.observer.observe(slotContent, {
         childList: true,
         subtree: true
       });
