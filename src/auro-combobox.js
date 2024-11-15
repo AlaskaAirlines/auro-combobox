@@ -282,6 +282,8 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   configureDropdown() {
+    this.observeSlotChanges();
+
     this.dropdown.setAttribute('role', 'combobox');
     this.dropdown.addEventListener('auroDropdown-ready', () => {
       this.auroDropdownReady = true;
@@ -555,7 +557,6 @@ export class AuroCombobox extends LitElement {
     this.configureInput();
     this.configureDropdown();
     this.configureCombobox();
-
     this.checkReadiness();
   }
 
@@ -661,6 +662,8 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   handleSlotChange() {
+    this.showBib();
+
     if (this.auroMenuReady) {
       this.options = this.menu.querySelectorAll('auro-menuoption, [auro-menuoption]');
       this.options.forEach((opt) => {
@@ -673,6 +676,18 @@ export class AuroCombobox extends LitElement {
     }
 
     this.handleMenuOptions();
+  }
+
+  /**
+   * Observe child nodes in slot for updates.
+   * @private
+   * @returns {void}
+   */
+  observeSlotChanges() {
+    const [slot] = this.shadowRoot.querySelector("#defaultSlot").assignedElements();
+    const observer = new MutationObserver(() => this.handleSlotChange());
+    observer.observe(slot, {childList: true,
+      subtree: true});
   }
 
   // function that renders the HTML and CSS into  the scope of the component
@@ -707,7 +722,7 @@ export class AuroCombobox extends LitElement {
             <slot name="label" slot="label"></slot>
           </${this.inputTag}>
           <div class="menuWrapper">
-            <slot slotchange="${this.handleSlotChange()}"></slot>
+            <slot id="defaultSlot"></slot>
           </div>
           <span slot="helpText">
             ${this.auroInputHelpText
