@@ -694,7 +694,7 @@ export class AuroCombobox extends LitElement {
    * @returns {void}
    */
   observeSlotChanges() {
-    const [slotContent] = this.shadowRoot.querySelector("#defaultSlot").assignedElements();
+    const [slotContent] = this.shadowRoot.querySelector(".menuWrapper slot").assignedElements();
 
     if (slotContent) {
       this.observer.observe(slotContent, {
@@ -740,7 +740,7 @@ export class AuroCombobox extends LitElement {
             <slot name="label" slot="label"></slot>
           </${this.inputTag}>
           <div class="menuWrapper">
-            <slot id="defaultSlot"></slot>
+            <slot></slot>
           </div>
           <span slot="helpText">
             ${this.auroInputHelpText
