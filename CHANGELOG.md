@@ -1,5 +1,25 @@
 # Semantic Release Automated Changelog
 
+# [2.2.0](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.1.4...v2.2.0) (2024-11-20)
+
+
+### Bug Fixes
+
+* convert slotchange event to MutationObserver [#205](https://github.com/AlaskaAirlines/auro-combobox/issues/205) ([07b8455](https://github.com/AlaskaAirlines/auro-combobox/commit/07b8455401d27512dbe3601d228b2d32210689c1))
+
+
+### Features
+
+* update auro-library to 3.0.1 ([89d6335](https://github.com/AlaskaAirlines/auro-combobox/commit/89d63355f4bb4826c45d8c0fa122771712b95eb5))
+
+
+### Performance Improvements
+
+* refactor mutation observer logic [#205](https://github.com/AlaskaAirlines/auro-combobox/issues/205) ([877f3d7](https://github.com/AlaskaAirlines/auro-combobox/commit/877f3d7cdab6f79d29e26fb877b5912e53fa598c))
+* simplify the default slot query selector [#205](https://github.com/AlaskaAirlines/auro-combobox/issues/205) ([dcab4e0](https://github.com/AlaskaAirlines/auro-combobox/commit/dcab4e0e801635ba4a244ec0b3420d4b014171fa))
+* sourcery sugested refactor to reduce complexity [#205](https://github.com/AlaskaAirlines/auro-combobox/issues/205) ([a81a9f2](https://github.com/AlaskaAirlines/auro-combobox/commit/a81a9f2664c330e712be8e2c5826836c8b8911f8))
+* update library to 3.0.2 ([f34709b](https://github.com/AlaskaAirlines/auro-combobox/commit/f34709b4bdafa261543ec6661e759ea45a12d0a3))
+
 ## [2.1.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.1.3...v2.1.4) (2024-11-05)
 
 
