@@ -2,14 +2,11 @@ repository:
   # See https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#edit for all available settings.
   # See https://github.com/apps/settings for app settings
 
-  # A short description of the repository that will show up on GitHub
-  description: An auroLabs custom element w/an experimental API. You've been warned.
-
   # A URL with more information about the repository
-  homepage: https://auro.alaskaair.com/components/auroLabs
+  homepage: https://auro.alaskaair.com/components/auro/combobox
 
   # A comma-separated list of topics to set on the repository
-  topics: auro-labs, design-system, custom-element, wcgen-v3-16-0
+  topics: auro, design-system, custom-element
 
   # Either `true` to enable issues for this repository, `false` to disable them.
   has_issues: true
@@ -37,6 +34,19 @@ repository:
   # Either `true` to allow rebase-merging pull requests, or `false` to prevent
   # rebase-merging.
   allow_rebase_merge: true
+
+# See https://docs.github.com/en/rest/reference/teams#add-or-update-team-repository-permissions for available options
+teams:
+  # The permission to grant the team. Can be one of:
+  # * `pull` - can pull, but not push to or administer this repository.
+  # * `push` - can pull and push, but not administer this repository.
+  # * `admin` - can pull, push and administer this repository.
+  # * `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.
+  # * `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
+  - name: auro-team
+    permission: admin
+  - name: nonauroteamwriteaccess
+    permission: push
 
 branches:
   - &default_protection
@@ -77,7 +87,6 @@ branches:
 # Labels: define labels for Issues and Pull Requests
 labels:
   - name: auro-combobox
-    cat: default
     color: 'fa23e4'
     description:
     process: Key filter for this repo
