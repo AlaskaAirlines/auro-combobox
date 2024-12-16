@@ -4,7 +4,7 @@ title: 'auro-combobox: [feature summary]'
 labels:
   - 'Type: Feature'
   - not-reviewed
-  - auro-combobox
+  - 'auro-combobox'
 body:
   - type: textarea
     id: request
