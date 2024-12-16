@@ -5,7 +5,7 @@ labels:
   - 'Type: Question'
   - 'Type: Feature'
   - not-reviewed
-  - auro-combobox
+  - 'auro-combobox'
 body:
   - type: textarea
     id: request

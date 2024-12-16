@@ -4,7 +4,7 @@ title: '[issue summary] Please verify version before submitting new issue'
 labels:
   - 'Type: Bug'
   - not-reviewed
-  - auro-combobox
+  - 'auro-combobox'
 body:
   - type: markdown
     attributes:
