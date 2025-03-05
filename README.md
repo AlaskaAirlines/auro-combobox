@@ -17,7 +17,10 @@ The following sections are editable by making changes to the following files:
 | Component Example Code | HTML sample code of the components use            | `./apiExamples/basic.html`          |
 -->
 
-# Combobox
+# Combobox (DEPRECATED)
+
+> **WARNING:** This component is deprecated and is no longer supported. Please migrate to the new [Auro Formkit](https://github.com/AlaskaAirlines/auro-formkit) instead.
+
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/description.md) -->
 <!-- The below content is automatically added from ./docs/partials/description.md -->
