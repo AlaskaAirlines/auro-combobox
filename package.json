@@ -146,7 +146,7 @@
     "build:ci": "npm-run-all sweep build:release",
     "build:api": "wca analyze 'src/auro-combobox.js' --outFiles docs/api.md",
     "build:dev:assets": "npm-run-all build:sass:component postCss:component sass:render",
-    "build:docs": "node ./node_modules/@aurodesignsystem/auro-library/scripts/build/generateDocs.mjs",
+    "build:docs": "node ./packageScripts/deprecatedDocsProcessor.js",
     "build:sass": "npm-run-all build:sass:demo build:sass:component postCss:component sass:render",
     "build:sass:demo": "sass --no-source-map demo:demo",
     "build:sass:component": "for file in src/*.scss; do npx sass --no-source-map \"$file:${file%.scss}.css\"; done",
