@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.2.5](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.2.4...v2.2.5) (2025-03-07)
+
+
+### Performance Improvements
+
+* **deprecation:** add deprecation warning to this package ([c55667e](https://github.com/AlaskaAirlines/auro-combobox/commit/c55667e95929034e6e3266c78963d56a0ba21427))
+
 ## [2.2.4](https://github.com/AlaskaAirlines/auro-combobox/compare/v2.2.3...v2.2.4) (2025-02-09)
 
 
